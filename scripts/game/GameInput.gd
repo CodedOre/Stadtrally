@@ -7,13 +7,6 @@ extends Spatial
 
 # -- Enums --
 
-# - Input modi that can be active -
-enum InputMode {
-	NONE,
-	SELECTION,
-	DRAG
-}
-
 
 # -- Constants --
 
@@ -33,9 +26,6 @@ signal player_dropped ()
 
 
 # -- Variables --
-
-# - The currently active input mode -
-var __input_mode : int = InputMode.NONE
 
 # - Determine current events -
 var __mouse_left_clicked : bool = false
