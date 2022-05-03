@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://resources/models/board/Position/Plate.mesh" type="ArrayMesh" id=1]
+[ext_resource path="res://resources/models/board/Position/Frame.mesh" type="ArrayMesh" id=2]
+[ext_resource path="res://scripts/board/Position.gd" type="Script" id=3]
+
+[node name="Position" type="Spatial"]
+script = ExtResource( 3 )
+player_positions = [ PoolVector3Array( 0, 0.2, 0 ), PoolVector3Array( 1.25, 0.2, 1.25, -1.25, 0.2, -1.25 ), PoolVector3Array( 1.75, 0.2, 1.25, -1.75, 0.2, 1.25, 0, 0.2, -1.25 ), PoolVector3Array( 1.75, 0.2, 1.75, 1.75, 0.2, -1.75, -1.75, 0.2, -1.75, -1.75, 0.2, 1.75 ) ]
+
+[node name="PlateMesh" type="MeshInstance" parent="."]
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="FrameMesh" type="MeshInstance" parent="."]
+mesh = ExtResource( 2 )
+material/0 = null
