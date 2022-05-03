@@ -47,7 +47,7 @@ func _ready () -> void:
 	var board : Node = game_board.instance ()
 	add_child (board)
 	# Note players in tree to use in the game
-	__all_players.append_array (get_tree ().get_nodes_in_group ("ClassPlayer"))
+	__all_players.append_array (get_tree ().get_nodes_in_group ("Player"))
 	# Begin the game
 	start_game ()
 

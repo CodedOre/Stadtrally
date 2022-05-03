@@ -78,10 +78,10 @@ func __on_mouse_left_click (event : InputEvent) -> void:
 	# Get what which object was clicked
 	var event_target : Node = __get_targeted_item (event.position)
 	# Check if a player was clicked
-	if event_target.is_in_group ("ClassPlayer"):
+	if event_target.is_in_group ("Player"):
 		emit_signal ("player_selected", event_target)
 	# Check if a position was clicked
-	if event_target.is_in_group ("ClassPosition"):
+	if event_target.is_in_group ("Position"):
 		emit_signal ("position_selected", event_target)
 
 # - Run when a drag with the left mouse button was started -
@@ -89,7 +89,7 @@ func __on_mouse_left_drag (event : InputEvent) -> void:
 	# Get what which object was clicked
 	var event_target : Node = __get_targeted_item (event.position)
 	# Check if a player was clicked
-	if event_target.is_in_group ("ClassPlayer"):
+	if event_target.is_in_group ("Player"):
 		# Store the dragged player for the drop event
 		__dragged_player = event_target
 		emit_signal ("player_dragged", __dragged_player)
