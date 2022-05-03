@@ -16,8 +16,8 @@ export (NodePath) onready var position_2 setget set_position_2, get_position_2
 # -- Variables --
 
 # - The two connected positions -
-onready var __position_1 : StaticBody = null
-onready var __position_2 : StaticBody = null
+onready var __position_1 : NodePath
+onready var __position_2 : NodePath
 
 
 # -- Functions --
@@ -26,43 +26,30 @@ onready var __position_2 : StaticBody = null
 func _ready() -> void:
 	# Create new curve for new instances
 	$Line.curve = Curve3D.new ()
+	__render_line ()
 
 # - Gets one of the two positions -
 func get_position_1 () -> NodePath:
-	return __position_1.get_path () if __position_1 != null else ""
+	return __position_1
 
 func get_position_2 () -> NodePath:
-	return __position_2.get_path () if __position_2 != null else ""
+	return __position_2
 
 # - Sets one of the two positions -
 func set_position_1 (path : NodePath) -> void:
-	if not path.is_empty ():
-		var node : Node = get_node (path)
-		if node.is_in_group ("ClassPosition"):
-			__position_1 = node
-		else:
-			__position_1 = null
-			push_error ("Connection can only retrieve a Position node!")
-	else:
-		__position_1 = null
-	__render_line ()
+	__position_1 = path
+	if Engine.editor_hint:
+		__render_line ()
 
 func set_position_2 (path : NodePath) -> void:
-	if not path.is_empty ():
-		var node : Node = get_node (path)
-		if node.is_in_group ("ClassPosition"):
-			__position_2 = node
-		else:
-			__position_2 = null
-			push_error ("Connection can only retrieve a Position node!")
-	else:
-		__position_2 = null
-	__render_line ()
+	__position_2 = path
+	if Engine.editor_hint:
+		__render_line ()
 
 # - Sets the line for the connection -
 func __render_line () -> void:
 	# Don't draw a line when one or more positions are undefined
-	if __position_1 == null or __position_2 == null:
+	if __position_1.is_empty () or __position_2.is_empty ():
 		$Line.curve.clear_points ()
 		return
 	# We want two unique positions
@@ -70,7 +57,11 @@ func __render_line () -> void:
 		push_error ("One Position on both properties!")
 		$Line.curve.clear_points ()
 		return
-	# Set the points for the 3D line
-	$Line.curve.clear_points ()
-	$Line.curve.add_point (__position_1.global_transform.origin)
-	$Line.curve.add_point (__position_2.global_transform.origin)
+	if is_inside_tree ():
+		# Get the nodes behind the paths
+		var pos_1 : Spatial = get_node (__position_1)
+		var pos_2 : Spatial = get_node (__position_2)
+		# Set the points for the 3D line
+		$Line.curve.clear_points ()
+		$Line.curve.add_point (pos_1.global_transform.origin)
+		$Line.curve.add_point (pos_2.global_transform.origin)

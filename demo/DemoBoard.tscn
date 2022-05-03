@@ -58,40 +58,40 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 9 )
 
 [node name="Connection" parent="ExampleGame" instance=ExtResource( 3 )]
-position_1 = NodePath("/root/EditorNode/@@592/@@593/@@601/@@603/@@607/@@611/@@612/@@613/@@629/@@630/@@639/@@640/@@6275/@@6109/@@6110/@@6111/@@6112/@@6113/DemoBoard/ExampleGame/Position")
-position_2 = NodePath("/root/EditorNode/@@592/@@593/@@601/@@603/@@607/@@611/@@612/@@613/@@629/@@630/@@639/@@640/@@6275/@@6109/@@6110/@@6111/@@6112/@@6113/DemoBoard/ExampleGame/Position2")
+position_1 = NodePath("../Position")
+position_2 = NodePath("../Position4")
 
 [node name="Connection2" parent="ExampleGame" instance=ExtResource( 3 )]
-position_1 = NodePath("/root/EditorNode/@@592/@@593/@@601/@@603/@@607/@@611/@@612/@@613/@@629/@@630/@@639/@@640/@@6275/@@6109/@@6110/@@6111/@@6112/@@6113/DemoBoard/ExampleGame/Position2")
-position_2 = NodePath("/root/EditorNode/@@592/@@593/@@601/@@603/@@607/@@611/@@612/@@613/@@629/@@630/@@639/@@640/@@6275/@@6109/@@6110/@@6111/@@6112/@@6113/DemoBoard/ExampleGame/Position3")
+position_1 = NodePath("../Position2")
+position_2 = NodePath("../Position3")
 
 [node name="Connection3" parent="ExampleGame" instance=ExtResource( 3 )]
-position_1 = NodePath("/root/EditorNode/@@592/@@593/@@601/@@603/@@607/@@611/@@612/@@613/@@629/@@630/@@639/@@640/@@6275/@@6109/@@6110/@@6111/@@6112/@@6113/DemoBoard/ExampleGame/Position2")
-position_2 = NodePath("/root/EditorNode/@@592/@@593/@@601/@@603/@@607/@@611/@@612/@@613/@@629/@@630/@@639/@@640/@@6275/@@6109/@@6110/@@6111/@@6112/@@6113/DemoBoard/ExampleGame/Position5")
+position_1 = NodePath("../Position3")
+position_2 = NodePath("../Position6")
 
 [node name="Connection4" parent="ExampleGame" instance=ExtResource( 3 )]
-position_1 = NodePath("/root/EditorNode/@@592/@@593/@@601/@@603/@@607/@@611/@@612/@@613/@@629/@@630/@@639/@@640/@@6275/@@6109/@@6110/@@6111/@@6112/@@6113/DemoBoard/ExampleGame/Position5")
-position_2 = NodePath("/root/EditorNode/@@592/@@593/@@601/@@603/@@607/@@611/@@612/@@613/@@629/@@630/@@639/@@640/@@6275/@@6109/@@6110/@@6111/@@6112/@@6113/DemoBoard/ExampleGame/Position4")
+position_1 = NodePath("../Position2")
+position_2 = NodePath("../Position5")
 
 [node name="Connection5" parent="ExampleGame" instance=ExtResource( 3 )]
-position_1 = NodePath("/root/EditorNode/@@592/@@593/@@601/@@603/@@607/@@611/@@612/@@613/@@629/@@630/@@639/@@640/@@6275/@@6109/@@6110/@@6111/@@6112/@@6113/DemoBoard/ExampleGame/Position4")
-position_2 = NodePath("/root/EditorNode/@@592/@@593/@@601/@@603/@@607/@@611/@@612/@@613/@@629/@@630/@@639/@@640/@@6275/@@6109/@@6110/@@6111/@@6112/@@6113/DemoBoard/ExampleGame/Position7")
+position_1 = NodePath("../Position4")
+position_2 = NodePath("../Position5")
 
 [node name="Connection6" parent="ExampleGame" instance=ExtResource( 3 )]
-position_1 = NodePath("/root/EditorNode/@@592/@@593/@@601/@@603/@@607/@@611/@@612/@@613/@@629/@@630/@@639/@@640/@@6275/@@6109/@@6110/@@6111/@@6112/@@6113/DemoBoard/ExampleGame/Position7")
-position_2 = NodePath("/root/EditorNode/@@592/@@593/@@601/@@603/@@607/@@611/@@612/@@613/@@629/@@630/@@639/@@640/@@6275/@@6109/@@6110/@@6111/@@6112/@@6113/DemoBoard/ExampleGame/Position8")
+position_1 = NodePath("../Position5")
+position_2 = NodePath("../Position8")
 
 [node name="Connection7" parent="ExampleGame" instance=ExtResource( 3 )]
-position_1 = NodePath("/root/EditorNode/@@592/@@593/@@601/@@603/@@607/@@611/@@612/@@613/@@629/@@630/@@639/@@640/@@6275/@@6109/@@6110/@@6111/@@6112/@@6113/DemoBoard/ExampleGame/Position8")
-position_2 = NodePath("/root/EditorNode/@@592/@@593/@@601/@@603/@@607/@@611/@@612/@@613/@@629/@@630/@@639/@@640/@@6275/@@6109/@@6110/@@6111/@@6112/@@6113/DemoBoard/ExampleGame/Position5")
+position_1 = NodePath("../Position4")
+position_2 = NodePath("../Position7")
 
 [node name="Connection8" parent="ExampleGame" instance=ExtResource( 3 )]
-position_1 = NodePath("/root/EditorNode/@@592/@@593/@@601/@@603/@@607/@@611/@@612/@@613/@@629/@@630/@@639/@@640/@@6275/@@6109/@@6110/@@6111/@@6112/@@6113/DemoBoard/ExampleGame/Position9")
-position_2 = NodePath("/root/EditorNode/@@592/@@593/@@601/@@603/@@607/@@611/@@612/@@613/@@629/@@630/@@639/@@640/@@6275/@@6109/@@6110/@@6111/@@6112/@@6113/DemoBoard/ExampleGame/Position8")
+position_1 = NodePath("../Position8")
+position_2 = NodePath("../Position9")
 
 [node name="Connection9" parent="ExampleGame" instance=ExtResource( 3 )]
-position_1 = NodePath("/root/EditorNode/@@592/@@593/@@601/@@603/@@607/@@611/@@612/@@613/@@629/@@630/@@639/@@640/@@6275/@@6109/@@6110/@@6111/@@6112/@@6113/DemoBoard/ExampleGame/Position9")
-position_2 = NodePath("/root/EditorNode/@@592/@@593/@@601/@@603/@@607/@@611/@@612/@@613/@@629/@@630/@@639/@@640/@@6275/@@6109/@@6110/@@6111/@@6112/@@6113/DemoBoard/ExampleGame/Position6")
+position_1 = NodePath("../Position9")
+position_2 = NodePath("../Position6")
 
 [node name="Player" parent="ExampleGame" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 9 )
