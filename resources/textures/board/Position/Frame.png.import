@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Plate.png-b410abb6c66c6d9f42323d2ae974bcef.s3tc.stex"
-path.etc2="res://.import/Plate.png-b410abb6c66c6d9f42323d2ae974bcef.etc2.stex"
+path.s3tc="res://.import/Frame.png-4c4f026c4c79fe849902853616ec3a2a.s3tc.stex"
+path.etc2="res://.import/Frame.png-4c4f026c4c79fe849902853616ec3a2a.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://resources/textures/game/Position/Plate.png"
-dest_files=[ "res://.import/Plate.png-b410abb6c66c6d9f42323d2ae974bcef.s3tc.stex", "res://.import/Plate.png-b410abb6c66c6d9f42323d2ae974bcef.etc2.stex" ]
+source_file="res://resources/textures/board/Position/Frame.png"
+dest_files=[ "res://.import/Frame.png-4c4f026c4c79fe849902853616ec3a2a.s3tc.stex", "res://.import/Frame.png-4c4f026c4c79fe849902853616ec3a2a.etc2.stex" ]
 
 [params]
 
