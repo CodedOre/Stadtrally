@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://resources/models/board/Position/Plate.mesh" type="ArrayMesh" id=1]
 [ext_resource path="res://resources/models/board/Position/Frame.mesh" type="ArrayMesh" id=2]
 [ext_resource path="res://scripts/board/Position.gd" type="Script" id=3]
 
-[node name="Position" type="Spatial"]
+[sub_resource type="ConvexPolygonShape" id=1]
+points = PoolVector3Array( -2.30031, 0, -2.5, -2.5, 0, -2.30031, -2.30031, 0.124998, -2.5, 2.29982, 0, -2.5, -2.5, 0, 2.29982, -2.5, 0.124998, -2.30031, -2.10014, 0.175, -2.25039, 2.29982, 0.124998, -2.5, 2.5, 0, -2.30031, -2.5, 0.124998, 2.29982, -2.30031, 0, 2.5, -2.25039, 0.175, -2.10014, 2.09965, 0.175, -2.25039, 2.5, 0.124998, -2.30031, 2.5, 0, 2.29982, -2.30031, 0.124998, 2.5, -2.25039, 0.175, 2.09965, 2.29982, 0, 2.5, 2.2499, 0.175, -2.10014, 2.5, 0.124998, 2.29982, 2.29982, 0.124998, 2.5, -2.10014, 0.175, 2.2499, 2.2499, 0.175, 2.09965, 2.09965, 0.175, 2.2499 )
+
+[node name="Position" type="StaticBody" groups=["ClassPosition"]]
 script = ExtResource( 3 )
 player_positions = [ PoolVector3Array( 0, 0.2, 0 ), PoolVector3Array( 1.25, 0.2, 1.25, -1.25, 0.2, -1.25 ), PoolVector3Array( 1.75, 0.2, 1.25, -1.75, 0.2, 1.25, 0, 0.2, -1.25 ), PoolVector3Array( 1.75, 0.2, 1.75, 1.75, 0.2, -1.75, -1.75, 0.2, -1.75, -1.75, 0.2, 1.75 ) ]
 
@@ -15,3 +18,6 @@ material/0 = null
 [node name="FrameMesh" type="MeshInstance" parent="."]
 mesh = ExtResource( 2 )
 material/0 = null
+
+[node name="PlateCollision" type="CollisionShape" parent="."]
+shape = SubResource( 1 )
