@@ -108,3 +108,7 @@ func set_next_status (value : int) -> void:
 				next_button.disabled = false
 		_:
 			push_error ("Value for next_status not an NextStatus enum!")
+
+# - Run when the NextButton is pressed -
+func _on_next_action() -> void:
+	emit_signal ("next_action")

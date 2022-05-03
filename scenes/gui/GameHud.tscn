@@ -66,3 +66,5 @@ margin_top = 54.0
 margin_right = 190.0
 margin_bottom = 74.0
 disabled = true
+
+[connection signal="pressed" from="HudPanel/PanelBox/NextButton" to="." method="_on_next_action"]
