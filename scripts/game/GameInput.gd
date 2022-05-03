@@ -29,6 +29,7 @@ signal position_selected (position)
 # - Signals Player input actions -
 signal player_selected (player)
 signal player_dragged (player)
+signal player_moved (position)
 signal player_dropped (player)
 
 
@@ -63,11 +64,14 @@ func _unhandled_input(event: InputEvent) -> void:
 					__on_mouse_left_click (event)
 	# Handle mouse motion events
 	if event is InputEventMouseMotion:
-		# If motion while left mouse button is pressed
+		# If motion when mouse button just clicked
 		if __input_mode == InputMode.MOUSE_LEFT_CLICK:
 			# Activate mouse drag input
 			__input_mode = InputMode.MOUSE_LEFT_DRAG
 			__on_mouse_left_drag (event)
+		# If motion when dragging player
+		if __input_mode == InputMode.MOUSE_LEFT_DRAG:
+			__on_mouse_left_moving (event)
 
 # - Run when a left mouse button click was detected -
 func __on_mouse_left_click (event : InputEvent) -> void:
@@ -88,7 +92,14 @@ func __on_mouse_left_drag (event : InputEvent) -> void:
 	if event_target.is_in_group ("ClassPlayer"):
 		# Store the dragged player for the drop event
 		__dragged_player = event_target
-		emit_signal ("player_dragged", event_target)
+		emit_signal ("player_dragged", __dragged_player)
+
+# - Run when a drag is active -
+func __on_mouse_left_moving (event : InputEvent) -> void:
+	# Get the position the mouse is pointing at
+	var pointer : Vector3 = __get_targeted_position (event.position)
+	# And return it in the signal
+	emit_signal ("player_moved", pointer)
 
 # - Run when a drag with the left mouse button was stopped -
 func __on_mouse_left_drop () -> void:
@@ -118,3 +129,18 @@ func __get_targeted_item (screen_pos : Vector2) -> Node:
 	# Check which object we hit
 	var node : Node = raycast.collider
 	return node
+
+# - Get the position where the mouse is pointing at -
+func __get_targeted_position (screen_pos : Vector2) -> Vector3:
+	# Get the result of what the mouse is pointing at
+	var raycast : Dictionary = __get_mouse_pointing (screen_pos)
+	# If no position could be determined
+	if len (raycast) == 0:
+		# If no player is dragged return a zero vector
+		if __dragged_player == null:
+			return Vector3.ZERO
+		# If a player is dragged return it's position
+		else:
+			return __dragged_player.global_transform.origin
+	# Return the determined position
+	return raycast.position
