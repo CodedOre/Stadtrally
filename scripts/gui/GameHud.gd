@@ -63,8 +63,7 @@ func get_current_turn () -> int:
 # - Set the current turn indicator -
 func set_current_turn (value : int) -> void:
 	__current_turn = value
-	if turns_label != null:
-		turns_label.text = str (__current_turn)
+	turns_label.text = str (__current_turn)
 
 # - Get the current turn indicator -
 func get_current_player () -> int:
@@ -73,8 +72,7 @@ func get_current_player () -> int:
 # - Set the current turn indicator -
 func set_current_player (value : int) -> void:
 	__current_player = value
-	if player_label != null:
-		player_label.text = str (__current_player)
+	player_label.text = str (__current_player)
 
 # - Get the current turn indicator -
 func get_left_moves () -> int:
@@ -83,8 +81,7 @@ func get_left_moves () -> int:
 # - Set the current turn indicator -
 func set_left_moves (value : int) -> void:
 	__left_moves = value
-	if moves_label != null:
-		moves_label.text = str (__left_moves)
+	moves_label.text = str (__left_moves)
 
 # - Get the NextButton status -
 func get_next_status () -> int:
@@ -95,17 +92,14 @@ func set_next_status (value : int) -> void:
 	__next_status = value
 	match value:
 		NextStatus.DEACTIVE:
-			if next_button != null:
-				next_button.text = "Your turn"
-				next_button.disabled = true
+			next_button.text = "Your turn"
+			next_button.disabled = true
 		NextStatus.NEXT_PLAYER:
-			if next_button != null:
-				next_button.text = "Next Player"
-				next_button.disabled = false
+			next_button.text = "Next Player"
+			next_button.disabled = false
 		NextStatus.NEXT_TURN:
-			if next_button != null:
-				next_button.text = "Next Turn"
-				next_button.disabled = false
+			next_button.text = "Next Turn"
+			next_button.disabled = false
 		_:
 			push_error ("Value for next_status not an NextStatus enum!")
 

@@ -13,3 +13,5 @@ game_board = ExtResource( 3 )
 
 [node name="GameInput" type="Spatial" parent="."]
 script = ExtResource( 1 )
+
+[connection signal="next_action" from="GameHud" to="." method="continue_turn"]
