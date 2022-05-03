@@ -15,6 +15,10 @@ run/main_scene="res://scenes/game/RallyGame.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="Stadtrally"
 
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/line_3d/plugin.cfg" )
+
 [physics]
 
 common/enable_pause_aware_picking=true
