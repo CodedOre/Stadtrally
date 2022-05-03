@@ -22,6 +22,11 @@ onready var __position_2 : StaticBody = null
 
 # -- Functions --
 
+# - Run at startup -
+func _ready() -> void:
+	# Create new curve for new instances
+	$Line.curve = Curve3D.new ()
+
 # - Gets one of the two positions -
 func get_position_1 () -> NodePath:
 	return __position_1.get_path () if __position_1 != null else ""
