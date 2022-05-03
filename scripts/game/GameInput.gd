@@ -15,6 +15,12 @@ enum InputMode {
 }
 
 
+# -- Constants --
+
+# - How long the distance of the mouse ray cast should be -
+const MOUSE_RAYCAST_LENGTH : int = 1000
+
+
 # -- Variables --
 
 # - The currently active input mode -
@@ -65,3 +71,25 @@ func __on_mouse_left_drag (event : InputEvent) -> void:
 # - Run when a drag with the left mouse button was stopped -
 func __on_mouse_left_drop (event : InputEvent) -> void:
 	pass
+
+# - Get what the mouse is pointing at -
+func __get_mouse_pointing (screen_pos : Vector2) -> Dictionary:
+	# Get the active camera
+	var camera : Camera = get_viewport ().get_camera ()
+	# Get ray origin and normal
+	var ray_origin : Vector3 = camera.project_ray_origin (screen_pos)
+	var ray_normal : Vector3 = ray_origin + camera.project_ray_normal (screen_pos) * MOUSE_RAYCAST_LENGTH
+	# Cast the raycast
+	var space_state = get_world ().direct_space_state
+	return space_state.intersect_ray (ray_origin, ray_normal)
+
+# - Get the Player/Position targeted by an click -
+func __get_targeted_item (screen_pos : Vector2) -> Node:
+	# Get the result of what the mouse is pointing at
+	var raycast : Dictionary = __get_mouse_pointing (screen_pos)
+	# Return null if raycast didn't hit anything
+	if len (raycast) == 0:
+		return null
+	# Check which object we hit
+	var node : Node = raycast.collider
+	return node
