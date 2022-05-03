@@ -21,6 +21,17 @@ enum InputMode {
 const MOUSE_RAYCAST_LENGTH : int = 1000
 
 
+# -- Signals --
+
+# - Signals Position input actions -
+signal position_selected (position)
+
+# - Signals Player input actions -
+signal player_selected (player)
+signal player_dragged (player)
+signal player_dropped ()
+
+
 # -- Variables --
 
 # - The currently active input mode -
@@ -46,7 +57,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				if __mouse_left_held:
 					# Finalize drag input
 					__mouse_left_held = false
-					__on_mouse_left_drop (event)
+					__on_mouse_left_drop ()
 				else:
 					# Finalize click input
 					__mouse_left_clicked = false
@@ -62,15 +73,27 @@ func _unhandled_input(event: InputEvent) -> void:
 
 # - Run when a left mouse button click was detected -
 func __on_mouse_left_click (event : InputEvent) -> void:
-	pass
+	# Get what which object was clicked
+	var event_target : Node = __get_targeted_item (event.position)
+	# Check if a player was clicked
+	if event_target.is_in_group ("ClassPlayer"):
+		emit_signal ("player_selected", event_target)
+	# Check if a position was clicked
+	if event_target.is_in_group ("ClassPosition"):
+		emit_signal ("position_selected", event_target)
 
 # - Run when a drag with the left mouse button was started -
 func __on_mouse_left_drag (event : InputEvent) -> void:
-	pass
+	# Get what which object was clicked
+	var event_target : Node = __get_targeted_item (event.position)
+	# Check if a player was clicked
+	if event_target.is_in_group ("ClassPlayer"):
+		emit_signal ("player_dragged", event_target)
 
 # - Run when a drag with the left mouse button was stopped -
-func __on_mouse_left_drop (event : InputEvent) -> void:
-	pass
+func __on_mouse_left_drop () -> void:
+	# Unconditionally drop an player
+	emit_signal ("player_dropped")
 
 # - Get what the mouse is pointing at -
 func __get_mouse_pointing (screen_pos : Vector2) -> Dictionary:
