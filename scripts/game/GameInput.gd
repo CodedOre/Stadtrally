@@ -7,6 +7,13 @@ extends Spatial
 
 # -- Enums --
 
+# - Input modi that can be active -
+enum InputMode {
+	NONE,
+	MOUSE_LEFT_CLICK,
+	MOUSE_LEFT_DRAG
+}
+
 
 # -- Constants --
 
@@ -22,14 +29,16 @@ signal position_selected (position)
 # - Signals Player input actions -
 signal player_selected (player)
 signal player_dragged (player)
-signal player_dropped ()
+signal player_dropped (player)
 
 
 # -- Variables --
 
-# - Determine current events -
-var __mouse_left_clicked : bool = false
-var __mouse_left_held : bool = false
+# - The currently active input mode -
+var __input_mode : int = InputMode.NONE
+
+# - The dragged player -
+var __dragged_player : KinematicBody = null
 
 
 # -- Functions --
@@ -42,23 +51,22 @@ func _unhandled_input(event: InputEvent) -> void:
 		if event.button_index == BUTTON_LEFT:
 			if event.pressed:
 				# Note button click, but no action yet
-				__mouse_left_clicked = true
+				__input_mode = InputMode.MOUSE_LEFT_CLICK
 			else:
-				if __mouse_left_held:
+				if __input_mode == InputMode.MOUSE_LEFT_DRAG:
 					# Finalize drag input
-					__mouse_left_held = false
+					__input_mode = InputMode.NONE
 					__on_mouse_left_drop ()
-				else:
+				if __input_mode == InputMode.MOUSE_LEFT_CLICK:
 					# Finalize click input
-					__mouse_left_clicked = false
+					__input_mode = InputMode.NONE
 					__on_mouse_left_click (event)
 	# Handle mouse motion events
 	if event is InputEventMouseMotion:
 		# If motion while left mouse button is pressed
-		if __mouse_left_clicked:
+		if __input_mode == InputMode.MOUSE_LEFT_CLICK:
 			# Activate mouse drag input
-			__mouse_left_clicked = false
-			__mouse_left_held = true
+			__input_mode = InputMode.MOUSE_LEFT_DRAG
 			__on_mouse_left_drag (event)
 
 # - Run when a left mouse button click was detected -
@@ -78,12 +86,16 @@ func __on_mouse_left_drag (event : InputEvent) -> void:
 	var event_target : Node = __get_targeted_item (event.position)
 	# Check if a player was clicked
 	if event_target.is_in_group ("ClassPlayer"):
+		# Store the dragged player for the drop event
+		__dragged_player = event_target
 		emit_signal ("player_dragged", event_target)
 
 # - Run when a drag with the left mouse button was stopped -
 func __on_mouse_left_drop () -> void:
-	# Unconditionally drop an player
-	emit_signal ("player_dropped")
+	# Drop if an player is noted to be dragged
+	if __dragged_player != null:
+		__dragged_player = null
+		emit_signal ("player_dropped")
 
 # - Get what the mouse is pointing at -
 func __get_mouse_pointing (screen_pos : Vector2) -> Dictionary:
