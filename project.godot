@@ -17,3 +17,7 @@ config/custom_user_dir_name="Stadtrally"
 [physics]
 
 common/enable_pause_aware_picking=true
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"
