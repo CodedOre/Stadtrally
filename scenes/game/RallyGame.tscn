@@ -1,13 +1,17 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/game/GameInput.gd" type="Script" id=1]
 [ext_resource path="res://scripts/game/RallyGame.gd" type="Script" id=2]
 [ext_resource path="res://demo/DemoBoard.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/gui/GameHud.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scripts/board/BoardManager.gd" type="Script" id=5]
 
 [node name="RallyGame" type="Spatial"]
 script = ExtResource( 2 )
 game_board = ExtResource( 3 )
+
+[node name="BoardManager" type="Node" parent="."]
+script = ExtResource( 5 )
 
 [node name="GameHud" parent="." instance=ExtResource( 4 )]
 
