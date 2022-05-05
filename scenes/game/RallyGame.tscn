@@ -23,3 +23,6 @@ script = ExtResource( 1 )
 script = ExtResource( 6 )
 
 [connection signal="next_action" from="GameHud" to="." method="continue_turn"]
+[connection signal="player_dragged" from="GameInput" to="GameInput/PlayerDrag" method="drag_player"]
+[connection signal="player_dropped" from="GameInput" to="GameInput/PlayerDrag" method="drop_player"]
+[connection signal="player_moved" from="GameInput" to="GameInput/PlayerDrag" method="move_player"]
