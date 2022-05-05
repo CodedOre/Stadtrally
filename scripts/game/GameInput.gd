@@ -103,15 +103,18 @@ func __on_mouse_left_drop () -> void:
 	emit_signal ("player_dropped")
 
 # - Get what the mouse is pointing at -
-func __get_mouse_pointing (screen_pos : Vector2) -> Dictionary:
+func __get_mouse_pointing (screen_pos : Vector2, ignore_players : bool = false) -> Dictionary:
 	# Get the active camera
 	var camera : Camera = get_viewport ().get_camera ()
 	# Get ray origin and normal
 	var ray_origin : Vector3 = camera.project_ray_origin (screen_pos)
 	var ray_normal : Vector3 = ray_origin + camera.project_ray_normal (screen_pos) * MOUSE_RAYCAST_LENGTH
-	# Cast the raycast
+	# Get the world space
 	var space_state = get_world ().direct_space_state
-	return space_state.intersect_ray (ray_origin, ray_normal)
+	# Set which collision masks should be ignored (like players when dragging)
+	var mask_bit : int = 1 if ignore_players else 3
+	# Cast the raycast
+	return space_state.intersect_ray (ray_origin, ray_normal, [], mask_bit)
 
 # - Get the Player/Position targeted by an click -
 func __get_targeted_item (screen_pos : Vector2) -> Node:
@@ -127,7 +130,7 @@ func __get_targeted_item (screen_pos : Vector2) -> Node:
 # - Get the position where the mouse is pointing at -
 func __get_targeted_position (screen_pos : Vector2) -> Vector3:
 	# Get the result of what the mouse is pointing at
-	var raycast : Dictionary = __get_mouse_pointing (screen_pos)
+	var raycast : Dictionary = __get_mouse_pointing (screen_pos, true)
 	# If no position could be determined
 	if len (raycast) == 0:
 		# Return an infinite vector
