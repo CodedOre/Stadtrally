@@ -19,6 +19,9 @@ onready var board_manager : Node = $BoardManager
 # - The HUD showing informations -
 onready var game_hud : Control = $GameHud
 
+# - The dice for random numbers -
+onready var dice : Node = $Dice
+
 
 # -- Properties --
 
@@ -85,7 +88,7 @@ func __on_new_turn () -> void:
 	# Set the currently active player
 	__current_player = __all_players [__current_id]
 	# Get the moves for the player
-	__current_moves = MOVES_PER_TURN
+	__current_moves = dice.roll_dice ()
 	# Notify other nodes about the player
 	emit_signal ("new_current_player", __current_player, __current_moves)
 	# Update the information hud
