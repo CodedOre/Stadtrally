@@ -15,14 +15,13 @@ const DRAG_HOVER : Vector3 = Vector3 (0.0, 1.0, 0.0)
 # -- Signals --
 
 # - Notify RallyGame about used moves -
-signal moves_taken (moves)
+signal player_dragged_to (position)
 
 
 # -- Variables --
 
 # - The currently active player and it's moves -
 var __current_player : KinematicBody = null
-var __left_moves : int = 0
 var __player_dragged : bool = false
 
 
@@ -46,13 +45,15 @@ func move_player (position : Vector3) -> void:
 	__current_player.global_transform.origin = position + DRAG_HOVER
 
 # - Stops the drag action -
-func drop_player () -> void:
-	# (Temporarly) drop the player on the spot
+func drop_player (position : Spatial) -> void:
+	# Check if a player is dragged
 	if __player_dragged:
 		__player_dragged = false
+		# Remove drag hover
 		__current_player.global_transform.origin -= DRAG_HOVER
+		# Notify main script about new position
+		emit_signal ("player_dragged_to", position)
 
 # - Updates the current player from RallyGame -
-func update_current_player (player : KinematicBody, moves : int) -> void:
+func update_current_player (player : KinematicBody, _moves : int) -> void:
 	__current_player = player
-	__left_moves = moves

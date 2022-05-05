@@ -57,6 +57,8 @@ func _ready () -> void:
 	board_manager.generate_move_set ()
 	# Note players in tree to use in the game
 	__all_players.append_array (get_tree ().get_nodes_in_group ("Player"))
+	# Set all players to the start position
+	board_manager.set_start_positions (__all_players)
 	# Begin the game
 	start_game ()
 

@@ -5,10 +5,23 @@
 
 extends Node
 
+# -- Signals --
+
+# - How many moves the player has taken -
+signal moves_taken (moves)
+
+
 # -- Variables --
 
 # - The move-set for this board -
 var __move_set : Dictionary = {}
+
+# - The currently active player -
+var __current_player : KinematicBody = null
+var __left_moves : int = 0
+
+# - The positions for each player
+var __player_positions : Dictionary = {}
 
 
 # -- Functions --
@@ -40,6 +53,13 @@ func generate_move_set () -> void:
 	# Set the move set to the new dictionary
 	__move_set = new_move_set
 
+# - Get the start position for the players -
+func set_start_positions (all_players : Array) -> void:
+	# (Temporarly) get just the first position
+	var start_pos : Spatial = get_tree ().get_nodes_in_group ("Position") [0]
+	for player in all_players:
+		move_to_position (player, start_pos)
+
 # - Get all Positions a player could move to -
 func get_valid_moves (position : Spatial, moves : int) -> Array:
 	# Create our output array
@@ -66,3 +86,51 @@ func get_valid_moves (position : Spatial, moves : int) -> Array:
 			valid_moves.append (new_moves)
 	# Return the moves
 	return valid_moves
+
+# - Updates the current player from RallyGame -
+func update_current_player (player : KinematicBody, moves : int) -> void:
+	__current_player = player
+	__left_moves = moves
+
+# - Moves the player to a new position -
+func move_to_position (player : KinematicBody, position : Spatial):
+	# Set the new position in the storage
+	__player_positions [player] = position
+	# Set the transform
+	__set_player_transforms ()
+
+# - Set players transforms on the position -
+func __set_player_transforms () -> void:
+	# Check who is on which position
+	var position_players : Dictionary = {}
+	for player in __player_positions.keys ():
+		var position : Spatial = __player_positions [player]
+		if not position in position_players.keys ():
+			position_players [position] = []
+		var pos_players : Array = position_players [position]
+		pos_players.append (player)
+	# Set the transforms for all players on a position
+	for position in position_players.keys ():
+		var on_position : Array = position_players [position]
+		var on_pos_count : int = len (on_position)
+		for i in range (on_pos_count):
+			var player : KinematicBody = on_position [i]
+			player.global_transform.origin = position.get_player_position (on_pos_count, i)
+
+# - Checks when the player was dragged by PlayerDrag -
+func on_player_dragged (position : Spatial) -> void:
+	# Get the valid positions from the player start
+	var start_position : Spatial = __player_positions [__current_player]
+	# Get valid move positions from the start position
+	var valid_moves : Array = get_valid_moves (start_position, __left_moves)
+	# Check if player was dragged to a valid position
+	for i in range (__left_moves + 1):
+		var i_moves : Array = valid_moves [i]
+		if position in i_moves:
+			# If move valid, move to the next position
+			move_to_position (__current_player, position)
+			__left_moves -= i
+			emit_signal ("moves_taken", i)
+			return
+	# If move not valid, reset to old position
+	move_to_position (__current_player, start_position)
