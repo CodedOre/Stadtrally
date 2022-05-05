@@ -27,4 +27,4 @@ script = ExtResource( 6 )
 [connection signal="player_dragged" from="GameInput" to="GameInput/PlayerDrag" method="drag_player"]
 [connection signal="player_dropped" from="GameInput" to="GameInput/PlayerDrag" method="drop_player"]
 [connection signal="player_moved" from="GameInput" to="GameInput/PlayerDrag" method="move_player"]
-[connection signal="moves_taken" from="GameInput/PlayerDrag" to="." method="moves_taken"]
+[connection signal="player_dragged_to" from="GameInput/PlayerDrag" to="." method="on_player_dragged"]

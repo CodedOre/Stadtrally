@@ -85,7 +85,7 @@ func __on_new_turn () -> void:
 	# Get the moves for the player
 	__current_moves = MOVES_PER_TURN
 	# Notify other nodes about the player
-	emit_signal ("new_current_player", __current_player, __current_moves)
+	emit_signal ("new_current_player", __current_player)
 	# Update the information hud
 	game_hud.current_turn = __current_turn
 	game_hud.current_player = __current_id
@@ -103,3 +103,7 @@ func moves_taken (moves : int) -> void:
 			game_hud.next_status = game_hud.NextStatus.NEXT_TURN
 		else:
 			game_hud.next_status = game_hud.NextStatus.NEXT_PLAYER
+
+# - Checks when the player was dragged by PlayerDrag -
+func on_player_dragged(position) -> void:
+	pass # Replace with function body.

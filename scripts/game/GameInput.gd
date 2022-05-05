@@ -30,7 +30,7 @@ signal position_selected (position)
 signal player_selected (player)
 signal player_dragged (player)
 signal player_moved (position)
-signal player_dropped ()
+signal player_dropped (position)
 
 
 # -- Variables --
@@ -54,7 +54,7 @@ func _input(event: InputEvent) -> void:
 				if __input_mode == InputMode.MOUSE_LEFT_DRAG:
 					# Finalize drag input
 					__input_mode = InputMode.NONE
-					__on_mouse_left_drop ()
+					__on_mouse_left_drop (event)
 				if __input_mode == InputMode.MOUSE_LEFT_CLICK:
 					# Finalize click input
 					__input_mode = InputMode.NONE
@@ -98,12 +98,17 @@ func __on_mouse_left_moving (event : InputEvent) -> void:
 	emit_signal ("player_moved", pointer)
 
 # - Run when a drag with the left mouse button was stopped -
-func __on_mouse_left_drop () -> void:
-	# Note the action without attached player
-	emit_signal ("player_dropped")
+func __on_mouse_left_drop (event : InputEvent) -> void:
+	# Get where the player was dropped
+	var event_target : Node = __get_targeted_item (event.position, true)
+	# Check the drop point is a Position
+	if event_target != null:
+		event_target = event_target if event_target.is_in_group ("Position") else null
+	# Signal with the drop position
+	emit_signal ("player_dropped", event_target)
 
 # - Get what the mouse is pointing at -
-func __get_mouse_pointing (screen_pos : Vector2, ignore_players : bool = false) -> Dictionary:
+func __get_mouse_pointing (screen_pos : Vector2, exclude_players : bool = false) -> Dictionary:
 	# Get the active camera
 	var camera : Camera = get_viewport ().get_camera ()
 	# Get ray origin and normal
@@ -112,14 +117,14 @@ func __get_mouse_pointing (screen_pos : Vector2, ignore_players : bool = false) 
 	# Get the world space
 	var space_state = get_world ().direct_space_state
 	# Set which collision masks should be ignored (like players when dragging)
-	var mask_bit : int = 1 if ignore_players else 3
+	var mask_bit : int = 1 if exclude_players else 3
 	# Cast the raycast
 	return space_state.intersect_ray (ray_origin, ray_normal, [], mask_bit)
 
 # - Get the Player/Position targeted by an click -
-func __get_targeted_item (screen_pos : Vector2) -> Node:
+func __get_targeted_item (screen_pos : Vector2, exclude_players : bool = false) -> Node:
 	# Get the result of what the mouse is pointing at
-	var raycast : Dictionary = __get_mouse_pointing (screen_pos)
+	var raycast : Dictionary = __get_mouse_pointing (screen_pos, exclude_players)
 	# Return null if raycast didn't hit anything
 	if len (raycast) == 0:
 		return null
