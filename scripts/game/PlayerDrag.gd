@@ -46,7 +46,7 @@ func move_player (position : Vector3) -> void:
 	__current_player.global_transform.origin = position + DRAG_HOVER
 
 # - Stops the drag action -
-func drop_player (player : KinematicBody) -> void:
+func drop_player () -> void:
 	pass
 
 # - Updates the current player from RallyGame -

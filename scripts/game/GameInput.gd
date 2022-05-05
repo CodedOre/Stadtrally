@@ -30,7 +30,7 @@ signal position_selected (position)
 signal player_selected (player)
 signal player_dragged (player)
 signal player_moved (position)
-signal player_dropped (player)
+signal player_dropped ()
 
 
 # -- Variables --
