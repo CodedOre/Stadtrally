@@ -25,6 +25,11 @@ onready var game_hud : Control = $GameHud
 # - The board to be used in the game -
 export (PackedScene) onready var game_board
 
+# -- Signals --
+
+# - Signals when the current player changed -
+signal new_current_player (player, moves)
+
 
 # - Variables -
 
@@ -55,10 +60,6 @@ func _ready () -> void:
 	# Begin the game
 	start_game ()
 
-# - Get the current player -
-func get_current_player () -> KinematicBody:
-	return __current_player
-
 # - Starts the game for the first time -
 func start_game () -> void:
 	__current_turn = 1
@@ -83,8 +84,22 @@ func __on_new_turn () -> void:
 	__current_player = __all_players [__current_id]
 	# Get the moves for the player
 	__current_moves = MOVES_PER_TURN
+	# Notify other nodes about the player
+	emit_signal ("new_current_player", __current_player, __current_moves)
 	# Update the information hud
 	game_hud.current_turn = __current_turn
 	game_hud.current_player = __current_id
 	game_hud.left_moves = __current_moves
 	game_hud.next_status = game_hud.NextStatus.DEACTIVE
+
+# - Run when player has taken some moves -
+func moves_taken (moves : int) -> void:
+	# Remove the moves from storage and ui
+	__current_moves -= moves
+	game_hud.left_moves = __current_moves
+	# Activate next turn if no moves are left
+	if __current_moves <= 0:
+		if __current_id + 1 >= len (__all_players):
+			game_hud.next_status = game_hud.NextStatus.NEXT_TURN
+		else:
+			game_hud.next_status = game_hud.NextStatus.NEXT_PLAYER
