@@ -54,7 +54,6 @@ func drop_player (position : Spatial) -> void:
 		# Notify main script about new position
 		emit_signal ("player_dragged_to", position)
 
-
 # - Updates the current player from RallyGame -
-func update_current_player (player : KinematicBody) -> void:
+func update_current_player (player : KinematicBody, _moves : int) -> void:
 	__current_player = player

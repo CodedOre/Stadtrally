@@ -22,9 +22,10 @@ script = ExtResource( 1 )
 [node name="PlayerDrag" type="Node" parent="GameInput"]
 script = ExtResource( 6 )
 
+[connection signal="new_current_player" from="." to="BoardManager" method="update_current_player"]
 [connection signal="new_current_player" from="." to="GameInput/PlayerDrag" method="update_current_player"]
 [connection signal="next_action" from="GameHud" to="." method="continue_turn"]
 [connection signal="player_dragged" from="GameInput" to="GameInput/PlayerDrag" method="drag_player"]
 [connection signal="player_dropped" from="GameInput" to="GameInput/PlayerDrag" method="drop_player"]
 [connection signal="player_moved" from="GameInput" to="GameInput/PlayerDrag" method="move_player"]
-[connection signal="player_dragged_to" from="GameInput/PlayerDrag" to="." method="on_player_dragged"]
+[connection signal="player_dragged_to" from="GameInput/PlayerDrag" to="BoardManager" method="on_player_dragged"]

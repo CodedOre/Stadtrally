@@ -10,6 +10,13 @@ extends Node
 # - The move-set for this board -
 var __move_set : Dictionary = {}
 
+# - The currently active player -
+var __current_player : KinematicBody = null
+var __left_moves : int = 0
+
+# - The positions for each player
+var __player_positions : Dictionary = {}
+
 
 # -- Functions --
 
@@ -40,6 +47,13 @@ func generate_move_set () -> void:
 	# Set the move set to the new dictionary
 	__move_set = new_move_set
 
+# - Get the start position for the players -
+func set_start_positions (all_players : Array) -> void:
+	# (Temporarly) get just the first position
+	var start_pos : Spatial = get_tree ().get_nodes_in_group ("Position") [0]
+	for player in all_players:
+		__player_positions [player] = start_pos
+
 # - Get all Positions a player could move to -
 func get_valid_moves (position : Spatial, moves : int) -> Array:
 	# Create our output array
@@ -66,3 +80,15 @@ func get_valid_moves (position : Spatial, moves : int) -> Array:
 			valid_moves.append (new_moves)
 	# Return the moves
 	return valid_moves
+
+# - Updates the current player from RallyGame -
+func update_current_player (player : KinematicBody, moves : int) -> void:
+	__current_player = player
+	__left_moves = moves
+
+# - Checks when the player was dragged by PlayerDrag -
+func on_player_dragged (position : Spatial) -> void:
+	# Get the valid positions from the player start
+	var start_position : Spatial = __player_positions [__current_player]
+	# Get valid move positions from the start position
+	var valid_moves : Array = get_valid_moves (start_position, __left_moves)
