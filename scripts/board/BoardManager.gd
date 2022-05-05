@@ -5,6 +5,12 @@
 
 extends Node
 
+# -- Signals --
+
+# - How many moves the player has taken -
+signal moves_taken (moves)
+
+
 # -- Variables --
 
 # - The move-set for this board -
@@ -52,7 +58,7 @@ func set_start_positions (all_players : Array) -> void:
 	# (Temporarly) get just the first position
 	var start_pos : Spatial = get_tree ().get_nodes_in_group ("Position") [0]
 	for player in all_players:
-		__player_positions [player] = start_pos
+		move_to_position (player, start_pos)
 
 # - Get all Positions a player could move to -
 func get_valid_moves (position : Spatial, moves : int) -> Array:
@@ -86,9 +92,27 @@ func update_current_player (player : KinematicBody, moves : int) -> void:
 	__current_player = player
 	__left_moves = moves
 
+# - Moves the player to a new position -
+func move_to_position (player : KinematicBody, position : Spatial):
+	# Set the new position in the storage
+	__player_positions [player] = position
+	# Set the transform
+	player.global_transform.origin = position.global_transform.origin
+
 # - Checks when the player was dragged by PlayerDrag -
 func on_player_dragged (position : Spatial) -> void:
 	# Get the valid positions from the player start
 	var start_position : Spatial = __player_positions [__current_player]
 	# Get valid move positions from the start position
 	var valid_moves : Array = get_valid_moves (start_position, __left_moves)
+	# Check if player was dragged to a valid position
+	for i in range (__left_moves + 1):
+		var i_moves : Array = valid_moves [i]
+		if position in i_moves:
+			# If move valid, move to the next position
+			move_to_position (__current_player, position)
+			__left_moves -= i
+			emit_signal ("moves_taken", i)
+			return
+	# If move not valid, reset to old position
+	move_to_position (__current_player, start_position)
