@@ -46,6 +46,17 @@ func set_position_2 (path : NodePath) -> void:
 	if Engine.editor_hint:
 		__render_line ()
 
+# - Get the node behind the positions -
+func get_position_node (index : int) -> Node:
+	match index:
+		1:
+			return get_node (__position_1)
+		2:
+			return get_node (__position_2)
+		_:
+			push_error ("Invalid position index!")
+			return null
+
 # - Sets the line for the connection -
 func __render_line () -> void:
 	# Don't draw a line when one or more positions are undefined
@@ -59,8 +70,8 @@ func __render_line () -> void:
 		return
 	if is_inside_tree ():
 		# Get the nodes behind the paths
-		var pos_1 : Spatial = get_node (__position_1)
-		var pos_2 : Spatial = get_node (__position_2)
+		var pos_1 : Spatial = get_position_node (1)
+		var pos_2 : Spatial = get_position_node (2)
 		# Set the points for the 3D line
 		$Line.curve.clear_points ()
 		$Line.curve.add_point (pos_1.global_transform.origin)
