@@ -74,6 +74,9 @@ func _input(event: InputEvent) -> void:
 func __on_mouse_left_click (event : InputEvent) -> void:
 	# Get what which object was clicked
 	var event_target : Node = __get_targeted_item (event.position)
+	# Check if we have a target
+	if event_target == null:
+		return
 	# Check if a player was clicked
 	if event_target.is_in_group ("Player"):
 		emit_signal ("player_selected", event_target)
@@ -85,6 +88,9 @@ func __on_mouse_left_click (event : InputEvent) -> void:
 func __on_mouse_left_drag (event : InputEvent) -> void:
 	# Get what which object was clicked
 	var event_target : Node = __get_targeted_item (event.position)
+	# Check if we have a target
+	if event_target == null:
+		return
 	# Check if a player was clicked
 	if event_target.is_in_group ("Player"):
 		# Store the dragged player for the drop event
