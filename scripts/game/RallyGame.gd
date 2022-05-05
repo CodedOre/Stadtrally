@@ -13,6 +13,9 @@ const MOVES_PER_TURN : int = 2
 
 # -- Nodes --
 
+# - The BoardManager node -
+onready var board_manager : Node = $BoardManager
+
 # - The HUD showing informations -
 onready var game_hud : Control = $GameHud
 
@@ -46,6 +49,7 @@ func _ready () -> void:
 	# Initialize the board
 	var board : Node = game_board.instance ()
 	add_child (board)
+	board_manager.generate_move_set ()
 	# Note players in tree to use in the game
 	__all_players.append_array (get_tree ().get_nodes_in_group ("Player"))
 	# Begin the game

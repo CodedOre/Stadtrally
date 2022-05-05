@@ -9,7 +9,7 @@ _data = {
 "tilts": PoolRealArray(  )
 }
 
-[node name="Connection" type="Node"]
+[node name="Connection" type="Node" groups=["Connection"]]
 script = ExtResource( 1 )
 
 [node name="Line" type="Path" parent="."]
