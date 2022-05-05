@@ -38,9 +38,6 @@ signal player_dropped (player)
 # - The currently active input mode -
 var __input_mode : int = InputMode.NONE
 
-# - The dragged player -
-var __dragged_player : KinematicBody = null
-
 
 # -- Functions --
 
@@ -91,8 +88,7 @@ func __on_mouse_left_drag (event : InputEvent) -> void:
 	# Check if a player was clicked
 	if event_target.is_in_group ("Player"):
 		# Store the dragged player for the drop event
-		__dragged_player = event_target
-		emit_signal ("player_dragged", __dragged_player)
+		emit_signal ("player_dragged", event_target)
 
 # - Run when a drag is active -
 func __on_mouse_left_moving (event : InputEvent) -> void:
@@ -103,10 +99,8 @@ func __on_mouse_left_moving (event : InputEvent) -> void:
 
 # - Run when a drag with the left mouse button was stopped -
 func __on_mouse_left_drop () -> void:
-	# Drop if an player is noted to be dragged
-	if __dragged_player != null:
-		__dragged_player = null
-		emit_signal ("player_dropped")
+	# Note the action without attached player
+	emit_signal ("player_dropped")
 
 # - Get what the mouse is pointing at -
 func __get_mouse_pointing (screen_pos : Vector2) -> Dictionary:
@@ -136,11 +130,7 @@ func __get_targeted_position (screen_pos : Vector2) -> Vector3:
 	var raycast : Dictionary = __get_mouse_pointing (screen_pos)
 	# If no position could be determined
 	if len (raycast) == 0:
-		# If no player is dragged return a zero vector
-		if __dragged_player == null:
-			return Vector3.ZERO
-		# If a player is dragged return it's position
-		else:
-			return __dragged_player.global_transform.origin
+		# Return an infinite vector
+		return Vector3.INF
 	# Return the determined position
 	return raycast.position

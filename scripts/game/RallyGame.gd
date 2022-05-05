@@ -55,6 +55,10 @@ func _ready () -> void:
 	# Begin the game
 	start_game ()
 
+# - Get the current player -
+func get_current_player () -> KinematicBody:
+	return __current_player
+
 # - Starts the game for the first time -
 func start_game () -> void:
 	__current_turn = 1
