@@ -29,6 +29,7 @@ shape = SubResource( 2 )
 
 [node name="ExampleCamera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.422618, 0.906308, 0, -0.906308, 0.422618, 0, 30, 20 )
+current = true
 
 [node name="ExampleLight" type="DirectionalLight" parent="."]
 transform = Transform( 0.707107, -0.415627, 0.572061, 0, 0.809017, 0.587785, -0.707107, -0.415627, 0.572061, 0, 0, 0 )
@@ -36,7 +37,6 @@ transform = Transform( 0.707107, -0.415627, 0.572061, 0, 0.809017, 0.587785, -0.
 [node name="ExampleGame" type="Node" parent="."]
 
 [node name="Position" parent="ExampleGame" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -9 )
 
 [node name="Position2" parent="ExampleGame" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 0 )
@@ -48,6 +48,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 9 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9 )
 
 [node name="Position5" parent="ExampleGame" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -9 )
 
 [node name="Position6" parent="ExampleGame" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9 )
@@ -61,9 +62,60 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0 )
 [node name="Position9" parent="ExampleGame" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 9 )
 
+[node name="Position10" parent="ExampleGame" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 9 )
+
+[node name="Position11" parent="ExampleGame" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 18 )
+
+[node name="Position12" parent="ExampleGame" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 18 )
+
+[node name="Position13" parent="ExampleGame" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -18 )
+
+[node name="Position14" parent="ExampleGame" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, -18 )
+
+[node name="Position15" parent="ExampleGame" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, -9 )
+
+[node name="Position16" parent="ExampleGame" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -18 )
+
+[node name="Position17" parent="ExampleGame" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -18 )
+
+[node name="Position18" parent="ExampleGame" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -9 )
+
+[node name="Position19" parent="ExampleGame" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 18 )
+
+[node name="Position20" parent="ExampleGame" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, 18 )
+
+[node name="Position21" parent="ExampleGame" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, 9 )
+
+[node name="Player" parent="ExampleGame" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 25 )
+
+[node name="Player2" parent="ExampleGame" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 25 )
+color = 1
+
+[node name="Player3" parent="ExampleGame" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 25 )
+color = 3
+
+[node name="Player4" parent="ExampleGame" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 25 )
+color = 4
+
 [node name="Connection" parent="ExampleGame" instance=ExtResource( 3 )]
-position_1 = NodePath("../Position")
-position_2 = NodePath("../Position4")
+position_1 = NodePath("../Position5")
+position_2 = NodePath("../Position2")
 
 [node name="Connection2" parent="ExampleGame" instance=ExtResource( 3 )]
 position_1 = NodePath("../Position2")
@@ -71,34 +123,80 @@ position_2 = NodePath("../Position3")
 
 [node name="Connection3" parent="ExampleGame" instance=ExtResource( 3 )]
 position_1 = NodePath("../Position3")
-position_2 = NodePath("../Position6")
+position_2 = NodePath("../Position21")
 
 [node name="Connection4" parent="ExampleGame" instance=ExtResource( 3 )]
-position_1 = NodePath("../Position2")
-position_2 = NodePath("../Position5")
+position_1 = NodePath("../Position21")
+position_2 = NodePath("../Position20")
 
 [node name="Connection5" parent="ExampleGame" instance=ExtResource( 3 )]
-position_1 = NodePath("../Position4")
-position_2 = NodePath("../Position5")
+position_1 = NodePath("../Position20")
+position_2 = NodePath("../Position19")
 
 [node name="Connection6" parent="ExampleGame" instance=ExtResource( 3 )]
-position_1 = NodePath("../Position5")
-position_2 = NodePath("../Position8")
+position_1 = NodePath("../Position12")
+position_2 = NodePath("../Position19")
 
 [node name="Connection7" parent="ExampleGame" instance=ExtResource( 3 )]
-position_1 = NodePath("../Position4")
-position_2 = NodePath("../Position7")
+position_1 = NodePath("../Position12")
+position_2 = NodePath("../Position11")
 
 [node name="Connection8" parent="ExampleGame" instance=ExtResource( 3 )]
+position_1 = NodePath("../Position10")
+position_2 = NodePath("../Position11")
+
+[node name="Connection9" parent="ExampleGame" instance=ExtResource( 3 )]
+position_1 = NodePath("../Position10")
+position_2 = NodePath("../Position9")
+
+[node name="Connection10" parent="ExampleGame" instance=ExtResource( 3 )]
 position_1 = NodePath("../Position8")
 position_2 = NodePath("../Position9")
 
-[node name="Connection9" parent="ExampleGame" instance=ExtResource( 3 )]
-position_1 = NodePath("../Position9")
+[node name="Connection11" parent="ExampleGame" instance=ExtResource( 3 )]
+position_1 = NodePath("../Position8")
+position_2 = NodePath("../Position7")
+
+[node name="Connection12" parent="ExampleGame" instance=ExtResource( 3 )]
+position_1 = NodePath("../Position7")
+position_2 = NodePath("../Position15")
+
+[node name="Connection13" parent="ExampleGame" instance=ExtResource( 3 )]
+position_1 = NodePath("../Position14")
+position_2 = NodePath("../Position15")
+
+[node name="Connection14" parent="ExampleGame" instance=ExtResource( 3 )]
+position_1 = NodePath("../Position14")
+position_2 = NodePath("../Position13")
+
+[node name="Connection15" parent="ExampleGame" instance=ExtResource( 3 )]
+position_1 = NodePath("../Position16")
+position_2 = NodePath("../Position13")
+
+[node name="Connection16" parent="ExampleGame" instance=ExtResource( 3 )]
+position_1 = NodePath("../Position16")
+position_2 = NodePath("../Position17")
+
+[node name="Connection17" parent="ExampleGame" instance=ExtResource( 3 )]
+position_1 = NodePath("../Position18")
+position_2 = NodePath("../Position17")
+
+[node name="Connection18" parent="ExampleGame" instance=ExtResource( 3 )]
+position_1 = NodePath("../Position5")
+position_2 = NodePath("../Position18")
+
+[node name="Connection19" parent="ExampleGame" instance=ExtResource( 3 )]
+position_1 = NodePath("../Position5")
+position_2 = NodePath("../Position4")
+
+[node name="Connection20" parent="ExampleGame" instance=ExtResource( 3 )]
+position_1 = NodePath("../Position")
+position_2 = NodePath("../Position4")
+
+[node name="Connection21" parent="ExampleGame" instance=ExtResource( 3 )]
+position_1 = NodePath("../Position")
 position_2 = NodePath("../Position6")
 
-[node name="Player" parent="ExampleGame" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 9 )
-color = 3
-
-[node name="Player2" parent="ExampleGame" instance=ExtResource( 2 )]
+[node name="Connection22" parent="ExampleGame" instance=ExtResource( 3 )]
+position_1 = NodePath("../Position9")
+position_2 = NodePath("../Position6")
