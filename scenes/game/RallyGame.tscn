@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://scripts/game/GameInput.gd" type="Script" id=1]
+[ext_resource path="res://scripts/input/GameInput.gd" type="Script" id=1]
 [ext_resource path="res://scripts/game/RallyGame.gd" type="Script" id=2]
 [ext_resource path="res://demo/DemoBoard.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/gui/GameHud.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scripts/board/BoardManager.gd" type="Script" id=5]
-[ext_resource path="res://scripts/game/PlayerDrag.gd" type="Script" id=6]
+[ext_resource path="res://scripts/input/PlayerDrag.gd" type="Script" id=6]
 [ext_resource path="res://scenes/game/Dice.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scripts/input/PlayerClick.gd" type="Script" id=8]
 
 [node name="RallyGame" type="Spatial"]
 script = ExtResource( 2 )
@@ -25,11 +26,19 @@ script = ExtResource( 1 )
 [node name="PlayerDrag" type="Node" parent="GameInput"]
 script = ExtResource( 6 )
 
+[node name="PlayerClick" type="Node" parent="GameInput"]
+script = ExtResource( 8 )
+
 [connection signal="new_current_player" from="." to="BoardManager" method="update_current_player"]
 [connection signal="new_current_player" from="." to="GameInput/PlayerDrag" method="update_current_player"]
+[connection signal="new_current_player" from="." to="GameInput/PlayerClick" method="update_current_player"]
 [connection signal="moves_taken" from="BoardManager" to="." method="moves_taken"]
 [connection signal="next_action" from="GameHud" to="." method="continue_turn"]
 [connection signal="player_dragged" from="GameInput" to="GameInput/PlayerDrag" method="drag_player"]
+[connection signal="player_dragged" from="GameInput" to="GameInput/PlayerClick" method="on_drag_interrupt"]
 [connection signal="player_dropped" from="GameInput" to="GameInput/PlayerDrag" method="drop_player"]
 [connection signal="player_moved" from="GameInput" to="GameInput/PlayerDrag" method="move_player"]
-[connection signal="player_dragged_to" from="GameInput/PlayerDrag" to="BoardManager" method="on_player_dragged"]
+[connection signal="player_selected" from="GameInput" to="GameInput/PlayerClick" method="on_selected_player"]
+[connection signal="position_selected" from="GameInput" to="GameInput/PlayerClick" method="on_selected_position"]
+[connection signal="player_dragged_to" from="GameInput/PlayerDrag" to="BoardManager" method="check_player_move"]
+[connection signal="player_moved_to" from="GameInput/PlayerClick" to="BoardManager" method="check_player_move"]

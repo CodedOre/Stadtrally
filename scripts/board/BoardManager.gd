@@ -118,7 +118,7 @@ func __set_player_transforms () -> void:
 			player.global_transform.origin = position.get_player_position (on_pos_count, i)
 
 # - Checks when the player was dragged by PlayerDrag -
-func on_player_dragged (position : Spatial) -> void:
+func check_player_move (position : Spatial) -> void:
 	# Get the valid positions from the player start
 	var start_position : Spatial = __player_positions [__current_player]
 	# Get valid move positions from the start position
