@@ -22,4 +22,4 @@ func get_player_position (player_sum : int, player_id : int) -> Vector3:
 	var array_id : int = player_sum if player_sum < len (player_positions) else len (player_positions) - 1
 	var pos_array : PoolVector3Array = player_positions [array_id]
 	var pos_id : int = player_id if player_id < len (pos_array) else len (pos_array) - 1
-	return pos_array [pos_id]
+	return global_transform.origin + pos_array [pos_id]

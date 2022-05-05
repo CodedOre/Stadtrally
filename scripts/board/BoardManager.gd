@@ -97,7 +97,25 @@ func move_to_position (player : KinematicBody, position : Spatial):
 	# Set the new position in the storage
 	__player_positions [player] = position
 	# Set the transform
-	player.global_transform.origin = position.global_transform.origin
+	__set_player_transforms ()
+
+# - Set players transforms on the position -
+func __set_player_transforms () -> void:
+	# Check who is on which position
+	var position_players : Dictionary = {}
+	for player in __player_positions.keys ():
+		var position : Spatial = __player_positions [player]
+		if not position in position_players.keys ():
+			position_players [position] = []
+		var pos_players : Array = position_players [position]
+		pos_players.append (player)
+	# Set the transforms for all players on a position
+	for position in position_players.keys ():
+		var on_position : Array = position_players [position]
+		var on_pos_count : int = len (on_position)
+		for i in range (on_pos_count):
+			var player : KinematicBody = on_position [i]
+			player.global_transform.origin = position.get_player_position (on_pos_count, i)
 
 # - Checks when the player was dragged by PlayerDrag -
 func on_player_dragged (position : Spatial) -> void:
