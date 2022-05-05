@@ -9,7 +9,7 @@ extends Node
 # -- Constants --
 
 # - How much the player hovers over the board -
-const DRAG_HOVER : Vector3 = Vector3 (0.0, 0.5, 0.0)
+const DRAG_HOVER : Vector3 = Vector3 (0.0, 1.0, 0.0)
 
 
 # -- Signals --
@@ -47,7 +47,10 @@ func move_player (position : Vector3) -> void:
 
 # - Stops the drag action -
 func drop_player () -> void:
-	pass
+	# (Temporarly) drop the player on the spot
+	if __player_dragged:
+		__player_dragged = false
+		__current_player.global_transform.origin -= DRAG_HOVER
 
 # - Updates the current player from RallyGame -
 func update_current_player (player : KinematicBody, moves : int) -> void:
