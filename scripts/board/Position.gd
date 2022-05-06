@@ -41,6 +41,13 @@ var __current_feedback : int = FeedbackStatus.NONE
 
 # -- Functions --
 
+# - Run at startup -
+func _ready() -> void:
+	# Create a new instance of the shader for this position
+	var shader_material : ShaderMaterial = ShaderMaterial.new ()
+	shader_material.shader = preload ("res://resources/shaders/board/Frame.shader")
+	$FrameMesh.set_surface_material (0, shader_material)
+
 # - Return for how many players there are positions available -
 func get_max_players () -> int:
 	return len (player_positions)
