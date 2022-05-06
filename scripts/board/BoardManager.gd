@@ -153,6 +153,26 @@ func check_player_move (target : Spatial) -> void:
 		var visited_index : PoolIntArray = __move_graph.get_id_path (start_index, target_index)
 		__visited_positions.append_array (visited_index)
 
+# - Display's position hints to the user -
+func position_hints_requested (player : KinematicBody) -> void:
+	# Get current player position
+	var player_pos : Spatial = __player_positions [player]
+	# Get all positions the player could move to
+	var valid_moves : Array = get_valid_moves (player_pos, __left_moves)
+	for i in range (__left_moves + 1):
+		for pos_index in valid_moves [i]:
+			var position : Spatial = __get_position_for_index (pos_index)
+			if i == 0:
+				position.feedback = position.FeedbackStatus.CURRENT
+			elif i == __left_moves:
+				position.feedback = position.FeedbackStatus.FULL_MOVE
+			else:
+				position.feedback = position.FeedbackStatus.PARTIAL_MOVE
+
+# - Clear position hints -
+func position_hints_cleared () -> void:
+	for position in get_tree ().get_nodes_in_group ("Position"):
+		position.feedback = position.FeedbackStatus.NONE
 
 # - Get the position node for a graph index -
 func __get_position_for_index (index : int) -> Spatial:
