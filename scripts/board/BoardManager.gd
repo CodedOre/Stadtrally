@@ -18,9 +18,6 @@ var __position_index : Dictionary = {}
 # - The graph used for this board -
 var __move_graph : AStar = AStar.new ()
 
-# - The move-set for this board -
-var __move_set : Dictionary = {}
-
 # - The currently active player -
 var __current_player : KinematicBody = null
 var __left_moves : int = 0
@@ -66,8 +63,10 @@ func get_valid_moves (position : Spatial, moves : int) -> Array:
 	# Get all valid positions for the moves
 	for i in range (moves + 1):
 		if i == 0:
+			# Get the graph index for the position
+			var pos_index : int = __get_index_for_position (position)
 			# Set current position on 0 moves
-			var self_move : Array = [ position ]
+			var self_move : Array = [ pos_index ]
 			valid_moves.append (self_move)
 			all_known_pos.append_array (self_move)
 		else:
@@ -76,7 +75,7 @@ func get_valid_moves (position : Spatial, moves : int) -> Array:
 			var new_moves : Array = []
 			# Check all neighbors from the old move set
 			for old_pos in old_moves:
-				for new_pos in __move_set.get (old_pos, []):
+				for new_pos in __move_graph.get_point_connections (old_pos):
 					# If not already stored then store them
 					if not new_pos in all_known_pos:
 						new_moves.append (new_pos)
@@ -116,17 +115,20 @@ func __set_player_transforms () -> void:
 			player.global_transform.origin = position.get_player_position (on_pos_count, i)
 
 # - Checks when the player was dragged by PlayerDrag -
-func check_player_move (position : Spatial) -> void:
-	# Get the valid positions from the player start
+func check_player_move (target : Spatial) -> void:
+	# Get the start position of the player
 	var start_position : Spatial = __player_positions [__current_player]
+	# Get the graph index for the positions
+	var start_index : int = __get_index_for_position (start_position)
+	var target_index : int = __get_index_for_position (target)
 	# Get valid move positions from the start position
 	var valid_moves : Array = get_valid_moves (start_position, __left_moves)
 	# Check if player was dragged to a valid position
 	for i in range (__left_moves + 1):
 		var i_moves : Array = valid_moves [i]
-		if position in i_moves:
+		if target_index in i_moves:
 			# If move valid, move to the next position
-			move_to_position (__current_player, position)
+			move_to_position (__current_player, target)
 			__left_moves -= i
 			emit_signal ("moves_taken", i)
 			return
