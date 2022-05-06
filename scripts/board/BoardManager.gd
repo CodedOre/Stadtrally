@@ -5,6 +5,12 @@
 
 extends Node
 
+# -- Constants --
+
+# - How long a position is marked as wrong -
+const WRONG_DELTA : float = 0.5
+
+
 # -- Signals --
 
 # - How many moves the player has taken -
@@ -28,8 +34,24 @@ var __player_positions : Dictionary = {}
 # - Positions the player has already visited
 var __visited_positions : Array = []
 
+# - Positions that are marked as wrong -
+var __wrong_position : Dictionary = {}
+
 
 # -- Functions --
+
+# - Run at every frame -
+func _process (delta: float) -> void:
+	# Set the wrong status for positions
+	for position in __wrong_position.keys ():
+		# Get the time left for the status
+		__wrong_position [position] -= delta
+		if __wrong_position [position] > 0:
+			position.feedback = position.FeedbackStatus.WRONG
+		else:
+			position.feedback = position.FeedbackStatus.NONE
+			# warning-ignore:return_value_discarded
+			__wrong_position.erase (position)
 
 # - Generate the move set for a board -
 func generate_move_set () -> void:
@@ -140,8 +162,11 @@ func check_player_move (target : Spatial) -> void:
 			move_valid = true
 			moves_taken = i
 			break
-	# If move not valid, reset to old position
+	# If move not valid
 	if not move_valid:
+		# Put a wrong feedback on the position
+		__wrong_position [target] = WRONG_DELTA
+		# Reset player to old position
 		move_to_position (__current_player, start_position)
 		return
 	# If move valid, move to the next position
@@ -153,6 +178,26 @@ func check_player_move (target : Spatial) -> void:
 		var visited_index : PoolIntArray = __move_graph.get_id_path (start_index, target_index)
 		__visited_positions.append_array (visited_index)
 
+# - Display's position hints to the user -
+func position_hints_requested (player : KinematicBody) -> void:
+	# Get current player position
+	var player_pos : Spatial = __player_positions [player]
+	# Get all positions the player could move to
+	var valid_moves : Array = get_valid_moves (player_pos, __left_moves)
+	for i in range (__left_moves + 1):
+		for pos_index in valid_moves [i]:
+			var position : Spatial = __get_position_for_index (pos_index)
+			if i == 0:
+				position.feedback = position.FeedbackStatus.CURRENT
+			elif i == __left_moves:
+				position.feedback = position.FeedbackStatus.FULL_MOVE
+			else:
+				position.feedback = position.FeedbackStatus.PARTIAL_MOVE
+
+# - Clear position hints -
+func position_hints_cleared () -> void:
+	for position in get_tree ().get_nodes_in_group ("Position"):
+		position.feedback = position.FeedbackStatus.NONE
 
 # - Get the position node for a graph index -
 func __get_position_for_index (index : int) -> Spatial:

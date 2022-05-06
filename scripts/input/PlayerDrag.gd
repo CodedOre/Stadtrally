@@ -5,7 +5,6 @@
 
 extends Node
 
-
 # -- Constants --
 
 # - How much the player hovers over the board -
@@ -13,6 +12,10 @@ const DRAG_HOVER : Vector3 = Vector3 (0.0, 1.0, 0.0)
 
 
 # -- Signals --
+
+# - If position hints should be shown -
+signal request_position_hints (player)
+signal clear_position_hints ()
 
 # - Notify RallyGame about used moves -
 signal player_dragged_to (position)
@@ -32,6 +35,7 @@ func drag_player (player : KinematicBody) -> void:
 	# Check if the player is active (and can be dragged)
 	if player == __current_player:
 		__player_dragged = true
+		emit_signal ("request_position_hints", player)
 
 # - Move the player while dragging -
 func move_player (position : Vector3) -> void:
@@ -53,6 +57,7 @@ func drop_player (position : Spatial) -> void:
 		__current_player.global_transform.origin -= DRAG_HOVER
 		# Notify main script about new position
 		emit_signal ("player_dragged_to", position)
+		emit_signal ("clear_position_hints")
 
 # - Updates the current player from RallyGame -
 func update_current_player (player : KinematicBody, _moves : int) -> void:
