@@ -12,9 +12,11 @@ signal moves_taken (moves)
 
 
 # -- Variables --
+# - The id index for the positions in the graph -
+var __position_index : Dictionary = {}
 
-# - The move-set for this board -
-var __move_set : Dictionary = {}
+# - The graph used for this board -
+var __move_graph : AStar = AStar.new ()
 
 # - The currently active player -
 var __current_player : KinematicBody = null
@@ -23,35 +25,31 @@ var __left_moves : int = 0
 # - The positions for each player
 var __player_positions : Dictionary = {}
 
+# - Positions the player has already visited
+var __visited_positions : Array = []
+
 
 # -- Functions --
 
 # - Generate the move set for a board -
 func generate_move_set () -> void:
-	var new_move_set : Dictionary = {}
-	# Parse through all connections
+	# Add all positions to the graph
+	var pos_index : int = 0
+	for position in get_tree ().get_nodes_in_group ("Position"):
+		pos_index += 1
+		__position_index [position] = pos_index
+		var pos_origin : Vector3 = position.global_transform.origin
+		__move_graph.add_point (pos_index, pos_origin)
+	# Connect all points in the graph
 	for connection in get_tree ().get_nodes_in_group ("Connection"):
 		# Get the positions for the connection
 		var position_one : Spatial = connection.get_position_node (1)
 		var position_two : Spatial = connection.get_position_node (2)
-		# Check if they are positions
-		if not position_one.is_in_group ("Position") or not position_two.is_in_group ("Position"):
-			push_error ("Connections should be between two Positions!")
-			return
-		# Get (or create) an neighbor array for the positions
-		if not position_one in new_move_set.keys ():
-			new_move_set [position_one] = []
-		var pos_one_neighbors : Array = new_move_set [position_one]
-		if not position_two in new_move_set.keys ():
-			new_move_set [position_two] = []
-		var pos_two_neighbors : Array = new_move_set [position_two]
-		# Add the neighbor if not already in it
-		if not position_two in pos_one_neighbors:
-			pos_one_neighbors.append (position_two)
-		if not position_one in pos_two_neighbors:
-			pos_two_neighbors.append (position_one)
-	# Set the move set to the new dictionary
-	__move_set = new_move_set
+		# Get the index for these positions
+		var pos_one_index : int = __get_index_for_position (position_one)
+		var pos_two_index : int = __get_index_for_position (position_two)
+		# Create the connection in the graph
+		__move_graph.connect_points (pos_one_index, pos_two_index)
 
 # - Get the start position for the players -
 func set_start_positions (all_players : Array) -> void:
@@ -68,8 +66,10 @@ func get_valid_moves (position : Spatial, moves : int) -> Array:
 	# Get all valid positions for the moves
 	for i in range (moves + 1):
 		if i == 0:
+			# Get the graph index for the position
+			var pos_index : int = __get_index_for_position (position)
 			# Set current position on 0 moves
-			var self_move : Array = [ position ]
+			var self_move : Array = [ pos_index ]
 			valid_moves.append (self_move)
 			all_known_pos.append_array (self_move)
 		else:
@@ -78,9 +78,9 @@ func get_valid_moves (position : Spatial, moves : int) -> Array:
 			var new_moves : Array = []
 			# Check all neighbors from the old move set
 			for old_pos in old_moves:
-				for new_pos in __move_set.get (old_pos, []):
+				for new_pos in __move_graph.get_point_connections (old_pos):
 					# If not already stored then store them
-					if not new_pos in all_known_pos:
+					if not new_pos in all_known_pos and not new_pos in __visited_positions:
 						new_moves.append (new_pos)
 						all_known_pos.append (new_pos)
 			valid_moves.append (new_moves)
@@ -91,6 +91,7 @@ func get_valid_moves (position : Spatial, moves : int) -> Array:
 func update_current_player (player : KinematicBody, moves : int) -> void:
 	__current_player = player
 	__left_moves = moves
+	__visited_positions = []
 
 # - Moves the player to a new position -
 func move_to_position (player : KinematicBody, position : Spatial):
@@ -118,19 +119,48 @@ func __set_player_transforms () -> void:
 			player.global_transform.origin = position.get_player_position (on_pos_count, i)
 
 # - Checks when the player was dragged by PlayerDrag -
-func check_player_move (position : Spatial) -> void:
-	# Get the valid positions from the player start
+func check_player_move (target : Spatial) -> void:
+	# Get the start position of the player
 	var start_position : Spatial = __player_positions [__current_player]
+	# Check if there is a viable target
+	if target == null:
+		move_to_position (__current_player, start_position)
+		return
+	# Get the graph index for the positions
+	var start_index : int = __get_index_for_position (start_position)
+	var target_index : int = __get_index_for_position (target)
 	# Get valid move positions from the start position
 	var valid_moves : Array = get_valid_moves (start_position, __left_moves)
 	# Check if player was dragged to a valid position
+	var move_valid : bool = false
+	var moves_taken : int = 0
 	for i in range (__left_moves + 1):
 		var i_moves : Array = valid_moves [i]
-		if position in i_moves:
-			# If move valid, move to the next position
-			move_to_position (__current_player, position)
-			__left_moves -= i
-			emit_signal ("moves_taken", i)
-			return
+		if target_index in i_moves:
+			move_valid = true
+			moves_taken = i
+			break
 	# If move not valid, reset to old position
-	move_to_position (__current_player, start_position)
+	if not move_valid:
+		move_to_position (__current_player, start_position)
+		return
+	# If move valid, move to the next position
+	move_to_position (__current_player, target)
+	__left_moves -= moves_taken
+	emit_signal ("moves_taken", moves_taken)
+	# Exclude taken positions for other turns
+	if __left_moves > 0:
+		var visited_index : PoolIntArray = __move_graph.get_id_path (start_index, target_index)
+		__visited_positions.append_array (visited_index)
+
+
+# - Get the position node for a graph index -
+func __get_position_for_index (index : int) -> Spatial:
+	for key in __position_index.keys ():
+		if __position_index [key] == index:
+			return key
+	return null
+
+# - Get the graph index for a position node -
+func __get_index_for_position (position : Spatial) -> int:
+	return __position_index [position]
