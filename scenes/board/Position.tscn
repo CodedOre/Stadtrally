@@ -10,6 +10,10 @@ points = PoolVector3Array( -2.30031, 0, -2.5, -2.5, 0, -2.30031, -2.30031, 0.124
 [node name="Position" type="StaticBody" groups=["Position"]]
 collision_mask = 3
 script = ExtResource( 3 )
+color_current = Color( 1, 1, 1, 1 )
+color_partial_move = Color( 0.176471, 0.333333, 0.647059, 1 )
+color_full_move = Color( 0.196078, 0.588235, 0.196078, 1 )
+color_wrong = Color( 0.882353, 0.0588235, 0.0588235, 1 )
 player_positions = [ PoolVector3Array( 0, 0.2, 0 ), PoolVector3Array( 1.25, 0.2, 1.25, -1.25, 0.2, -1.25 ), PoolVector3Array( 1.75, 0.2, 1.25, -1.75, 0.2, 1.25, 0, 0.2, -1.25 ), PoolVector3Array( 1.75, 0.2, 1.75, 1.75, 0.2, -1.75, -1.75, 0.2, -1.75, -1.75, 0.2, 1.75 ) ]
 
 [node name="PlateMesh" type="MeshInstance" parent="."]
@@ -17,6 +21,7 @@ mesh = ExtResource( 1 )
 material/0 = null
 
 [node name="FrameMesh" type="MeshInstance" parent="."]
+visible = false
 mesh = ExtResource( 2 )
 material/0 = null
 
