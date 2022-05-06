@@ -12,6 +12,11 @@ signal moves_taken (moves)
 
 
 # -- Variables --
+# - The id index for the positions in the graph -
+var __position_index : Dictionary = {}
+
+# - The graph used for this board -
+var __move_graph : AStar = AStar.new ()
 
 # - The move-set for this board -
 var __move_set : Dictionary = {}
@@ -28,30 +33,23 @@ var __player_positions : Dictionary = {}
 
 # - Generate the move set for a board -
 func generate_move_set () -> void:
-	var new_move_set : Dictionary = {}
-	# Parse through all connections
+	# Add all positions to the graph
+	var pos_index : int = 0
+	for position in get_tree ().get_nodes_in_group ("Position"):
+		pos_index += 1
+		__position_index [position] = pos_index
+		var pos_origin : Vector3 = position.global_transform.origin
+		__move_graph.add_point (pos_index, pos_origin)
+	# Connect all points in the graph
 	for connection in get_tree ().get_nodes_in_group ("Connection"):
 		# Get the positions for the connection
 		var position_one : Spatial = connection.get_position_node (1)
 		var position_two : Spatial = connection.get_position_node (2)
-		# Check if they are positions
-		if not position_one.is_in_group ("Position") or not position_two.is_in_group ("Position"):
-			push_error ("Connections should be between two Positions!")
-			return
-		# Get (or create) an neighbor array for the positions
-		if not position_one in new_move_set.keys ():
-			new_move_set [position_one] = []
-		var pos_one_neighbors : Array = new_move_set [position_one]
-		if not position_two in new_move_set.keys ():
-			new_move_set [position_two] = []
-		var pos_two_neighbors : Array = new_move_set [position_two]
-		# Add the neighbor if not already in it
-		if not position_two in pos_one_neighbors:
-			pos_one_neighbors.append (position_two)
-		if not position_one in pos_two_neighbors:
-			pos_two_neighbors.append (position_one)
-	# Set the move set to the new dictionary
-	__move_set = new_move_set
+		# Get the index for these positions
+		var pos_one_index : int = __get_index_for_position (position_one)
+		var pos_two_index : int = __get_index_for_position (position_two)
+		# Create the connection in the graph
+		__move_graph.connect_points (pos_one_index, pos_two_index)
 
 # - Get the start position for the players -
 func set_start_positions (all_players : Array) -> void:
@@ -134,3 +132,14 @@ func check_player_move (position : Spatial) -> void:
 			return
 	# If move not valid, reset to old position
 	move_to_position (__current_player, start_position)
+
+# - Get the position node for a graph index -
+func __get_position_for_index (index : int) -> Spatial:
+	for key in __position_index.keys ():
+		if __position_index [key] == index:
+			return key
+	return null
+
+# - Get the graph index for a position node -
+func __get_index_for_position (position : Spatial) -> int:
+	return __position_index [position]
