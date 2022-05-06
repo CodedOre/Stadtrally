@@ -50,6 +50,7 @@ func _process (delta: float) -> void:
 			position.feedback = position.FeedbackStatus.WRONG
 		else:
 			position.feedback = position.FeedbackStatus.NONE
+			# warning-ignore:return_value_discarded
 			__wrong_position.erase (position)
 
 # - Generate the move set for a board -
