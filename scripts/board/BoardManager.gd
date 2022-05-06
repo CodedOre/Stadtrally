@@ -5,6 +5,12 @@
 
 extends Node
 
+# -- Constants --
+
+# - How long a position is marked as wrong -
+const WRONG_DELTA : float = 0.5
+
+
 # -- Signals --
 
 # - How many moves the player has taken -
@@ -28,8 +34,23 @@ var __player_positions : Dictionary = {}
 # - Positions the player has already visited
 var __visited_positions : Array = []
 
+# - Positions that are marked as wrong -
+var __wrong_position : Dictionary = {}
+
 
 # -- Functions --
+
+# - Run at every frame -
+func _process (delta: float) -> void:
+	# Set the wrong status for positions
+	for position in __wrong_position.keys ():
+		# Get the time left for the status
+		__wrong_position [position] -= delta
+		if __wrong_position [position] > 0:
+			position.feedback = position.FeedbackStatus.WRONG
+		else:
+			position.feedback = position.FeedbackStatus.NONE
+			__wrong_position.erase (position)
 
 # - Generate the move set for a board -
 func generate_move_set () -> void:
@@ -140,8 +161,11 @@ func check_player_move (target : Spatial) -> void:
 			move_valid = true
 			moves_taken = i
 			break
-	# If move not valid, reset to old position
+	# If move not valid
 	if not move_valid:
+		# Put a wrong feedback on the position
+		__wrong_position [target] = WRONG_DELTA
+		# Reset player to old position
 		move_to_position (__current_player, start_position)
 		return
 	# If move valid, move to the next position
