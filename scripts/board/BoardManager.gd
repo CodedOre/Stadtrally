@@ -25,6 +25,9 @@ var __left_moves : int = 0
 # - The positions for each player
 var __player_positions : Dictionary = {}
 
+# - Positions the player has already visited
+var __visited_positions : Array = []
+
 
 # -- Functions --
 
@@ -77,7 +80,7 @@ func get_valid_moves (position : Spatial, moves : int) -> Array:
 			for old_pos in old_moves:
 				for new_pos in __move_graph.get_point_connections (old_pos):
 					# If not already stored then store them
-					if not new_pos in all_known_pos:
+					if not new_pos in all_known_pos and not new_pos in __visited_positions:
 						new_moves.append (new_pos)
 						all_known_pos.append (new_pos)
 			valid_moves.append (new_moves)
@@ -88,6 +91,7 @@ func get_valid_moves (position : Spatial, moves : int) -> Array:
 func update_current_player (player : KinematicBody, moves : int) -> void:
 	__current_player = player
 	__left_moves = moves
+	__visited_positions = []
 
 # - Moves the player to a new position -
 func move_to_position (player : KinematicBody, position : Spatial):
@@ -118,22 +122,37 @@ func __set_player_transforms () -> void:
 func check_player_move (target : Spatial) -> void:
 	# Get the start position of the player
 	var start_position : Spatial = __player_positions [__current_player]
+	# Check if there is a viable target
+	if target == null:
+		move_to_position (__current_player, start_position)
+		return
 	# Get the graph index for the positions
 	var start_index : int = __get_index_for_position (start_position)
 	var target_index : int = __get_index_for_position (target)
 	# Get valid move positions from the start position
 	var valid_moves : Array = get_valid_moves (start_position, __left_moves)
 	# Check if player was dragged to a valid position
+	var move_valid : bool = false
+	var moves_taken : int = 0
 	for i in range (__left_moves + 1):
 		var i_moves : Array = valid_moves [i]
 		if target_index in i_moves:
-			# If move valid, move to the next position
-			move_to_position (__current_player, target)
-			__left_moves -= i
-			emit_signal ("moves_taken", i)
-			return
+			move_valid = true
+			moves_taken = i
+			break
 	# If move not valid, reset to old position
-	move_to_position (__current_player, start_position)
+	if not move_valid:
+		move_to_position (__current_player, start_position)
+		return
+	# If move valid, move to the next position
+	move_to_position (__current_player, target)
+	__left_moves -= moves_taken
+	emit_signal ("moves_taken", moves_taken)
+	# Exclude taken positions for other turns
+	if __left_moves > 0:
+		var visited_index : PoolIntArray = __move_graph.get_id_path (start_index, target_index)
+		__visited_positions.append_array (visited_index)
+
 
 # - Get the position node for a graph index -
 func __get_position_for_index (index : int) -> Spatial:
