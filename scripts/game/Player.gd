@@ -30,9 +30,6 @@ const COLOR_MATERIAL : Dictionary = {
 	PlayerColors.PURPLE: preload ("res://resources/material/game/Player/Purple.tres")
 }
 
-# - The movement of the player when using the Tween -
-const MOVEMENT_TIME : float = 0.75
-
 
 # -- Nodes --
 
@@ -67,13 +64,19 @@ func _ready() -> void:
 	add_child (move_tween)
 
 # - Set a target position the player should be moved to -
-func set_target_position (target : Vector3) -> void:
+func set_target_position (target : Vector3, animated : bool = true, speed : float = 0.25) -> void:
+	# Check if it should be animated
+	if not animated:
+		# Else just update position
+		global_transform.origin = target
+		return
+	print ("We speed at " + str (speed))
 	# Create the current and target transforms
 	var current_transform : Transform = global_transform
 	var target_transform : Transform = Transform (current_transform.basis, target)
 	# Start the tween and set the transform interpolation
 	# warning-ignore:return_value_discarded
-	move_tween.interpolate_property (self, "global_transform", current_transform, target_transform, MOVEMENT_TIME, Tween.TRANS_EXPO, Tween.EASE_IN_OUT)
+	move_tween.interpolate_property (self, "global_transform", current_transform, target_transform, speed, Tween.TRANS_EXPO, Tween.EASE_IN_OUT)
 	# warning-ignore:return_value_discarded
 	move_tween.start ()
 	# Wait until the interpolation has completed

@@ -5,10 +5,24 @@
 
 extends Node
 
+# -- Enums --
+
+# - The movement mode for the player -
+enum MovementMode {
+	NONE,
+	ALIGNMENT,
+	MOVEMENT
+}
+
+
 # -- Constants --
 
 # - How long a position is marked as wrong -
 const WRONG_DELTA : float = 0.5
+
+# - Animation time for specified movements -
+const ALIGNMENT_SPEED : float = 0.15
+const MOVEMENT_SPEED : float = 0.75
 
 
 # -- Signals --
@@ -116,14 +130,16 @@ func update_current_player (player : KinematicBody, moves : int) -> void:
 	__visited_positions = []
 
 # - Moves the player to a new position -
-func move_to_position (player : KinematicBody, position : Spatial):
+func move_to_position (player : KinematicBody, position : Spatial, movement_mode : int = MovementMode.NONE):
 	# Set the new position in the storage
 	__player_positions [player] = position
 	# Set the transform
-	__set_player_transforms ()
+	__set_player_transforms (movement_mode)
 
 # - Set players transforms on the position -
-func __set_player_transforms () -> void:
+func __set_player_transforms (movement_mode : int = MovementMode.NONE) -> void:
+	# Set general movement settings
+	var move_animation_set : bool = movement_mode == MovementMode.ALIGNMENT or movement_mode == MovementMode.MOVEMENT
 	# Check who is on which position
 	var position_players : Dictionary = {}
 	for player in __player_positions.keys ():
@@ -137,16 +153,27 @@ func __set_player_transforms () -> void:
 		var on_position : Array = position_players [position]
 		var on_pos_count : int = len (on_position)
 		for i in range (on_pos_count):
+			# Get player and target position
 			var player : KinematicBody = on_position [i]
-			player.set_target_position (position.get_player_position (on_pos_count, i))
+			var target : Vector3 = position.get_player_position (on_pos_count, i)
+			# Check which movement speed the player gets
+			var move_animation_time : float = 0.0
+			if move_animation_set:
+				if movement_mode ==  MovementMode.MOVEMENT and player == __current_player:
+					# Only the current player has a longer animation
+					move_animation_time = MOVEMENT_SPEED
+				else:
+					# All others are just aligned
+					move_animation_time = ALIGNMENT_SPEED
+			player.set_target_position (target, move_animation_set, move_animation_time)
 
-# - Checks when the player was dragged by PlayerDrag -
-func check_player_move (target : Spatial) -> void:
+# - Checks if a targeteed position can be moved to -
+func check_player_move (target : Spatial, for_click : bool = false) -> void:
 	# Get the start position of the player
 	var start_position : Spatial = __player_positions [__current_player]
 	# Check if there is a viable target
 	if target == null:
-		move_to_position (__current_player, start_position)
+		move_to_position (__current_player, start_position, MovementMode.MOVEMENT)
 		return
 	# Get the graph index for the positions
 	var start_index : int = __get_index_for_position (start_position)
@@ -167,10 +194,11 @@ func check_player_move (target : Spatial) -> void:
 		# Put a wrong feedback on the position
 		__wrong_position [target] = WRONG_DELTA
 		# Reset player to old position
-		move_to_position (__current_player, start_position)
+		move_to_position (__current_player, start_position, MovementMode.MOVEMENT)
 		return
 	# If move valid, move to the next position
-	move_to_position (__current_player, target)
+	var valid_movement_mode : int = MovementMode.MOVEMENT if for_click else MovementMode.ALIGNMENT
+	move_to_position (__current_player, target, valid_movement_mode)
 	__left_moves -= moves_taken
 	emit_signal ("moves_taken", moves_taken)
 	# Exclude taken positions for other turns
