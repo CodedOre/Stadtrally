@@ -44,5 +44,5 @@ script = ExtResource( 8 )
 [connection signal="player_dragged_to" from="GameInput/PlayerDrag" to="BoardManager" method="check_player_move"]
 [connection signal="request_position_hints" from="GameInput/PlayerDrag" to="BoardManager" method="position_hints_requested"]
 [connection signal="clear_position_hints" from="GameInput/PlayerClick" to="BoardManager" method="position_hints_cleared"]
-[connection signal="player_moved_to" from="GameInput/PlayerClick" to="BoardManager" method="check_player_move"]
+[connection signal="player_moved_to" from="GameInput/PlayerClick" to="BoardManager" method="check_player_move" binds= [ true ]]
 [connection signal="request_position_hints" from="GameInput/PlayerClick" to="BoardManager" method="position_hints_requested"]
