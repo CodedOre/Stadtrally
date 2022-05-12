@@ -138,7 +138,7 @@ func __set_player_transforms () -> void:
 		var on_pos_count : int = len (on_position)
 		for i in range (on_pos_count):
 			var player : KinematicBody = on_position [i]
-			player.global_transform.origin = position.get_player_position (on_pos_count, i)
+			player.set_target_position (position.get_player_position (on_pos_count, i))
 
 # - Checks when the player was dragged by PlayerDrag -
 func check_player_move (target : Spatial) -> void:
