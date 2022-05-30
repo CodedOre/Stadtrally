@@ -13,3 +13,15 @@ A addon to implement lines in the 3D part of the Godot Engine. Used to procedura
 Created by RedefineGamedev \
 Licensed under the MIT \
 [Link to Github Repository](https://github.com/RedefineGamedev/Line3D)
+
+## Resources
+
+### Aleo Font
+
+*Any file found in the folder [`resources/interface/fonts`](https://github.com/CodedOre/Stadtrally/tree/main/resources/interface/fonts)*
+
+The Aleo Font, a contemporary typeface used in the UI of the game.
+
+Created by Alessio Laiso Type \
+Licenced under the [SIL Open Font License v1.1](http://scripts.sil.org/OFL) \
+[Link to the Website](https://alessiolaiso.com/aleo-font)
