@@ -68,8 +68,13 @@ size_flags_vertical = 10
 theme = ExtResource( 3 )
 text = "Spiel Beenden"
 
+[node name="PopupBackdrop" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.690196 )
+
 [node name="ClosePopup" type="PopupDialog" parent="."]
-visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
