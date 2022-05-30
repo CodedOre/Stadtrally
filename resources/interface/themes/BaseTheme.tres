@@ -2,10 +2,10 @@
 
 [ext_resource path="res://resources/interface/fonts/Aleo regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://resources/interface/fonts/Aleo 700.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://resources/interface/styles/ButtonHoverStyle.tres" type="StyleBox" id=3]
-[ext_resource path="res://resources/interface/styles/ButtonDisabledStyle.tres" type="StyleBox" id=4]
-[ext_resource path="res://resources/interface/styles/ButtonNormalStyle.tres" type="StyleBox" id=5]
-[ext_resource path="res://resources/interface/styles/ButtonPressedStyle.tres" type="StyleBox" id=6]
+[ext_resource path="res://resources/interface/styles/Base/ButtonHoverStyle.tres" type="StyleBox" id=3]
+[ext_resource path="res://resources/interface/styles/Base/ButtonDisabledStyle.tres" type="StyleBox" id=4]
+[ext_resource path="res://resources/interface/styles/Base/ButtonNormalStyle.tres" type="StyleBox" id=5]
+[ext_resource path="res://resources/interface/styles/Base/ButtonPressedStyle.tres" type="StyleBox" id=6]
 
 [sub_resource type="DynamicFont" id=7]
 resource_name = "Aleo Bold 45"
