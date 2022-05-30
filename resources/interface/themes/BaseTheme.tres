@@ -1,16 +1,11 @@
-[gd_resource type="Theme" load_steps=9 format=2]
+[gd_resource type="Theme" load_steps=8 format=2]
 
 [ext_resource path="res://resources/interface/fonts/Aleo regular.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://resources/interface/fonts/Aleo 700.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://resources/interface/styles/Base/ButtonHoverStyle.tres" type="StyleBox" id=3]
-[ext_resource path="res://resources/interface/styles/Base/ButtonDisabledStyle.tres" type="StyleBox" id=4]
-[ext_resource path="res://resources/interface/styles/Base/ButtonNormalStyle.tres" type="StyleBox" id=5]
-[ext_resource path="res://resources/interface/styles/Base/ButtonPressedStyle.tres" type="StyleBox" id=6]
-
-[sub_resource type="DynamicFont" id=7]
-resource_name = "Aleo Bold 45"
-size = 45
-font_data = ExtResource( 2 )
+[ext_resource path="res://resources/interface/styles/Base/PopupStyle.tres" type="StyleBox" id=3]
+[ext_resource path="res://resources/interface/styles/Base/ButtonHoverStyle.tres" type="StyleBox" id=4]
+[ext_resource path="res://resources/interface/styles/Base/ButtonDisabledStyle.tres" type="StyleBox" id=5]
+[ext_resource path="res://resources/interface/styles/Base/ButtonNormalStyle.tres" type="StyleBox" id=6]
+[ext_resource path="res://resources/interface/styles/Base/ButtonPressedStyle.tres" type="StyleBox" id=7]
 
 [sub_resource type="DynamicFont" id=3]
 resource_name = "Aleo Regular 32"
@@ -24,9 +19,10 @@ Button/colors/font_color_disabled = Color( 0.427451, 0.435294, 0.45098, 1 )
 Button/colors/font_color_focus = Color( 0.94902, 0.972549, 1, 1 )
 Button/colors/font_color_hover = Color( 0.94902, 0.972549, 1, 1 )
 Button/colors/font_color_pressed = Color( 0.94902, 0.972549, 1, 1 )
-Button/styles/disabled = ExtResource( 4 )
-Button/styles/hover = ExtResource( 3 )
-Button/styles/normal = ExtResource( 5 )
-Button/styles/pressed = ExtResource( 6 )
-Label/fonts/font = SubResource( 7 )
+Button/styles/disabled = ExtResource( 5 )
+Button/styles/hover = ExtResource( 4 )
+Button/styles/normal = ExtResource( 6 )
+Button/styles/pressed = ExtResource( 7 )
+HBoxContainer/constants/separation = 20
+PopupDialog/styles/panel = ExtResource( 3 )
 VBoxContainer/constants/separation = 16
