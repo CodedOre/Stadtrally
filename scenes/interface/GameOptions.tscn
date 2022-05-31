@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://resources/interface/themes/BaseTheme.tres" type="Theme" id=1]
 [ext_resource path="res://scenes/interface/PlayerOptions.tscn" type="PackedScene" id=2]
 [ext_resource path="res://resources/interface/fonts/Aleo 700.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://scripts/interface/GameOptions.gd" type="Script" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 resource_name = "Aleo Bold 64"
@@ -17,6 +18,7 @@ margin_top = 45.0
 margin_right = -45.0
 margin_bottom = -45.0
 theme = ExtResource( 1 )
+script = ExtResource( 4 )
 
 [node name="Titel" type="Label" parent="."]
 margin_right = 1350.0
@@ -120,3 +122,5 @@ margin_top = 653.0
 margin_right = 218.0
 margin_bottom = 726.0
 text = "Zurück"
+
+[connection signal="pressed" from="OptionsContainer/ActionsContainer/BackButton" to="." method="_on_back_pressed"]

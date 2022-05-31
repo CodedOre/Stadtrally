@@ -5,7 +5,17 @@
 
 extends Control
 
+# -- Signals --
+
+# - Signals to Main an new action -
+signal move_to_game_options ()
+
+
 # -- Functions --
+
+# - Moves to the GameOptions -
+func _on_start_pressed() -> void:
+	emit_signal ("move_to_game_options")
 
 # - Activates the close popup -
 func _on_close_button_pressed () -> void:

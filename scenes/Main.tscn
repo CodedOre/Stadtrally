@@ -1,10 +1,19 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/ClosingDialog.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/interface/MainMenu.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/interface/GameOptions.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/Main.gd" type="Script" id=4]
 
 [node name="Main" type="Node"]
+script = ExtResource( 4 )
 
 [node name="MainMenu" parent="." instance=ExtResource( 2 )]
 
+[node name="GameOptions" parent="." instance=ExtResource( 3 )]
+visible = false
+
 [node name="ClosingDialog" parent="." instance=ExtResource( 1 )]
+
+[connection signal="move_to_game_options" from="MainMenu" to="." method="set_display_mode" binds= [ 20 ]]
+[connection signal="move_to_main_menu" from="GameOptions" to="." method="set_display_mode" binds= [ 10 ]]
