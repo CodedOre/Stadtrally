@@ -72,7 +72,12 @@ var _display_mode : int
 func _ready () -> void:
 	# Connect the menu action for the color menu
 	var color_popup : PopupMenu = $PlayerDisplay/ActionPanel/ActionsContainer/ColorButton.get_popup ()
-	color_popup.connect ("id_pressed", self, "set_chosen_color")
+	color_popup.connect ("id_pressed", self, "set_new_color")
+
+# - Set a new color after menu entry -
+func set_new_color (value : int) -> void:
+	set_chosen_color (value)
+	emit_signal("color_chosen", _player_index, _chosen_color)
 
 # - Gets the chosen color -
 func get_chosen_color () -> int:
@@ -82,7 +87,6 @@ func get_chosen_color () -> int:
 func set_chosen_color (value : int) -> void:
 	_chosen_color = value
 	$PlayerDisplay/PlayerContainer/PlayerViewport/Player.color = _chosen_color
-	emit_signal("color_chosen", _player_index, _chosen_color)
 
 # - Gets if the player can be removed -
 func get_player_removable () -> bool:

@@ -64,7 +64,7 @@ func update_player_colors (index : int, color : int) -> void:
 	for i in range (len (player_options)):
 		# Ignore the setting option
 		if i == index:
-			break
+			continue
 		# Get the option for the index
 		var option : Control = player_options [i]
 		# Else remove the color as available
