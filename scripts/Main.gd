@@ -3,7 +3,6 @@
 # --- Main Script ---
 # The root node for the game, under which all can be found.
 
-tool
 extends Node
 
 # -- Enums --
@@ -26,7 +25,7 @@ onready var game_options : Control = $GameOptions
 # -- Properties --
 
 # - The display mode -
-export (DisplayMode) var display_mode
+export (DisplayMode) var display_mode setget set_display_mode, get_display_mode
 
 
 # -- Variables --

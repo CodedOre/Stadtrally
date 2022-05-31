@@ -60,7 +60,7 @@ func get_player_removable () -> bool:
 # - Sets if the player can be removed -
 func set_player_removable (value : bool) -> void:
 	_player_removable = value
-	remove_button.visible = _player_removable
+	$PlayerDisplay/RemovePositioner/RemoveButton.visible = _player_removable
 
 # - Get the display mode -
 func get_display_mode () -> int:
@@ -79,3 +79,11 @@ func set_display_mode (value : int) -> void:
 	# Set the controls visibilty
 	$AddButton.visible = _display_mode == DisplayMode.ADD
 	$PlayerDisplay.visible = _display_mode == DisplayMode.OPTIONS
+
+# - Activated when the AddButton is pressed -
+func _on_add_player () -> void:
+	emit_signal ("add_player")
+
+# - Activated when the RemoveButton is pressed -
+func _on_remove_player () -> void:
+	emit_signal ("remove_player")

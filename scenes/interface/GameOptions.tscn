@@ -105,7 +105,6 @@ margin_left = 500.0
 margin_top = 330.0
 margin_right = 746.0
 margin_bottom = 656.0
-display_mode = 2
 
 [node name="ActionsContainer" type="VBoxContainer" parent="OptionsContainer"]
 margin_left = 836.0
@@ -125,4 +124,16 @@ margin_right = 218.0
 margin_bottom = 726.0
 text = "Zurück"
 
+[connection signal="add_player" from="OptionsContainer/PlayerPanel/PlayerGrid/PlayerOptions1" to="." method="update_player_count" binds= [ 1 ]]
+[connection signal="remove_player" from="OptionsContainer/PlayerPanel/PlayerGrid/PlayerOptions1" to="." method="update_player_count" binds= [ -1 ]]
+[connection signal="add_player" from="OptionsContainer/PlayerPanel/PlayerGrid/PlayerOptions2" to="." method="update_player_count" binds= [ 1 ]]
+[connection signal="remove_player" from="OptionsContainer/PlayerPanel/PlayerGrid/PlayerOptions2" to="." method="update_player_count" binds= [ -1 ]]
+[connection signal="add_player" from="OptionsContainer/PlayerPanel/PlayerGrid/PlayerOptions3" to="." method="update_player_count" binds= [ 1 ]]
+[connection signal="remove_player" from="OptionsContainer/PlayerPanel/PlayerGrid/PlayerOptions3" to="." method="update_player_count" binds= [ -1 ]]
+[connection signal="add_player" from="OptionsContainer/PlayerPanel/PlayerGrid/PlayerOptions4" to="." method="update_player_count" binds= [ 1 ]]
+[connection signal="remove_player" from="OptionsContainer/PlayerPanel/PlayerGrid/PlayerOptions4" to="." method="update_player_count" binds= [ -1 ]]
+[connection signal="add_player" from="OptionsContainer/PlayerPanel/PlayerGrid/PlayerOptions5" to="." method="update_player_count" binds= [ 1 ]]
+[connection signal="remove_player" from="OptionsContainer/PlayerPanel/PlayerGrid/PlayerOptions5" to="." method="update_player_count" binds= [ -1 ]]
+[connection signal="add_player" from="OptionsContainer/PlayerPanel/PlayerGrid/PlayerOptions6" to="." method="update_player_count" binds= [ 1 ]]
+[connection signal="remove_player" from="OptionsContainer/PlayerPanel/PlayerGrid/PlayerOptions6" to="." method="update_player_count" binds= [ -1 ]]
 [connection signal="pressed" from="OptionsContainer/ActionsContainer/BackButton" to="." method="_on_back_pressed"]

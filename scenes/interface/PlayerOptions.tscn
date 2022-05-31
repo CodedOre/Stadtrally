@@ -108,3 +108,6 @@ hint_tooltip = "Spielerfarbe"
 icon = ExtResource( 10 )
 flat = false
 items = [ "Weiß", null, 0, false, false, 0, 0, null, "", false, "Blau", null, 0, false, false, 1, 0, null, "", false, "Grün", null, 0, false, false, 2, 0, null, "", false, "Rot", null, 0, false, false, 3, 0, null, "", false, "Gelb", null, 0, false, false, 4, 0, null, "", false, "Lila", null, 0, false, false, 5, 0, null, "", false ]
+
+[connection signal="pressed" from="AddButton" to="." method="_on_add_player"]
+[connection signal="pressed" from="PlayerDisplay/RemovePositioner/RemoveButton" to="." method="_on_remove_player"]
