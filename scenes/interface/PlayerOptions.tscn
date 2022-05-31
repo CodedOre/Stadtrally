@@ -1,0 +1,55 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/game/Player.tscn" type="PackedScene" id=1]
+
+[node name="PlayerOptions" type="PanelContainer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -103.0
+margin_top = -135.0
+margin_right = 103.0
+margin_bottom = 135.0
+
+[node name="PlayerContainer" type="ViewportContainer" parent="."]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 199.0
+margin_bottom = 263.0
+
+[node name="PlayerViewport" type="Viewport" parent="PlayerContainer"]
+size = Vector2( 192, 256 )
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 3
+gui_disable_input = true
+
+[node name="Player" parent="PlayerContainer/PlayerViewport" instance=ExtResource( 1 )]
+color = 3
+
+[node name="PlayerCamera" type="Camera" parent="PlayerContainer/PlayerViewport"]
+transform = Transform( 1, 0, 0, 0, 0.990268, 0.139173, 0, -0.139173, 0.990268, 0, 3.2, 6 )
+
+[node name="PlayerLight" type="DirectionalLight" parent="PlayerContainer/PlayerViewport"]
+transform = Transform( 0.642788, -0.439385, 0.627507, 0, 0.819152, 0.573577, -0.766044, -0.368688, 0.526541, 0, 0, 0 )
+
+[node name="ActionsContainer" type="HBoxContainer" parent="."]
+margin_left = 7.0
+margin_top = 243.0
+margin_right = 199.0
+margin_bottom = 263.0
+size_flags_vertical = 8
+
+[node name="PlayerLabel" type="Label" parent="ActionsContainer"]
+margin_top = 3.0
+margin_right = 124.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+text = "Player 0"
+
+[node name="RemoveButton" type="Button" parent="ActionsContainer"]
+margin_left = 128.0
+margin_right = 192.0
+margin_bottom = 20.0
+text = "Remove"
