@@ -54,8 +54,33 @@ func _ready() -> void:
 		option.chosen_color = i
 
 # - Avoids that one color is used multiple times -
-func update_player_colors () -> void:
-	pass
+func update_player_colors (index : int, color : int) -> void:
+	# Prepare Arrays with available colors and duplicating items
+	var available_colors : Array = range (6)
+	var duplicate_index : Array = []
+	# Remove the newly set color from the available colors
+	available_colors.erase (color)
+	# Iterate through all options
+	for i in range (len (player_options)):
+		# Ignore the setting option
+		if i == index:
+			break
+		# Get the option for the index
+		var option : Control = player_options [i]
+		# Else remove the color as available
+		available_colors.erase (option.chosen_color)
+		# Note if the option shares the new color
+		if option.chosen_color == color:
+			duplicate_index.append (option)
+	# Check if we can assign colors to items needing them
+	if len (available_colors) < len (duplicate_index):
+		push_warning ("There might be multiple players with the same color!")
+		return
+	# Assign the duplicate items one of the available colors
+	for i in range (len (duplicate_index)):
+		var option : Control = duplicate_index [i]
+		var new_color : int = available_colors [i]
+		option.chosen_color = new_color
 
 # - Gets the player count -
 func get_player_count () -> int:
