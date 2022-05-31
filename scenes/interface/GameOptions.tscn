@@ -45,7 +45,7 @@ margin_right = 781.0
 margin_bottom = 691.0
 columns = 3
 
-[node name="PlayerOptions" parent="OptionsContainer/PlayerPanel/PlayerGrid" instance=ExtResource( 2 )]
+[node name="PlayerOptions1" parent="OptionsContainer/PlayerPanel/PlayerGrid" instance=ExtResource( 2 )]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -54,6 +54,7 @@ margin_left = 0.0
 margin_top = 0.0
 margin_right = 246.0
 margin_bottom = 326.0
+player_removable = false
 
 [node name="PlayerOptions2" parent="OptionsContainer/PlayerPanel/PlayerGrid" instance=ExtResource( 2 )]
 anchor_left = 0.0
@@ -104,6 +105,7 @@ margin_left = 500.0
 margin_top = 330.0
 margin_right = 746.0
 margin_bottom = 656.0
+display_mode = 2
 
 [node name="ActionsContainer" type="VBoxContainer" parent="OptionsContainer"]
 margin_left = 836.0
