@@ -40,10 +40,13 @@ onready var mesh_node : MeshInstance = $Mesh
 # -- Properties --
 
 # - The color used by the player -
-export (PlayerColors) var color
+export (PlayerColors) var color setget set_color, get_color
 
 
 # -- Variables --
+
+# - Stores the player color -
+var _color : int
 
 # - A Tween to animate the movement of the player to a new position -
 var move_tween : Tween
@@ -53,15 +56,23 @@ var move_tween : Tween
 
 # - Runs when scene is added to the scene tree
 func _ready() -> void:
-	# Check the value for the color
-	if not color in COLOR_MATERIAL:
-		color = PlayerColors.WHITE
-	# Set the material for the mesh to the color
-	var color_material : Material = COLOR_MATERIAL [color]
-	mesh_node.set_surface_material (0, color_material)
 	# Create the movement tween
 	move_tween = Tween.new ()
 	add_child (move_tween)
+
+# - Gets the player color -
+func get_color () -> int:
+	return _color
+
+# - Sets the player color -
+func set_color (value : int) -> void:
+	_color = value
+	# Check the value for the color
+	if not _color in COLOR_MATERIAL:
+		_color = PlayerColors.WHITE
+	# Set the material for the mesh to the color
+	var color_material : Material = COLOR_MATERIAL [_color]
+	$Mesh.set_surface_material (0, color_material)
 
 # - Set a target position the player should be moved to -
 func set_target_position (target : Vector3, animated : bool = true, speed : float = 0.25) -> void:

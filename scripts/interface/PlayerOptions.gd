@@ -34,6 +34,12 @@ export (bool) var player_removable = true setget set_player_removable, get_playe
 # - The set display mode -
 export (DisplayMode) var display_mode = DisplayMode.HIDDEN setget set_display_mode, get_display_mode
 
+# - The color chosen for the player -
+var chosen_color : int = 0 setget set_chosen_color, get_chosen_color
+
+# - The index for the player on this field
+var player_index : int = 0 setget set_player_index, get_player_index
+
 
 # -- Signals --
 
@@ -41,8 +47,17 @@ export (DisplayMode) var display_mode = DisplayMode.HIDDEN setget set_display_mo
 signal add_player ()
 signal remove_player ()
 
+# - Signaled when a color was chosen -
+signal color_chosen (index, color)
+
 
 # -- Variables --
+
+# - The color chosen for the player -
+var _chosen_color : int
+
+# - The index for this PlayerOptions -
+var _player_index : int
 
 # - Stores the player_removable -
 var _player_removable : bool
@@ -52,6 +67,22 @@ var _display_mode : int
 
 
 # -- Functions --
+
+# - Run at startup -
+func _ready () -> void:
+	# Connect the menu action for the color menu
+	var color_popup : PopupMenu = $PlayerDisplay/ActionPanel/ActionsContainer/ColorButton.get_popup ()
+	color_popup.connect ("id_pressed", self, "set_chosen_color")
+
+# - Gets the chosen color -
+func get_chosen_color () -> int:
+	return _chosen_color
+
+# - Sets the chosen color -
+func set_chosen_color (value : int) -> void:
+	_chosen_color = value
+	$PlayerDisplay/PlayerContainer/PlayerViewport/Player.color = _chosen_color
+	emit_signal("color_chosen", _player_index, _chosen_color)
 
 # - Gets if the player can be removed -
 func get_player_removable () -> bool:
@@ -79,6 +110,15 @@ func set_display_mode (value : int) -> void:
 	# Set the controls visibilty
 	$AddButton.visible = _display_mode == DisplayMode.ADD
 	$PlayerDisplay.visible = _display_mode == DisplayMode.OPTIONS
+
+# - Get the display mode -
+func get_player_index () -> int:
+	return _player_index
+
+# - Set the display mode -
+func set_player_index (value : int) -> void:
+	_player_index = value
+	$PlayerDisplay/ActionPanel/ActionsContainer/PlayerLabel.text = "Spieler " + str (_player_index + 1)
 
 # - Activated when the AddButton is pressed -
 func _on_add_player () -> void:

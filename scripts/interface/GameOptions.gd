@@ -47,6 +47,15 @@ var _player_count : int
 # - Run at startup -
 func _ready() -> void:
 	set_player_count (DEFAULT_PLAYER_COUNT)
+	# Set the player index and default color
+	for i in range (len (player_options)):
+		var option : Control = player_options [i]
+		option.player_index = i
+		option.chosen_color = i
+
+# - Avoids that one color is used multiple times -
+func update_player_colors () -> void:
+	pass
 
 # - Gets the player count -
 func get_player_count () -> int:
