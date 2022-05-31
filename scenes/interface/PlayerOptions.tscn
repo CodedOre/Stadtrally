@@ -1,25 +1,29 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/game/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://resources/interface/themes/PlayerOptionsTheme.tres" type="Theme" id=2]
+[ext_resource path="res://resources/interface/styles/PlayerOptions/ActionPanelStyle.tres" type="StyleBox" id=3]
+[ext_resource path="res://resources/interface/icons/remove.svg" type="Texture" id=4]
 
 [node name="PlayerOptions" type="PanelContainer"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -103.0
-margin_top = -135.0
-margin_right = 103.0
-margin_bottom = 135.0
+margin_left = -120.0
+margin_top = -160.0
+margin_right = 120.0
+margin_bottom = 160.0
+theme = ExtResource( 2 )
 
 [node name="PlayerContainer" type="ViewportContainer" parent="."]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 199.0
-margin_bottom = 263.0
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 243.0
+margin_bottom = 323.0
 
 [node name="PlayerViewport" type="Viewport" parent="PlayerContainer"]
-size = Vector2( 192, 256 )
+size = Vector2( 240, 320 )
 transparent_bg = true
 handle_input_locally = false
 render_target_update_mode = 3
@@ -34,22 +38,29 @@ transform = Transform( 1, 0, 0, 0, 0.990268, 0.139173, 0, -0.139173, 0.990268, 0
 [node name="PlayerLight" type="DirectionalLight" parent="PlayerContainer/PlayerViewport"]
 transform = Transform( 0.642788, -0.439385, 0.627507, 0, 0.819152, 0.573577, -0.766044, -0.368688, 0.526541, 0, 0, 0 )
 
-[node name="ActionsContainer" type="HBoxContainer" parent="."]
-margin_left = 7.0
-margin_top = 243.0
-margin_right = 199.0
-margin_bottom = 263.0
+[node name="ActionPanel" type="PanelContainer" parent="."]
+margin_left = 3.0
+margin_top = 253.0
+margin_right = 243.0
+margin_bottom = 323.0
 size_flags_vertical = 8
+custom_styles/panel = ExtResource( 3 )
 
-[node name="PlayerLabel" type="Label" parent="ActionsContainer"]
-margin_top = 3.0
-margin_right = 124.0
-margin_bottom = 17.0
+[node name="ActionsContainer" type="HBoxContainer" parent="ActionPanel"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 232.0
+margin_bottom = 62.0
+
+[node name="PlayerLabel" type="Label" parent="ActionPanel/ActionsContainer"]
+margin_top = 10.0
+margin_right = 166.0
+margin_bottom = 43.0
 size_flags_horizontal = 3
 text = "Player 0"
 
-[node name="RemoveButton" type="Button" parent="ActionsContainer"]
-margin_left = 128.0
-margin_right = 192.0
-margin_bottom = 20.0
-text = "Remove"
+[node name="RemoveButton" type="Button" parent="ActionPanel/ActionsContainer"]
+margin_left = 170.0
+margin_right = 224.0
+margin_bottom = 54.0
+icon = ExtResource( 4 )

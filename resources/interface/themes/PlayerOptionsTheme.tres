@@ -1,0 +1,21 @@
+[gd_resource type="Theme" load_steps=8 format=2]
+
+[ext_resource path="res://resources/interface/styles/PlayerOptions/PanelStyle.tres" type="StyleBox" id=1]
+[ext_resource path="res://resources/interface/fonts/Aleo regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://resources/interface/styles/PlayerOptions/ButtonDisabledStyle.tres" type="StyleBox" id=3]
+[ext_resource path="res://resources/interface/styles/PlayerOptions/ButtonNormalStyle.tres" type="StyleBox" id=4]
+[ext_resource path="res://resources/interface/styles/PlayerOptions/ButtonHoverStyle.tres" type="StyleBox" id=5]
+[ext_resource path="res://resources/interface/styles/PlayerOptions/ButtonPressedStyle.tres" type="StyleBox" id=6]
+
+[sub_resource type="DynamicFont" id=3]
+resource_name = "Aleo Regular 32"
+size = 32
+font_data = ExtResource( 2 )
+
+[resource]
+default_font = SubResource( 3 )
+Button/styles/disabled = ExtResource( 3 )
+Button/styles/hover = ExtResource( 5 )
+Button/styles/normal = ExtResource( 4 )
+Button/styles/pressed = ExtResource( 6 )
+PanelContainer/styles/panel = ExtResource( 1 )

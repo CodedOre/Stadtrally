@@ -16,6 +16,16 @@ Licensed under the MIT \
 
 ## Resources
 
+### Interface Icons
+
+*Any file found in the folder [`resources/interface/icons`](./interface/fonts)*
+
+Icons used in the UI of the game, retrieved from the Gnome Icon Development Kit.
+
+Created by Gnome \
+Licensed under the CC0 1.0 Universal \
+[Link to the Gitlab Repository](https://gitlab.gnome.org/Teams/Design/icon-development-kit)
+
 ### Aleo Font
 
 *Any file found in the folder [`resources/interface/fonts`](https://github.com/CodedOre/Stadtrally/tree/main/resources/interface/fonts)*
