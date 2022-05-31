@@ -1,11 +1,13 @@
-[gd_resource type="Theme" load_steps=8 format=2]
+[gd_resource type="Theme" load_steps=10 format=2]
 
 [ext_resource path="res://resources/interface/fonts/Aleo regular.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://resources/interface/styles/Base/PanelStyle.tres" type="StyleBox" id=3]
+[ext_resource path="res://resources/interface/styles/Base/PanelStyle.tres" type="StyleBox" id=2]
+[ext_resource path="res://resources/interface/styles/Base/MenuPanelStyle.tres" type="StyleBox" id=3]
 [ext_resource path="res://resources/interface/styles/Base/ButtonHoverStyle.tres" type="StyleBox" id=4]
 [ext_resource path="res://resources/interface/styles/Base/ButtonDisabledStyle.tres" type="StyleBox" id=5]
 [ext_resource path="res://resources/interface/styles/Base/ButtonNormalStyle.tres" type="StyleBox" id=6]
 [ext_resource path="res://resources/interface/styles/Base/ButtonPressedStyle.tres" type="StyleBox" id=7]
+[ext_resource path="res://resources/interface/styles/Base/MenuHoverStyle.tres" type="StyleBox" id=8]
 
 [sub_resource type="DynamicFont" id=3]
 resource_name = "Aleo Regular 32"
@@ -24,6 +26,8 @@ Button/styles/hover = ExtResource( 4 )
 Button/styles/normal = ExtResource( 6 )
 Button/styles/pressed = ExtResource( 7 )
 HBoxContainer/constants/separation = 20
-PanelContainer/styles/panel = ExtResource( 3 )
-PopupDialog/styles/panel = ExtResource( 3 )
+PanelContainer/styles/panel = ExtResource( 2 )
+PopupDialog/styles/panel = ExtResource( 2 )
+PopupMenu/styles/hover = ExtResource( 8 )
+PopupMenu/styles/panel = ExtResource( 3 )
 VBoxContainer/constants/separation = 16
