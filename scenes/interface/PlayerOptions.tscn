@@ -1,0 +1,114 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scenes/game/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://resources/interface/themes/PlayerOptionsTheme.tres" type="Theme" id=2]
+[ext_resource path="res://resources/interface/styles/PlayerOptions/ActionPanelStyle.tres" type="StyleBox" id=3]
+[ext_resource path="res://resources/interface/icons/remove.svg" type="Texture" id=4]
+[ext_resource path="res://resources/interface/themes/BaseTheme.tres" type="Theme" id=5]
+[ext_resource path="res://scripts/interface/PlayerOptions.gd" type="Script" id=6]
+[ext_resource path="res://resources/interface/icons/color.svg" type="Texture" id=10]
+
+[node name="PlayerOptions" type="AspectRatioContainer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -123.0
+margin_top = -163.0
+margin_right = 123.0
+margin_bottom = 163.0
+theme = ExtResource( 5 )
+ratio = 0.755
+stretch_mode = 0
+script = ExtResource( 6 )
+
+[node name="HiddenContainer" type="MarginContainer" parent="."]
+margin_right = 246.0
+margin_bottom = 326.0
+custom_constants/margin_right = 123
+custom_constants/margin_top = 163
+custom_constants/margin_left = 123
+custom_constants/margin_bottom = 163
+
+[node name="AddButton" type="Button" parent="."]
+margin_top = 0.0860901
+margin_right = 246.0
+margin_bottom = 325.914
+text = "Add Player"
+
+[node name="PlayerDisplay" type="PanelContainer" parent="."]
+margin_right = 246.0
+margin_bottom = 326.0
+theme = ExtResource( 2 )
+
+[node name="PlayerContainer" type="ViewportContainer" parent="PlayerDisplay"]
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 243.0
+margin_bottom = 323.0
+
+[node name="PlayerViewport" type="Viewport" parent="PlayerDisplay/PlayerContainer"]
+size = Vector2( 240, 320 )
+own_world = true
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 3
+gui_disable_input = true
+
+[node name="Player" parent="PlayerDisplay/PlayerContainer/PlayerViewport" instance=ExtResource( 1 )]
+color = 3
+
+[node name="PlayerCamera" type="Camera" parent="PlayerDisplay/PlayerContainer/PlayerViewport"]
+transform = Transform( 1, 0, 0, 0, 0.990268, 0.139173, 0, -0.139173, 0.990268, 0, 3.2, 6 )
+
+[node name="PlayerLight" type="DirectionalLight" parent="PlayerDisplay/PlayerContainer/PlayerViewport"]
+transform = Transform( 0.642788, -0.439385, 0.627507, 0, 0.819152, 0.573577, -0.766044, -0.368688, 0.526541, 0, 0, 0 )
+
+[node name="RemovePositioner" type="MarginContainer" parent="PlayerDisplay"]
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 243.0
+margin_bottom = 323.0
+
+[node name="RemoveButton" type="Button" parent="PlayerDisplay/RemovePositioner"]
+margin_left = 178.0
+margin_top = 8.0
+margin_right = 232.0
+margin_bottom = 62.0
+hint_tooltip = "Spieler entfernen"
+size_flags_horizontal = 10
+size_flags_vertical = 0
+icon = ExtResource( 4 )
+
+[node name="ActionPanel" type="PanelContainer" parent="PlayerDisplay"]
+margin_left = 3.0
+margin_top = 253.0
+margin_right = 243.0
+margin_bottom = 323.0
+size_flags_vertical = 8
+custom_styles/panel = ExtResource( 3 )
+
+[node name="ActionsContainer" type="HBoxContainer" parent="PlayerDisplay/ActionPanel"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 232.0
+margin_bottom = 62.0
+
+[node name="PlayerLabel" type="Label" parent="PlayerDisplay/ActionPanel/ActionsContainer"]
+margin_top = 10.0
+margin_right = 162.0
+margin_bottom = 43.0
+size_flags_horizontal = 3
+text = "Player 0"
+
+[node name="ColorButton" type="MenuButton" parent="PlayerDisplay/ActionPanel/ActionsContainer"]
+margin_left = 170.0
+margin_right = 224.0
+margin_bottom = 54.0
+hint_tooltip = "Spielerfarbe"
+icon = ExtResource( 10 )
+flat = false
+items = [ "Weiß", null, 0, false, false, 0, 0, null, "", false, "Blau", null, 0, false, false, 1, 0, null, "", false, "Grün", null, 0, false, false, 2, 0, null, "", false, "Rot", null, 0, false, false, 3, 0, null, "", false, "Gelb", null, 0, false, false, 4, 0, null, "", false, "Lila", null, 0, false, false, 5, 0, null, "", false ]
+
+[connection signal="pressed" from="AddButton" to="." method="_on_add_player"]
+[connection signal="pressed" from="PlayerDisplay/RemovePositioner/RemoveButton" to="." method="_on_remove_player"]

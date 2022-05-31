@@ -1,0 +1,145 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://resources/interface/themes/BaseTheme.tres" type="Theme" id=1]
+[ext_resource path="res://scenes/interface/PlayerOptions.tscn" type="PackedScene" id=2]
+[ext_resource path="res://resources/interface/fonts/Aleo 700.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://scripts/interface/GameOptions.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+resource_name = "Aleo Bold 64"
+size = 64
+font_data = ExtResource( 3 )
+
+[node name="GameOptions" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 45.0
+margin_top = 45.0
+margin_right = -45.0
+margin_bottom = -45.0
+theme = ExtResource( 1 )
+script = ExtResource( 4 )
+
+[node name="Titel" type="Label" parent="."]
+margin_right = 1350.0
+margin_bottom = 65.0
+rect_pivot_offset = Vector2( -1289, -160 )
+custom_fonts/font = SubResource( 1 )
+text = "Neues Spiel"
+
+[node name="OptionsContainer" type="HBoxContainer" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -363.0
+margin_right = 1350.0
+margin_bottom = 363.0
+
+[node name="PlayerPanel" type="PanelContainer" parent="OptionsContainer"]
+margin_right = 816.0
+margin_bottom = 726.0
+
+[node name="PlayerGrid" type="GridContainer" parent="OptionsContainer/PlayerPanel"]
+margin_left = 35.0
+margin_top = 35.0
+margin_right = 781.0
+margin_bottom = 691.0
+columns = 3
+
+[node name="PlayerOptions1" parent="OptionsContainer/PlayerPanel/PlayerGrid" instance=ExtResource( 2 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 246.0
+margin_bottom = 326.0
+player_removable = false
+
+[node name="PlayerOptions2" parent="OptionsContainer/PlayerPanel/PlayerGrid" instance=ExtResource( 2 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 250.0
+margin_top = 0.0
+margin_right = 496.0
+margin_bottom = 326.0
+
+[node name="PlayerOptions3" parent="OptionsContainer/PlayerPanel/PlayerGrid" instance=ExtResource( 2 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 500.0
+margin_top = 0.0
+margin_right = 746.0
+margin_bottom = 326.0
+
+[node name="PlayerOptions4" parent="OptionsContainer/PlayerPanel/PlayerGrid" instance=ExtResource( 2 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 330.0
+margin_right = 246.0
+margin_bottom = 656.0
+
+[node name="PlayerOptions5" parent="OptionsContainer/PlayerPanel/PlayerGrid" instance=ExtResource( 2 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 250.0
+margin_top = 330.0
+margin_right = 496.0
+margin_bottom = 656.0
+
+[node name="PlayerOptions6" parent="OptionsContainer/PlayerPanel/PlayerGrid" instance=ExtResource( 2 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 500.0
+margin_top = 330.0
+margin_right = 746.0
+margin_bottom = 656.0
+
+[node name="ActionsContainer" type="VBoxContainer" parent="OptionsContainer"]
+margin_left = 836.0
+margin_right = 1054.0
+margin_bottom = 726.0
+
+[node name="StartButton" type="Button" parent="OptionsContainer/ActionsContainer"]
+margin_top = 564.0
+margin_right = 218.0
+margin_bottom = 637.0
+size_flags_vertical = 10
+text = "Spiel starten"
+
+[node name="BackButton" type="Button" parent="OptionsContainer/ActionsContainer"]
+margin_top = 653.0
+margin_right = 218.0
+margin_bottom = 726.0
+text = "Zurück"
+
+[connection signal="add_player" from="OptionsContainer/PlayerPanel/PlayerGrid/PlayerOptions1" to="." method="update_player_count" binds= [ 1 ]]
+[connection signal="color_chosen" from="OptionsContainer/PlayerPanel/PlayerGrid/PlayerOptions1" to="." method="update_player_colors"]
+[connection signal="remove_player" from="OptionsContainer/PlayerPanel/PlayerGrid/PlayerOptions1" to="." method="update_player_count" binds= [ -1 ]]
+[connection signal="add_player" from="OptionsContainer/PlayerPanel/PlayerGrid/PlayerOptions2" to="." method="update_player_count" binds= [ 1 ]]
+[connection signal="color_chosen" from="OptionsContainer/PlayerPanel/PlayerGrid/PlayerOptions2" to="." method="update_player_colors"]
+[connection signal="remove_player" from="OptionsContainer/PlayerPanel/PlayerGrid/PlayerOptions2" to="." method="update_player_count" binds= [ -1 ]]
+[connection signal="add_player" from="OptionsContainer/PlayerPanel/PlayerGrid/PlayerOptions3" to="." method="update_player_count" binds= [ 1 ]]
+[connection signal="color_chosen" from="OptionsContainer/PlayerPanel/PlayerGrid/PlayerOptions3" to="." method="update_player_colors"]
+[connection signal="remove_player" from="OptionsContainer/PlayerPanel/PlayerGrid/PlayerOptions3" to="." method="update_player_count" binds= [ -1 ]]
+[connection signal="add_player" from="OptionsContainer/PlayerPanel/PlayerGrid/PlayerOptions4" to="." method="update_player_count" binds= [ 1 ]]
+[connection signal="color_chosen" from="OptionsContainer/PlayerPanel/PlayerGrid/PlayerOptions4" to="." method="update_player_colors"]
+[connection signal="remove_player" from="OptionsContainer/PlayerPanel/PlayerGrid/PlayerOptions4" to="." method="update_player_count" binds= [ -1 ]]
+[connection signal="add_player" from="OptionsContainer/PlayerPanel/PlayerGrid/PlayerOptions5" to="." method="update_player_count" binds= [ 1 ]]
+[connection signal="color_chosen" from="OptionsContainer/PlayerPanel/PlayerGrid/PlayerOptions5" to="." method="update_player_colors"]
+[connection signal="remove_player" from="OptionsContainer/PlayerPanel/PlayerGrid/PlayerOptions5" to="." method="update_player_count" binds= [ -1 ]]
+[connection signal="add_player" from="OptionsContainer/PlayerPanel/PlayerGrid/PlayerOptions6" to="." method="update_player_count" binds= [ 1 ]]
+[connection signal="color_chosen" from="OptionsContainer/PlayerPanel/PlayerGrid/PlayerOptions6" to="." method="update_player_colors"]
+[connection signal="remove_player" from="OptionsContainer/PlayerPanel/PlayerGrid/PlayerOptions6" to="." method="update_player_count" binds= [ -1 ]]
+[connection signal="pressed" from="OptionsContainer/ActionsContainer/BackButton" to="." method="_on_back_pressed"]

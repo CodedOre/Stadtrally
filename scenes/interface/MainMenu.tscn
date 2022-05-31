@@ -13,51 +13,49 @@ font_data = ExtResource( 2 )
 [sub_resource type="StyleBoxEmpty" id=2]
 resource_name = "SpacingSeparator"
 
-[node name="MainMenu" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-theme = ExtResource( 1 )
-script = ExtResource( 4 )
-
-[node name="MenuContainer" type="VBoxContainer" parent="."]
+[node name="MainMenu" type="VBoxContainer"]
 anchor_bottom = 1.0
 margin_left = 45.0
 margin_top = 45.0
 margin_right = 445.0
 margin_bottom = -45.0
+theme = ExtResource( 1 )
+script = ExtResource( 4 )
 
-[node name="Titel" type="Label" parent="MenuContainer"]
+[node name="Titel" type="Label" parent="."]
 margin_right = 400.0
 margin_bottom = 65.0
 custom_fonts/font = SubResource( 1 )
 text = "Stadtrally"
 
-[node name="TitleButtonSeparator" type="HSeparator" parent="MenuContainer"]
+[node name="TitleButtonSeparator" type="HSeparator" parent="."]
 margin_top = 81.0
 margin_right = 400.0
 margin_bottom = 101.0
 custom_constants/separation = 20
 custom_styles/separator = SubResource( 2 )
 
-[node name="StartButton" type="Button" parent="MenuContainer"]
+[node name="StartButton" type="Button" parent="."]
 margin_top = 117.0
 margin_right = 400.0
 margin_bottom = 190.0
 text = "Spiel Starten"
 
-[node name="SettingsButton" type="Button" parent="MenuContainer"]
+[node name="SettingsButton" type="Button" parent="."]
 margin_top = 206.0
 margin_right = 400.0
 margin_bottom = 279.0
+disabled = true
 text = "Einstellungen"
 
-[node name="CreditsButton" type="Button" parent="MenuContainer"]
+[node name="CreditsButton" type="Button" parent="."]
 margin_top = 295.0
 margin_right = 400.0
 margin_bottom = 368.0
+disabled = true
 text = "Credits"
 
-[node name="CloseButton" type="Button" parent="MenuContainer"]
+[node name="CloseButton" type="Button" parent="."]
 margin_top = 917.0
 margin_right = 400.0
 margin_bottom = 990.0
@@ -65,4 +63,5 @@ size_flags_vertical = 10
 theme = ExtResource( 3 )
 text = "Spiel Beenden"
 
-[connection signal="pressed" from="MenuContainer/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="StartButton" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]

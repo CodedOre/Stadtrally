@@ -1,17 +1,13 @@
 [gd_resource type="StyleBoxFlat" format=2]
 
 [resource]
-resource_name = "PanelStyle"
-content_margin_left = 45.0
-content_margin_right = 45.0
-content_margin_top = 45.0
-content_margin_bottom = 45.0
-bg_color = Color( 0.1625, 0.196042, 0.25, 0.784314 )
+resource_name = "ButtonHoverStyle"
+bg_color = Color( 0.196078, 0.239216, 0.301961, 0.784314 )
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
 border_width_bottom = 3
-border_color = Color( 0.129412, 0.156863, 0.2, 1 )
+border_color = Color( 0.86, 0.916, 1, 1 )
 corner_radius_top_left = 6
 corner_radius_top_right = 6
 corner_radius_bottom_right = 6
