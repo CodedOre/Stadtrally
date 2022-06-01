@@ -1,0 +1,127 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://resources/interface/themes/BaseTheme.tres" type="Theme" id=1]
+[ext_resource path="res://resources/interface/styles/Status/StatusPanelStyle.tres" type="StyleBox" id=2]
+[ext_resource path="res://scenes/interface/ScorePoint.tscn" type="PackedScene" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+resource_name = "Spacer"
+
+[node name="ScoreRow" type="PanelContainer"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -619.0
+margin_top = -39.0
+margin_bottom = 39.0
+theme = ExtResource( 1 )
+custom_styles/panel = ExtResource( 2 )
+
+[node name="ScoreContainer" type="HBoxContainer" parent="."]
+margin_left = 15.0
+margin_top = 15.0
+margin_right = 604.0
+margin_bottom = 63.0
+custom_constants/separation = 8
+alignment = 1
+
+[node name="PlayerLabel" type="Label" parent="ScoreContainer"]
+margin_top = 7.0
+margin_right = 129.0
+margin_bottom = 40.0
+text = "Spieler X"
+
+[node name="ScoreSeparator" type="VSeparator" parent="ScoreContainer"]
+margin_left = 137.0
+margin_right = 141.0
+margin_bottom = 48.0
+custom_styles/separator = SubResource( 1 )
+
+[node name="DEMOScorePoint1" parent="ScoreContainer" instance=ExtResource( 3 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 149.0
+margin_top = 0.0
+margin_right = 197.0
+margin_bottom = 48.0
+point_index = 1
+
+[node name="DEMOScorePoint2" parent="ScoreContainer" instance=ExtResource( 3 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 205.0
+margin_top = 0.0
+margin_right = 253.0
+margin_bottom = 48.0
+point_index = 2
+
+[node name="DEMOScorePoint3" parent="ScoreContainer" instance=ExtResource( 3 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 261.0
+margin_top = 0.0
+margin_right = 309.0
+margin_bottom = 48.0
+point_index = 3
+
+[node name="DEMOScorePoint4" parent="ScoreContainer" instance=ExtResource( 3 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 317.0
+margin_top = 0.0
+margin_right = 365.0
+margin_bottom = 48.0
+point_index = 4
+
+[node name="DEMOScorePoint5" parent="ScoreContainer" instance=ExtResource( 3 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 373.0
+margin_top = 0.0
+margin_right = 421.0
+margin_bottom = 48.0
+point_index = 5
+
+[node name="DEMOScorePoint6" parent="ScoreContainer" instance=ExtResource( 3 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 429.0
+margin_top = 0.0
+margin_right = 477.0
+margin_bottom = 48.0
+point_index = 6
+
+[node name="DEMOScorePoint7" parent="ScoreContainer" instance=ExtResource( 3 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 485.0
+margin_top = 0.0
+margin_right = 533.0
+margin_bottom = 48.0
+point_index = 7
+
+[node name="DEMOScorePoint8" parent="ScoreContainer" instance=ExtResource( 3 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 541.0
+margin_top = 0.0
+margin_right = 589.0
+margin_bottom = 48.0
+point_index = 8

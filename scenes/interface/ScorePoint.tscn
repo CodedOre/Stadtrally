@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://resources/interface/themes/BaseTheme.tres" type="Theme" id=1]
+[ext_resource path="res://resources/interface/icons/ScorePoints/frame.svg" type="Texture" id=2]
+[ext_resource path="res://resources/interface/icons/ScorePoints/solved.svg" type="Texture" id=3]
+[ext_resource path="res://scripts/interface/ScorePoint.gd" type="Script" id=4]
+
+[node name="ScorePoint" type="MarginContainer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -24.0
+margin_top = -24.0
+margin_right = 24.0
+margin_bottom = 24.0
+theme = ExtResource( 1 )
+script = ExtResource( 4 )
+
+[node name="PointFrame" type="TextureRect" parent="."]
+margin_right = 48.0
+margin_bottom = 48.0
+texture = ExtResource( 2 )
+
+[node name="LabelMargin" type="MarginContainer" parent="."]
+margin_right = 48.0
+margin_bottom = 48.0
+custom_constants/margin_top = 5
+
+[node name="PointLabel" type="Label" parent="LabelMargin"]
+margin_top = 10.0
+margin_right = 48.0
+margin_bottom = 43.0
+text = "0"
+align = 1
+valign = 1
+clip_text = true
+
+[node name="SolvedTexture" type="TextureRect" parent="."]
+visible = false
+margin_right = 48.0
+margin_bottom = 48.0
+texture = ExtResource( 3 )
