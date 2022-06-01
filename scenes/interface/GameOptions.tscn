@@ -142,4 +142,5 @@ text = "Zurück"
 [connection signal="add_player" from="OptionsContainer/PlayerPanel/PlayerGrid/PlayerOptions6" to="." method="update_player_count" binds= [ 1 ]]
 [connection signal="color_chosen" from="OptionsContainer/PlayerPanel/PlayerGrid/PlayerOptions6" to="." method="update_player_colors"]
 [connection signal="remove_player" from="OptionsContainer/PlayerPanel/PlayerGrid/PlayerOptions6" to="." method="update_player_count" binds= [ -1 ]]
+[connection signal="pressed" from="OptionsContainer/ActionsContainer/StartButton" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="OptionsContainer/ActionsContainer/BackButton" to="." method="_on_back_pressed"]

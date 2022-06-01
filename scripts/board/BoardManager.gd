@@ -70,15 +70,15 @@ func _process (delta: float) -> void:
 # - Generate the move set for a board -
 func generate_move_set () -> void:
 	# Create a new move graph
-	var created_graph : AStar = AStar.new ()
-	var created_pos_index : Dictionary = {}
+	__move_graph = AStar.new ()
+	__position_index = {}
 	# Add all positions to the graph
 	var pos_index : int = 0
 	for position in get_tree ().get_nodes_in_group ("Position"):
 		pos_index += 1
-		created_pos_index [position] = pos_index
+		__position_index [position] = pos_index
 		var pos_origin : Vector3 = position.global_transform.origin
-		created_graph.add_point (pos_index, pos_origin)
+		__move_graph.add_point (pos_index, pos_origin)
 	# Connect all points in the graph
 	for connection in get_tree ().get_nodes_in_group ("Connection"):
 		# Get the positions for the connection
@@ -88,10 +88,7 @@ func generate_move_set () -> void:
 		var pos_one_index : int = __get_index_for_position (position_one)
 		var pos_two_index : int = __get_index_for_position (position_two)
 		# Create the connection in the graph
-		created_graph.connect_points (pos_one_index, pos_two_index)
-	# Assign move graph and position index globally
-	__move_graph = created_graph
-	__position_index = created_pos_index
+		__move_graph.connect_points (pos_one_index, pos_two_index)
 
 # - Get the start position for the players -
 func set_start_positions (all_players : Array) -> void:
