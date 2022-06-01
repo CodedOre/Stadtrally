@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=10 format=2]
+[gd_resource type="Theme" load_steps=12 format=2]
 
 [ext_resource path="res://resources/interface/fonts/Aleo regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://resources/interface/styles/Base/PanelStyle.tres" type="StyleBox" id=2]
@@ -8,6 +8,12 @@
 [ext_resource path="res://resources/interface/styles/Base/ButtonNormalStyle.tres" type="StyleBox" id=6]
 [ext_resource path="res://resources/interface/styles/Base/ButtonPressedStyle.tres" type="StyleBox" id=7]
 [ext_resource path="res://resources/interface/styles/Base/MenuHoverStyle.tres" type="StyleBox" id=8]
+[ext_resource path="res://resources/interface/styles/Base/TooltipPanelStyle.tres" type="StyleBox" id=9]
+
+[sub_resource type="DynamicFont" id=4]
+resource_name = "Aleo Regular 28"
+size = 28
+font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=3]
 resource_name = "Aleo Regular 32"
@@ -30,4 +36,7 @@ PanelContainer/styles/panel = ExtResource( 2 )
 PopupDialog/styles/panel = ExtResource( 2 )
 PopupMenu/styles/hover = ExtResource( 8 )
 PopupMenu/styles/panel = ExtResource( 3 )
+TooltipLabel/colors/font_color = Color( 0.94902, 0.972549, 1, 1 )
+TooltipLabel/fonts/font = SubResource( 4 )
+TooltipPanel/styles/panel = ExtResource( 9 )
 VBoxContainer/constants/separation = 16

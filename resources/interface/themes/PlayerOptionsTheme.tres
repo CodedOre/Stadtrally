@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=12 format=2]
+[gd_resource type="Theme" load_steps=14 format=2]
 
 [ext_resource path="res://resources/interface/styles/PlayerOptions/PanelStyle.tres" type="StyleBox" id=1]
 [ext_resource path="res://resources/interface/fonts/Aleo regular.ttf" type="DynamicFontData" id=2]
@@ -10,14 +10,20 @@
 [ext_resource path="res://resources/interface/styles/PlayerOptions/DestructiveButtonPressedStyle.tres" type="StyleBox" id=8]
 [ext_resource path="res://resources/interface/styles/PlayerOptions/ButtonDisabledStyle.tres" type="StyleBox" id=9]
 [ext_resource path="res://resources/interface/styles/PlayerOptions/ButtonNormalStyle.tres" type="StyleBox" id=10]
+[ext_resource path="res://resources/interface/styles/Base/TooltipPanelStyle.tres" type="StyleBox" id=11]
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=5]
+resource_name = "Aleo Regular 28"
+size = 28
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
 resource_name = "Aleo Regular 32"
 size = 32
 font_data = ExtResource( 2 )
 
 [resource]
-default_font = SubResource( 3 )
+default_font = SubResource( 4 )
 Button/styles/disabled = ExtResource( 3 )
 Button/styles/hover = ExtResource( 7 )
 Button/styles/normal = ExtResource( 4 )
@@ -32,3 +38,6 @@ MenuButton/styles/hover = ExtResource( 5 )
 MenuButton/styles/normal = ExtResource( 10 )
 MenuButton/styles/pressed = ExtResource( 6 )
 PanelContainer/styles/panel = ExtResource( 1 )
+TooltipLabel/colors/font_color = Color( 0.94902, 0.972549, 1, 1 )
+TooltipLabel/fonts/font = SubResource( 5 )
+TooltipPanel/styles/panel = ExtResource( 11 )
