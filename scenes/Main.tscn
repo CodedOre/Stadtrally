@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/ClosingDialog.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/interface/MainMenu.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/interface/GameOptions.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scripts/Main.gd" type="Script" id=4]
+[ext_resource path="res://scenes/game/RallyGame.tscn" type="PackedScene" id=5]
 
 [node name="Main" type="Node"]
 script = ExtResource( 4 )
@@ -13,7 +14,11 @@ script = ExtResource( 4 )
 [node name="GameOptions" parent="." instance=ExtResource( 3 )]
 visible = false
 
+[node name="RallyGame" parent="." instance=ExtResource( 5 )]
+visible = false
+
 [node name="ClosingDialog" parent="." instance=ExtResource( 1 )]
 
 [connection signal="move_to_game_options" from="MainMenu" to="." method="set_display_mode" binds= [ 20 ]]
 [connection signal="move_to_main_menu" from="GameOptions" to="." method="set_display_mode" binds= [ 10 ]]
+[connection signal="start_new_game" from="GameOptions" to="." method="_on_new_game"]

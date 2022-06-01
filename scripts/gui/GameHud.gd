@@ -3,7 +3,7 @@
 # --- GameHud Script ---
 # Provides information about the game to the user.
 
-extends Control
+extends Node
 
 # -- Enums --
 

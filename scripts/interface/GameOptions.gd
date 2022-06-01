@@ -7,6 +7,12 @@ extends Control
 
 # -- Constants --
 
+# - The scene for the default board (as we don't allow to switch them) -
+const DEFAULT_BOARD : PackedScene = preload ("res://demo/DemoBoard.tscn")
+
+# - The scene for players (used to create new ones -
+const PLAYER_SCENE : PackedScene = preload ("res://scenes/game/Player.tscn")
+
 # - The default player count -
 const DEFAULT_PLAYER_COUNT : int = 1
 
@@ -34,6 +40,7 @@ var player_count : int setget set_player_count, get_player_count
 
 # - Signals to Main an new action -
 signal move_to_main_menu ()
+signal start_new_game (set_players, set_board)
 
 
 # -- Variables --
@@ -102,6 +109,23 @@ func set_player_count (value : int) -> void:
 func update_player_count (amount : int) -> void:
 	set_player_count (_player_count + amount)
 
+# - Get the active options and starts the game -
+func _on_start_pressed () -> void:
+	# Prepare the new game variables
+	var set_board : PackedScene = DEFAULT_BOARD
+	var set_players : Array = []
+	# Get all player options that are active
+	for option in player_options:
+		# Check if option has an configured player
+		if option.display_mode == option.DisplayMode.OPTIONS:
+			# Create new player and assign the correct properties
+			var player : KinematicBody = PLAYER_SCENE.instance ()
+			var set_options : Dictionary = option.get_player_options ()
+			player.set_color (set_options ["color"])
+			set_players.append (player)
+	# Signal the new game
+	emit_signal ("start_new_game", set_players, set_board)
+
 # - Moves back to the main menu -
-func _on_back_pressed() -> void:
+func _on_back_pressed () -> void:
 	emit_signal ("move_to_main_menu")

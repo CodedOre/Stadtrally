@@ -81,7 +81,6 @@ func set_target_position (target : Vector3, animated : bool = true, speed : floa
 		# Else just update position
 		global_transform.origin = target
 		return
-	print ("We speed at " + str (speed))
 	# Create the current and target transforms
 	var current_transform : Transform = global_transform
 	var target_transform : Transform = Transform (current_transform.basis, target)

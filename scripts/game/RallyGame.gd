@@ -17,16 +17,11 @@ const MOVES_PER_TURN : int = 2
 onready var board_manager : Node = $BoardManager
 
 # - The HUD showing informations -
-onready var game_hud : Control = $GameHud
+onready var game_hud : Node = $GameHud
 
 # - The dice for random numbers -
 onready var dice : Node = $Dice
 
-
-# -- Properties --
-
-# - The board to be used in the game -
-export (PackedScene) onready var game_board
 
 # -- Signals --
 
@@ -38,6 +33,9 @@ signal new_current_player (player, moves)
 
 # - The players that are playing the game -
 var __all_players : Array = []
+
+# - The current game board -
+var __game_board : Node = null
 
 # - Counts the turns in this game -
 var __current_turn : int = -1
@@ -52,24 +50,32 @@ var __current_moves : int = -1
 
 # -- Functions --
 
-# - Run on startup -
-func _ready () -> void:
+# - Begins a new game with a set of players and a board -
+func start_new_game (set_players : Array, board : PackedScene) -> void:
+	# Clean up when old data is present
+	if __game_board != null:
+		remove_child (__game_board)
+		__game_board = null
+	if len (__all_players) != 0:
+		for player in __all_players:
+			remove_child (player)
+			__all_players.erase (player)
+	if __current_player != null:
+		__current_player = null
 	# Initialize the board
-	var board : Node = game_board.instance ()
-	add_child (board)
+	__game_board = board.instance ()
+	add_child (__game_board)
 	board_manager.generate_move_set ()
-	# Note players in tree to use in the game
-	__all_players.append_array (get_tree ().get_nodes_in_group ("Player"))
+	# Set the players in the game
+	for player in set_players:
+		add_child (player)
+		__all_players.append (player)
 	# Set all players to the start position
 	board_manager.set_start_positions (__all_players)
-	# Begin the game
-	start_game ()
-
-# - Starts the game for the first time -
-func start_game () -> void:
+	# Set game state variables
 	__current_turn = 1
 	__current_id = 0
-	# Run non-specific turn code
+	# Start the turn
 	__on_new_turn ()
 
 # - Starts the turn for the next player (or a new one) -

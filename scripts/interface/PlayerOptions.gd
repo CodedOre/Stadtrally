@@ -124,6 +124,13 @@ func set_player_index (value : int) -> void:
 	_player_index = value
 	$PlayerDisplay/ActionPanel/ActionsContainer/PlayerLabel.text = "Spieler " + str (_player_index + 1)
 
+# - Get the options set for a player -
+func get_player_options () -> Dictionary:
+	var player : KinematicBody = $PlayerDisplay/PlayerContainer/PlayerViewport/Player
+	return {
+		"color": player.color
+	}
+
 # - Activated when the AddButton is pressed -
 func _on_add_player () -> void:
 	emit_signal ("add_player")
