@@ -17,7 +17,7 @@ const MOVES_PER_TURN : int = 2
 onready var board_manager : Node = $BoardManager
 
 # - The HUD showing informations -
-onready var game_hud : Control = $GameHud
+onready var game_hud : Node = $GameHud
 
 # - The dice for random numbers -
 onready var dice : Node = $Dice
