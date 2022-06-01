@@ -17,9 +17,10 @@ enum DisplayMode {
 
 # -- Nodes --
 
-# - Interface nodes -
+# - Game nodes -
 onready var main_menu : Control = $MainMenu
 onready var game_options : Control = $GameOptions
+onready var rally_game : Spatial = $RallyGame
 
 
 # -- Properties --
@@ -36,12 +37,19 @@ var _display_mode : int
 
 # -- Functions --
 
-# - Get and set the display mode -
+# - Gets the display mode -
 func get_display_mode () -> int:
 	return _display_mode
 
+# - Sets the display mode -
 func set_display_mode (value : int) -> void:
 	_display_mode = value
-	# Set the interface node visibilty
+	# Set the nodes visibilty
 	main_menu.visible = _display_mode == DisplayMode.MAIN_MENU
 	game_options.visible = _display_mode == DisplayMode.GAME_OPTIONS
+	rally_game.visible = _display_mode == DisplayMode.INGAME
+
+# - Starts a new game -
+func _on_new_game (set_players : Array, set_board : PackedScene) -> void:
+	set_display_mode (DisplayMode.INGAME)
+	rally_game.start_new_game (set_players, set_board)

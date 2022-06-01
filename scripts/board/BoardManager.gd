@@ -36,7 +36,7 @@ signal moves_taken (moves)
 var __position_index : Dictionary = {}
 
 # - The graph used for this board -
-var __move_graph : AStar = AStar.new ()
+var __move_graph : AStar = null
 
 # - The currently active player -
 var __current_player : KinematicBody = null
@@ -69,6 +69,9 @@ func _process (delta: float) -> void:
 
 # - Generate the move set for a board -
 func generate_move_set () -> void:
+	# Create a new move graph
+	__move_graph = AStar.new ()
+	__position_index = {}
 	# Add all positions to the graph
 	var pos_index : int = 0
 	for position in get_tree ().get_nodes_in_group ("Position"):

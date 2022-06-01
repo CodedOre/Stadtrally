@@ -42,7 +42,7 @@ var __input_mode : int = InputMode.NONE
 # -- Functions --
 
 # - Handle input events -
-func _input(event: InputEvent) -> void:
+func _unhandled_input (event: InputEvent) -> void:
 	# Handle mouse button events
 	if event is InputEventMouseButton:
 		# Left click (select or drag player)
