@@ -21,12 +21,12 @@ const DEFAULT_PLAYER_COUNT : int = 1
 
 # - All PlayerOptions for selectable players -
 onready var player_options : Array = [
-	$OptionsContainer/PlayerPanel/PlayerGrid/PlayerOptions1,
-	$OptionsContainer/PlayerPanel/PlayerGrid/PlayerOptions2,
-	$OptionsContainer/PlayerPanel/PlayerGrid/PlayerOptions3,
-	$OptionsContainer/PlayerPanel/PlayerGrid/PlayerOptions4,
-	$OptionsContainer/PlayerPanel/PlayerGrid/PlayerOptions5,
-	$OptionsContainer/PlayerPanel/PlayerGrid/PlayerOptions6
+	$MenuContainer/OptionsContainer/PlayerPanel/PlayerGrid/PlayerOptions1,
+	$MenuContainer/OptionsContainer/PlayerPanel/PlayerGrid/PlayerOptions2,
+	$MenuContainer/OptionsContainer/PlayerPanel/PlayerGrid/PlayerOptions3,
+	$MenuContainer/OptionsContainer/PlayerPanel/PlayerGrid/PlayerOptions4,
+	$MenuContainer/OptionsContainer/PlayerPanel/PlayerGrid/PlayerOptions5,
+	$MenuContainer/OptionsContainer/PlayerPanel/PlayerGrid/PlayerOptions6
 ]
 
 
