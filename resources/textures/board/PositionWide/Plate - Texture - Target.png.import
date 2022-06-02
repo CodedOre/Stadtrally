@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Plate - Texture - Start.png-6e6878da2c6f82bd0054d0a1657278ea.s3tc.stex"
-path.etc2="res://.import/Plate - Texture - Start.png-6e6878da2c6f82bd0054d0a1657278ea.etc2.stex"
+path.s3tc="res://.import/Plate - Texture - Target.png-5df1de96245e6f4a9f7aade2b0dfa1f3.s3tc.stex"
+path.etc2="res://.import/Plate - Texture - Target.png-5df1de96245e6f4a9f7aade2b0dfa1f3.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://resources/textures/board/PositionWide/Plate - Texture - Start.png"
-dest_files=[ "res://.import/Plate - Texture - Start.png-6e6878da2c6f82bd0054d0a1657278ea.s3tc.stex", "res://.import/Plate - Texture - Start.png-6e6878da2c6f82bd0054d0a1657278ea.etc2.stex" ]
+source_file="res://resources/textures/board/PositionWide/Plate - Texture - Target.png"
+dest_files=[ "res://.import/Plate - Texture - Target.png-5df1de96245e6f4a9f7aade2b0dfa1f3.s3tc.stex", "res://.import/Plate - Texture - Target.png-5df1de96245e6f4a9f7aade2b0dfa1f3.etc2.stex" ]
 
 [params]
 
