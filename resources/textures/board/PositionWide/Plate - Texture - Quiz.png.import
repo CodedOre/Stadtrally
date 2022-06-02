@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Plate - Texture.png-c2a1dd7fd4325645c7eb1ed8a9d7d773.s3tc.stex"
-path.etc2="res://.import/Plate - Texture.png-c2a1dd7fd4325645c7eb1ed8a9d7d773.etc2.stex"
+path.s3tc="res://.import/Plate - Texture - Quiz.png-39b094fd74ee41f2b5eee274193785c6.s3tc.stex"
+path.etc2="res://.import/Plate - Texture - Quiz.png-39b094fd74ee41f2b5eee274193785c6.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://resources/textures/board/PositionWide/Plate - Texture.png"
-dest_files=[ "res://.import/Plate - Texture.png-c2a1dd7fd4325645c7eb1ed8a9d7d773.s3tc.stex", "res://.import/Plate - Texture.png-c2a1dd7fd4325645c7eb1ed8a9d7d773.etc2.stex" ]
+source_file="res://resources/textures/board/PositionWide/Plate - Texture - Quiz.png"
+dest_files=[ "res://.import/Plate - Texture - Quiz.png-39b094fd74ee41f2b5eee274193785c6.s3tc.stex", "res://.import/Plate - Texture - Quiz.png-39b094fd74ee41f2b5eee274193785c6.etc2.stex" ]
 
 [params]
 
