@@ -19,7 +19,6 @@ player_positions = [ PoolVector3Array( 0, 0.2, 0 ), PoolVector3Array( 1.25, 0.2,
 
 [node name="PlateMesh" type="MeshInstance" parent="."]
 mesh = ExtResource( 1 )
-material/0 = null
 
 [node name="FrameMesh" type="MeshInstance" parent="."]
 visible = false

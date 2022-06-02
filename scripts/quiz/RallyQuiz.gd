@@ -9,6 +9,9 @@ extends Resource
 
 # -- Properties --
 
+# - The index for this question -
+export (int) var index
+
 # - What the quiz is about -
 export (String) var topic
 
@@ -25,7 +28,8 @@ var _questions : Array
 # -- Functions --
 
 # - Initializes the class -
-func _init (p_topic : String = "", p_questions : Array = []) -> void:
+func _init (p_index : int = 0, p_topic : String = "", p_questions : Array = []) -> void:
+	index = p_index
 	topic = p_topic
 	questions = p_questions
 

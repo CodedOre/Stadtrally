@@ -1,0 +1,29 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://scripts/quiz/RallyQuiz.gd" type="Script" id=1]
+[ext_resource path="res://scripts/quiz/QuizQuestion.gd" type="Script" id=2]
+
+[sub_resource type="Resource" id=4]
+script = ExtResource( 2 )
+text = "Welche dieser Antworten stellt den Fragesteller zufrieden?
+
+Es könnte die dritte sein..."
+answers = [ "Ich bin die Eins!", "Antwort Numero Duo", "Aller guten Dinge sind Drei!" ]
+correct_answer = 2
+context = "Test abgeschlossen!"
+
+[sub_resource type="Resource" id=5]
+script = ExtResource( 2 )
+text = "Ist diese Frage die zweite im Array für dieses Quiz?
+
+Auf der anderen Seite:
+Kannst du das eigentlich wissen?"
+answers = [ "Definitiv nicht die zweite...", "Es ist die Zweite.", "Sag du es mir..." ]
+correct_answer = 0
+context = ""
+
+[resource]
+script = ExtResource( 1 )
+index = 0
+topic = "Test-Quiz"
+questions = [ SubResource( 4 ), SubResource( 5 ) ]
