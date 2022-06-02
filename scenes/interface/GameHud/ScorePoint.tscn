@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://resources/interface/themes/ScoreRowTheme.tres" type="Theme" id=1]
-[ext_resource path="res://resources/interface/icons/ScorePoints/frame.svg" type="Texture" id=2]
-[ext_resource path="res://resources/interface/icons/ScorePoints/solved.svg" type="Texture" id=3]
+[ext_resource path="res://resources/interface/icons/ScorePoints/solved.svg" type="Texture" id=2]
+[ext_resource path="res://resources/interface/icons/ScorePoints/frame.svg" type="Texture" id=3]
 [ext_resource path="res://scripts/interface/ScorePoint.gd" type="Script" id=4]
 
 [node name="ScorePoint" type="MarginContainer"]
@@ -20,7 +20,7 @@ script = ExtResource( 4 )
 [node name="PointFrame" type="TextureRect" parent="."]
 margin_right = 32.0
 margin_bottom = 32.0
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="PointLabel" type="Label" parent="."]
 margin_right = 32.0
@@ -36,4 +36,4 @@ clip_text = true
 visible = false
 margin_right = 32.0
 margin_bottom = 32.0
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
