@@ -75,6 +75,8 @@ func start_new_game (set_players : Array, board : PackedScene) -> void:
 	# Set game state variables
 	__current_turn = 1
 	__current_id = 0
+	# Activate the game and hud
+	game_hud.active = true
 	# Start the turn
 	__on_new_turn ()
 
@@ -98,8 +100,7 @@ func __on_new_turn () -> void:
 	# Notify other nodes about the player
 	emit_signal ("new_current_player", __current_player, __current_moves)
 	# Update the information hud
-	game_hud.current_turn = __current_turn
-	game_hud.current_player = __current_id
+	game_hud.current_player = __current_id + 1
 	game_hud.left_moves = __current_moves
 	game_hud.next_status = game_hud.NextStatus.DEACTIVE
 
