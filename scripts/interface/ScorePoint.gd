@@ -30,7 +30,7 @@ func get_point_index () -> int:
 # - Sets the point index -
 func set_point_index (value : int) -> void:
 	_point_index = value
-	$LabelMargin/PointLabel.text = str (_point_index)
+	$PointLabel.text = str (_point_index)
 
 # - Gets if the point was given -
 func get_point_given () -> bool:

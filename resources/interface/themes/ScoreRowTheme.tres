@@ -1,0 +1,13 @@
+[gd_resource type="Theme" load_steps=4 format=2]
+
+[ext_resource path="res://resources/interface/styles/Status/StatusPanelStyle.tres" type="StyleBox" id=1]
+[ext_resource path="res://resources/interface/fonts/Aleo regular.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+resource_name = "Aleo Regular 22"
+size = 22
+font_data = ExtResource( 2 )
+
+[resource]
+default_font = SubResource( 1 )
+PanelContainer/styles/panel = ExtResource( 1 )
