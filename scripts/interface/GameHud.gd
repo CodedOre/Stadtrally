@@ -42,6 +42,9 @@ export (NextStatus) var next_status setget set_next_status, get_next_status
 
 # -- Signals --
 
+# - When the game should be exited -
+signal exit_game ()
+
 # - When the next button was pressed -
 signal next_action ()
 
@@ -129,3 +132,22 @@ func set_next_status (value : int) -> void:
 # - Run when the NextButton is pressed -
 func _on_next_action () -> void:
 	emit_signal ("next_action")
+
+# - When the pause button was pressed -
+func _on_pause () -> void:
+	# Display the pause menu
+	$PauseBackdrop.visible = true
+	$PausePopup.popup_centered ()
+
+# - Cancels the game closing -
+func _on_pause_closing () -> void:
+	$PausePopup.hide ()
+
+# - Remove backdrop when popup is closed -
+func _on_popup_closing () -> void:
+	$PauseBackdrop.visible = false
+
+# - Closes the game -
+func _on_game_exit () -> void:
+	_on_pause_closing ()
+	emit_signal ("exit_game")

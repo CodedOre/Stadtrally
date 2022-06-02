@@ -31,6 +31,7 @@ script = ExtResource( 8 )
 [connection signal="new_current_player" from="." to="GameInput/PlayerDrag" method="update_current_player"]
 [connection signal="new_current_player" from="." to="GameInput/PlayerClick" method="update_current_player"]
 [connection signal="moves_taken" from="BoardManager" to="." method="moves_taken"]
+[connection signal="exit_game" from="GameHud" to="." method="__on_game_stop"]
 [connection signal="next_action" from="GameHud" to="." method="continue_turn"]
 [connection signal="player_dragged" from="GameInput" to="GameInput/PlayerDrag" method="drag_player"]
 [connection signal="player_dragged" from="GameInput" to="GameInput/PlayerClick" method="on_drag_interrupt"]
