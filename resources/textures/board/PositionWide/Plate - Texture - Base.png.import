@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Plate.png-16da312f69dcf1a7a7b92f2807b9e535.s3tc.stex"
-path.etc2="res://.import/Plate.png-16da312f69dcf1a7a7b92f2807b9e535.etc2.stex"
+path.s3tc="res://.import/Plate - Texture - Base.png-b3d9c3b7784f98e5438665356015566d.s3tc.stex"
+path.etc2="res://.import/Plate - Texture - Base.png-b3d9c3b7784f98e5438665356015566d.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://resources/textures/board/Position/Plate.png"
-dest_files=[ "res://.import/Plate.png-16da312f69dcf1a7a7b92f2807b9e535.s3tc.stex", "res://.import/Plate.png-16da312f69dcf1a7a7b92f2807b9e535.etc2.stex" ]
+source_file="res://resources/textures/board/PositionWide/Plate - Texture - Base.png"
+dest_files=[ "res://.import/Plate - Texture - Base.png-b3d9c3b7784f98e5438665356015566d.s3tc.stex", "res://.import/Plate - Texture - Base.png-b3d9c3b7784f98e5438665356015566d.etc2.stex" ]
 
 [params]
 

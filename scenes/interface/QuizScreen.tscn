@@ -1,0 +1,81 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://resources/interface/themes/BaseTheme.tres" type="Theme" id=1]
+[ext_resource path="res://resources/interface/fonts/Aleo 700.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://scripts/interface/QuizScreen.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+resource_name = "Aleo Bold 64"
+size = 64
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+resource_name = "Aleo Bold 36"
+size = 36
+font_data = ExtResource( 2 )
+
+[node name="QuizScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 3 )
+
+[node name="QuizContainer" type="VBoxContainer" parent="."]
+anchor_bottom = 1.0
+margin_left = 45.0
+margin_top = 45.0
+margin_right = 689.0
+margin_bottom = -45.0
+
+[node name="TitleLabel" type="Label" parent="QuizContainer"]
+margin_right = 644.0
+margin_bottom = 65.0
+custom_fonts/font = SubResource( 1 )
+text = "Quiz-Frage X:"
+
+[node name="QuizPanel" type="PanelContainer" parent="QuizContainer"]
+margin_top = 81.0
+margin_right = 644.0
+margin_bottom = 990.0
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="VBoxContainer" parent="QuizContainer/QuizPanel"]
+margin_left = 35.0
+margin_top = 35.0
+margin_right = 609.0
+margin_bottom = 874.0
+
+[node name="TopicLabel" type="Label" parent="QuizContainer/QuizPanel/PanelContainer"]
+margin_right = 574.0
+margin_bottom = 37.0
+custom_fonts/font = SubResource( 2 )
+
+[node name="QuestionLabel" type="Label" parent="QuizContainer/QuizPanel/PanelContainer"]
+margin_top = 53.0
+margin_right = 574.0
+margin_bottom = 741.0
+size_flags_vertical = 3
+autowrap = true
+
+[node name="ResultLabel" type="Label" parent="QuizContainer/QuizPanel/PanelContainer"]
+margin_top = 757.0
+margin_right = 574.0
+margin_bottom = 790.0
+autowrap = true
+
+[node name="ContextLabel" type="Label" parent="QuizContainer/QuizPanel/PanelContainer"]
+margin_top = 806.0
+margin_right = 574.0
+margin_bottom = 839.0
+autowrap = true
+
+[node name="ContinueButton" type="Button" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -301.0
+margin_top = -118.0
+margin_right = -26.0
+margin_bottom = -45.0
+text = "Fortfahren"

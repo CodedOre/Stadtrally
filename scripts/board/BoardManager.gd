@@ -92,8 +92,8 @@ func generate_move_set () -> void:
 
 # - Get the start position for the players -
 func set_start_positions (all_players : Array) -> void:
-	# (Temporarly) get just the first position
-	var start_pos : Spatial = get_tree ().get_nodes_in_group ("Position") [0]
+	# Place the players on the (first) start position
+	var start_pos : Spatial = get_tree ().get_nodes_in_group ("StartPosition") [0]
 	for player in all_players:
 		move_to_position (player, start_pos)
 
