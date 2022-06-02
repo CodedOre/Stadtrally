@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/board/Position.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/board/PositionWide.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/board/Connection.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/board/QuizPosition.tscn" type="PackedScene" id=4]
 [ext_resource path="res://demo/DemoQuiz.tres" type="Resource" id=5]
+[ext_resource path="res://scenes/board/TargetPosition.tscn" type="PackedScene" id=6]
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 64, 0.2, 64 )
@@ -38,19 +38,14 @@ transform = Transform( 0.707107, -0.415627, 0.572061, 0, 0.809017, 0.587785, -0.
 
 [node name="ExampleGame" type="Node" parent="."]
 
-[node name="PositionWide1" parent="ExampleGame" instance=ExtResource( 2 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -21, 0, 0 )
-color_current = Color( 0, 0, 0, 1 )
-color_partial_move = Color( 0, 0, 0, 1 )
-color_full_move = Color( 0, 0, 0, 1 )
-color_wrong = Color( 0, 0, 0, 1 )
+[node name="StartPosition" parent="ExampleGame" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -21, 0, 0 )
+location = "Du startest hier!"
 
-[node name="PositionWide2" parent="ExampleGame" instance=ExtResource( 2 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21, 0, 0 )
-color_current = Color( 0, 0, 0, 1 )
-color_partial_move = Color( 0, 0, 0, 1 )
-color_full_move = Color( 0, 0, 0, 1 )
-color_wrong = Color( 0, 0, 0, 1 )
+[node name="FinishPosition" parent="ExampleGame" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 21, 0, 0 )
+target_type = 1
+location = "Komme hierhin!"
 
 [node name="QuizPosition" parent="ExampleGame" instance=ExtResource( 4 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 18 )
@@ -111,6 +106,12 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, 18 )
 
 [node name="Position21" parent="ExampleGame" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, 9 )
+
+[node name="Position22" parent="ExampleGame" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, 9 )
+
+[node name="Position23" parent="ExampleGame" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, 18 )
 
 [node name="Connection" parent="ExampleGame" instance=ExtResource( 3 )]
 position_1 = NodePath("../Position5")
@@ -197,9 +198,17 @@ position_1 = NodePath("../Position9")
 position_2 = NodePath("../Position6")
 
 [node name="Connection23" parent="ExampleGame" instance=ExtResource( 3 )]
-position_1 = NodePath("../PositionWide1")
+position_1 = NodePath("../StartPosition")
 position_2 = NodePath("../Position2")
 
 [node name="Connection24" parent="ExampleGame" instance=ExtResource( 3 )]
-position_1 = NodePath("../PositionWide2")
+position_1 = NodePath("../FinishPosition")
 position_2 = NodePath("../Position8")
+
+[node name="Connection6" parent="ExampleGame" instance=ExtResource( 3 )]
+position_1 = NodePath("../Position21")
+position_2 = NodePath("../Position22")
+
+[node name="Connection25" parent="ExampleGame" instance=ExtResource( 3 )]
+position_1 = NodePath("../Position22")
+position_2 = NodePath("../Position23")
