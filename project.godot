@@ -8,6 +8,22 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Resource",
+"class": "QuizQuestion",
+"language": "GDScript",
+"path": "res://scripts/quiz/QuizQuestion.gd"
+}, {
+"base": "Resource",
+"class": "RallyQuiz",
+"language": "GDScript",
+"path": "res://scripts/quiz/RallyQuiz.gd"
+} ]
+_global_script_class_icons={
+"QuizQuestion": "",
+"RallyQuiz": ""
+}
+
 [application]
 
 config/name="Stadtrally"
