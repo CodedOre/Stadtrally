@@ -24,10 +24,10 @@ enum FeedbackStatus {
 export (FeedbackStatus) var feedback setget set_feedback, get_feedback
 
 # - The colors assigned to a status -
-export (Color, RGB) var color_current
-export (Color, RGB) var color_partial_move
-export (Color, RGB) var color_full_move
-export (Color, RGB) var color_wrong
+export (Color, RGB) var color_current = Color ("ffffff")
+export (Color, RGB) var color_partial_move = Color ("2d55a5")
+export (Color, RGB) var color_full_move = Color ("329632")
+export (Color, RGB) var color_wrong = Color ("e10f0f")
 
 # - Positions for n players on the Position -
 export (Array, PoolVector3Array) var player_positions
@@ -57,7 +57,8 @@ func get_player_position (player_sum : int, player_id : int) -> Vector3:
 	var array_id : int = player_sum if player_sum < len (player_positions) else len (player_positions)
 	var pos_array : PoolVector3Array = player_positions [array_id - 1]
 	var pos_id : int = player_id if player_id < len (pos_array) else len (pos_array) - 1
-	return global_transform.origin + pos_array [pos_id]
+	var pos_transform : Transform = global_transform.translated (pos_array [pos_id])
+	return pos_transform.origin
 
 # - Get the feedback status -
 func get_feedback () -> int:
