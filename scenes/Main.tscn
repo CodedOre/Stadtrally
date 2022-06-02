@@ -22,3 +22,4 @@ visible = false
 [connection signal="move_to_game_options" from="MainMenu" to="." method="set_display_mode" binds= [ 20 ]]
 [connection signal="move_to_main_menu" from="GameOptions" to="." method="set_display_mode" binds= [ 10 ]]
 [connection signal="start_new_game" from="GameOptions" to="." method="_on_new_game"]
+[connection signal="game_stopped" from="RallyGame" to="." method="set_display_mode" binds= [ 10 ]]

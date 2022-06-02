@@ -25,6 +25,9 @@ onready var dice : Node = $Dice
 
 # -- Signals --
 
+# - Signalled when a game should be stopped -
+signal game_stopped ()
+
 # - Signals when the current player changed -
 signal new_current_player (player, moves)
 
@@ -75,6 +78,8 @@ func start_new_game (set_players : Array, board : PackedScene) -> void:
 	# Set game state variables
 	__current_turn = 1
 	__current_id = 0
+	# Activate the game and hud
+	game_hud.active = true
 	# Start the turn
 	__on_new_turn ()
 
@@ -98,8 +103,7 @@ func __on_new_turn () -> void:
 	# Notify other nodes about the player
 	emit_signal ("new_current_player", __current_player, __current_moves)
 	# Update the information hud
-	game_hud.current_turn = __current_turn
-	game_hud.current_player = __current_id
+	game_hud.current_player = __current_id + 1
 	game_hud.left_moves = __current_moves
 	game_hud.next_status = game_hud.NextStatus.DEACTIVE
 
@@ -114,3 +118,25 @@ func moves_taken (moves : int) -> void:
 			game_hud.next_status = game_hud.NextStatus.NEXT_TURN
 		else:
 			game_hud.next_status = game_hud.NextStatus.NEXT_PLAYER
+
+# - Stops the game -
+func __on_game_stop () -> void:
+	# Clear game variables
+	__current_id = -1
+	__current_moves = -1
+	__current_turn = -1
+	__current_player = null
+	# Clear players and board
+	if __game_board != null:
+		remove_child (__game_board)
+		__game_board = null
+	if len (__all_players) != 0:
+		for player in __all_players:
+			remove_child (player)
+			__all_players.erase (player)
+	__all_players = []
+	__game_board = null
+	# Hide the UI
+	game_hud.active = false
+	# Signal the exit
+	emit_signal ("game_stopped")
