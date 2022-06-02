@@ -8,7 +8,7 @@
 [ext_resource path="res://resources/interface/fonts/Aleo 700.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://resources/interface/fonts/Aleo regular.ttf" type="DynamicFontData" id=7]
 
-[sub_resource type="ShaderMaterial" id=4]
+[sub_resource type="ShaderMaterial" id=7]
 shader = ExtResource( 4 )
 shader_param/frame_color = null
 
@@ -25,8 +25,9 @@ resource_name = "Aleo Regular 72"
 size = 72
 font_data = ExtResource( 7 )
 
-[node name="QuizPosition" type="StaticBody" groups=["Position"]]
+[node name="QuizPosition" type="StaticBody" groups=["Position", "QuizPosition"]]
 script = ExtResource( 3 )
+player_positions = [ PoolVector3Array( 0, 0.2, 0 ), PoolVector3Array( 0, 0.2, 1.75, 0, 0.2, -1.75 ), PoolVector3Array( 0, 0.2, 3.5, 0, 0.2, 0, 0, 0.2, -3.5 ), PoolVector3Array( 1.25, 0.2, 3.5, -1.25, 0.2, 1.25, 1.25, 0.2, -1.25, -1.25, 0.2, -3.5 ), PoolVector3Array( 1.25, 0.2, 4, -1.25, 0.2, 2, 1.25, 0.2, 0, -1.25, 0.2, -2, 1.25, 0.2, -4 ), PoolVector3Array( 1.75, 0.2, 4, -1.75, 0.2, 4, 1.75, 0.2, 0, -1.75, 0.2, 0, 1.75, 0.2, -4, -1.75, 0.2, -4 ) ]
 
 [node name="PlateMesh" type="MeshInstance" parent="."]
 mesh = ExtResource( 1 )
@@ -35,7 +36,7 @@ material/0 = ExtResource( 5 )
 [node name="FrameMesh" type="MeshInstance" parent="."]
 visible = false
 mesh = ExtResource( 2 )
-material/0 = SubResource( 4 )
+material/0 = SubResource( 7 )
 
 [node name="PlateCollision" type="CollisionShape" parent="."]
 shape = SubResource( 3 )
