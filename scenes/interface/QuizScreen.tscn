@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://resources/interface/themes/BaseTheme.tres" type="Theme" id=1]
 [ext_resource path="res://resources/interface/fonts/Aleo 700.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://scripts/interface/QuizScreen.gd" type="Script" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 resource_name = "Aleo Bold 64"
@@ -17,6 +18,7 @@ font_data = ExtResource( 2 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 1 )
+script = ExtResource( 3 )
 
 [node name="QuizContainer" type="VBoxContainer" parent="."]
 anchor_bottom = 1.0

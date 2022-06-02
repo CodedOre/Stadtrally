@@ -9,7 +9,7 @@ extends Resource
 # -- Properties --
 
 # - The question for the player -
-export (String) var text
+export (String, MULTILINE) var text
 
 # - All possible answers to the question -
 export (Array, String) var answers
