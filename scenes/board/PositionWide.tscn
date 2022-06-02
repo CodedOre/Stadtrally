@@ -1,0 +1,32 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://resources/models/board/PositionWide/Plate.mesh" type="ArrayMesh" id=1]
+[ext_resource path="res://resources/models/board/PositionWide/Frame.mesh" type="ArrayMesh" id=2]
+[ext_resource path="res://scripts/board/Position.gd" type="Script" id=3]
+[ext_resource path="res://resources/material/board/PositionWide/Plate.tres" type="Material" id=5]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type spatial;
+"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+
+[sub_resource type="ConvexPolygonShape" id=3]
+points = PoolVector3Array( 2.5, 0.124998, 5.54963, 2.29982, 0.124998, 5.75, 2.5, 0, 5.54963, 2.5, 0.124998, -5.55075, 2.2499, 0.175, 5.34926, -2.30031, 0.124998, 5.75, 2.29982, 0, 5.75, 2.09965, 0.175, 5.49897, 2.5, 0, -5.55075, 2.09965, 0.175, -5.5001, 2.2499, 0.175, -5.35038, 2.29982, 0.124998, -5.75, -2.30031, 0, 5.75, -2.10014, 0.175, 5.49897, -2.25039, 0.175, 5.34926, -2.5, 0.124998, 5.54963, 2.29982, 0, -5.75, -2.10014, 0.175, -5.5001, -2.30031, 0.124998, -5.75, -2.5, 0, 5.54963, -2.25039, 0.175, -5.35038, -2.5, 0.124998, -5.55075, -2.30031, 0, -5.75, -2.5, 0, -5.55075 )
+
+[node name="PositionWide" type="StaticBody" groups=["Position"]]
+script = ExtResource( 3 )
+player_positions = [ PoolVector3Array( 0, 0.2, 0 ), PoolVector3Array( 0, 0.2, 1.75, 0, 0.2, -1.75 ), PoolVector3Array( 0, 0.2, 3.5, 0, 0.2, 0, 0, 0.2, -3.5 ), PoolVector3Array( 1.25, 0.2, 3.5, -1.25, 0.2, 1.25, 1.25, 0.2, -1.25, -1.25, 0.2, -3.5 ), PoolVector3Array( 1.25, 0.2, 4, -1.25, 0.2, 2, 1.25, 0.2, 0, -1.25, 0.2, -2, 1.25, 0.2, -4 ), PoolVector3Array( 1.75, 0.2, 4, -1.75, 0.2, 4, 1.75, 0.2, 0, -1.75, 0.2, 0, 1.75, 0.2, -4, -1.75, 0.2, -4 ) ]
+
+[node name="PlateMesh" type="MeshInstance" parent="."]
+mesh = ExtResource( 1 )
+material/0 = ExtResource( 5 )
+
+[node name="FrameMesh" type="MeshInstance" parent="."]
+visible = false
+mesh = ExtResource( 2 )
+material/0 = SubResource( 2 )
+
+[node name="PlateCollision" type="CollisionShape" parent="."]
+shape = SubResource( 3 )
