@@ -10,6 +10,7 @@ extends "res://scripts/board/Position.gd"
 
 # - If this is start or finish -
 enum TargetType {
+	NONE,
 	START,
 	FINISH
 }
@@ -41,9 +42,19 @@ func get_target_type () -> int:
 func set_target_type (value : int) -> void:
 	_target_type = value
 	match _target_type:
+		TargetType.NONE:
+			$TitleLabel.text = ""
 		TargetType.START:
+			if ! is_in_group ("StartPosition"):
+				add_to_group("StartPosition")
+			if is_in_group ("FinishPosition"):
+				remove_from_group ("FinishPosition")
 			$TitleLabel.text = "Start"
 		TargetType.FINISH:
+			if ! is_in_group ("FinishPosition"):
+				add_to_group("FinishPosition")
+			if is_in_group ("StartPosition"):
+				remove_from_group ("StartPosition")
 			$TitleLabel.text = "Ziel"
 		_:
 			$TitleLabel.text = "FEHLER!"
