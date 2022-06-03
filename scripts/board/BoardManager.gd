@@ -154,9 +154,6 @@ func move_to_position (player : KinematicBody, position : Spatial, movement_mode
 	__player_positions [player] = position
 	# Set the transform
 	__set_player_transforms (movement_mode)
-	# Resets the visited positions if it's a dead end
-	if position.dead_end:
-		__visited_positions = []
 
 # - Set players transforms on the position -
 func __set_player_transforms (movement_mode : int = MovementMode.NONE) -> void:
@@ -225,8 +222,12 @@ func check_player_move (target : Spatial, for_click : bool = false) -> void:
 	emit_signal ("player_moved", moves_taken, target)
 	# Exclude taken positions for other turns
 	if __left_moves > 0:
-		var visited_index : PoolIntArray = __move_graph.get_id_path (start_index, target_index)
-		__visited_positions.append_array (visited_index)
+		# Resets the visited positions if it's a dead end
+		if target.dead_end:
+			__visited_positions = []
+		else:
+			var visited_index : PoolIntArray = __move_graph.get_id_path (start_index, target_index)
+			__visited_positions.append_array (visited_index)
 
 # - Display's position hints to the user -
 func position_hints_requested (player : KinematicBody) -> void:
