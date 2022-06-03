@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://resources/interface/themes/BaseTheme.tres" type="Theme" id=1]
 [ext_resource path="res://resources/interface/icons/pause.svg" type="Texture" id=2]
 [ext_resource path="res://resources/interface/styles/Status/StatusPanelStyle.tres" type="StyleBox" id=3]
-[ext_resource path="res://scenes/interface/GameHud/ScoreRow.tscn" type="PackedScene" id=4]
 [ext_resource path="res://resources/interface/fonts/Aleo 700.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://scripts/interface/GameHud.gd" type="Script" id=6]
 
@@ -44,66 +43,6 @@ margin_right = 625.0
 margin_bottom = 48.0
 text = "Spieler X hat noch Y Züge"
 align = 1
-
-[node name="Player1ScoreRow" parent="StatusContainer" instance=ExtResource( 4 )]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 0.0
-margin_top = 79.0
-margin_right = 640.0
-margin_bottom = 138.0
-
-[node name="Player2ScoreRow" parent="StatusContainer" instance=ExtResource( 4 )]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 0.0
-margin_top = 154.0
-margin_right = 640.0
-margin_bottom = 213.0
-
-[node name="Player3ScoreRow" parent="StatusContainer" instance=ExtResource( 4 )]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 0.0
-margin_top = 229.0
-margin_right = 640.0
-margin_bottom = 288.0
-
-[node name="Player4ScoreRow" parent="StatusContainer" instance=ExtResource( 4 )]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 0.0
-margin_top = 304.0
-margin_right = 640.0
-margin_bottom = 363.0
-
-[node name="Player5ScoreRow" parent="StatusContainer" instance=ExtResource( 4 )]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 0.0
-margin_top = 379.0
-margin_right = 640.0
-margin_bottom = 438.0
-
-[node name="Player6ScoreRow" parent="StatusContainer" instance=ExtResource( 4 )]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 0.0
-margin_top = 454.0
-margin_right = 640.0
-margin_bottom = 513.0
 
 [node name="NextButton" type="Button" parent="."]
 anchor_left = 0.5

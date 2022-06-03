@@ -68,6 +68,7 @@ func start_new_quiz (quiz : RallyQuiz, question : QuizQuestion) -> void:
 		var answer : String = question.answers [i]
 		var field : Button = Button.new ()
 		field.text = answer
+		# warning-ignore:return_value_discarded
 		field.connect ("pressed", self, "_check_answer", [i])
 		quiz_container.add_child (field)
 		_answer_fields.append (field)

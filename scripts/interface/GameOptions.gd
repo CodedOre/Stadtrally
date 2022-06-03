@@ -95,6 +95,7 @@ func get_player_count () -> int:
 
 # - Sets the player count -
 func set_player_count (value : int) -> void:
+	# warning-ignore:narrowing_conversion
 	_player_count = clamp (value, 0, len (player_options))
 	for i in range (len (player_options)):
 		var option : Control = player_options [i]

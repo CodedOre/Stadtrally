@@ -17,8 +17,14 @@ enum NextStatus {
 
 # -- Constants --
 
+# - The scene for the ScoreRow -
+const SCORE_ROW_SCENE : PackedScene = preload ("res://scenes/interface/GameHud/ScoreRow.tscn")
+
 
 # -- Nodes --
+
+# - The container holding score rows -
+onready var status_container : VBoxContainer = $StatusContainer
 
 # - The information labels -
 onready var status_label : Label = $StatusContainer/StatusPanel/StatusLabel
@@ -51,6 +57,9 @@ signal next_action ()
 
 # -- Variables --
 
+# - All ScoreRows in the container -
+var __all_score_rows : Array = []
+
 # - If the UI should be shown -
 var __active : bool
 
@@ -69,6 +78,20 @@ var __next_status : int = NextStatus.DEACTIVE
 func _ready () -> void:
 	# Hides the UI (as this needs to be done proactively)
 	set_active (false)
+
+# - Creates ScoreRows for all players -
+func create_score_rows (all_players : Array) -> void:
+	# Clean out old rows first
+	for row in __all_score_rows:
+		remove_child (row)
+		__all_score_rows.erase (row)
+	# Add the rows for the players
+	for i in range (len (all_players)):
+		var player : KinematicBody = all_players [i]
+		var row : Control = SCORE_ROW_SCENE.instance ()
+		row.set_player (player, i)
+		status_container.add_child (row)
+		__all_score_rows.append (row)
 
 # - Gets the visibilty of the hud -
 func get_active () -> bool:

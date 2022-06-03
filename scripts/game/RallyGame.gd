@@ -79,6 +79,8 @@ func start_new_game (set_players : Array, board : PackedScene) -> void:
 		__all_players.append (player)
 	# Set all players to the start position
 	board_manager.set_start_positions (__all_players)
+	# Create the ScoreRows on the GameHud
+	game_hud.create_score_rows (__all_players)
 	# Prepare the quiz
 	quiz_master.prepare_quizzes (__all_players)
 	# Set game state variables
