@@ -45,10 +45,6 @@ var _chose_correctly : bool = false
 
 # - Start a new quiz -
 func start_new_quiz (quiz : RallyQuiz, question : QuizQuestion) -> void:
-	# Remove remaining answer fields
-	for field in _answer_fields:
-		remove_child (field)
-		_answer_fields.erase (field)
 	# Hide the continue button
 	continue_button.visible = false
 	# Clean the result label
@@ -91,4 +87,9 @@ func _check_answer (index : int) -> void:
 
 # - Return to the game -
 func _on_continue () -> void:
+	# Remove answer fields
+	for field in _answer_fields:
+		field.queue_free ()
+	_answer_fields = []
+	# Signal the QuizMaster that we're done
 	emit_signal ("quiz_done", _chose_correctly)
