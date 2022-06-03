@@ -18,6 +18,7 @@ onready var board_manager : Node = $BoardManager
 
 # - The HUD showing informations -
 onready var game_hud : Node = $GameHud
+onready var final_screen : Control = $FinalScreen
 
 # - The dice for random numbers -
 onready var dice : Node = $Dice
@@ -135,12 +136,13 @@ func __player_in_finish (player : KinematicBody) -> void:
 	# Note the player in the order he arrived
 	player.has_finished = true
 	__finish_order.append (player)
-	print (__finish_order)
-	print (len (__finish_order) > 0)
 	# Show the first in the finish in the game hud
 	if len (__finish_order) > 0:
 		game_hud.winning_player = __finish_order [0]
-	# Move to the EndingScreen when all players are in the finish
+	# Move to the FinalScreen when all players are in the finish
+	if len (__finish_order) == len (__all_players):
+		game_hud.active = false
+		final_screen.display_winners (__finish_order)
 
 # - Continues the game when the quiz is completed -
 func __on_quiz_completed () -> void:

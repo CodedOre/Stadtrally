@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scripts/input/GameInput.gd" type="Script" id=1]
 [ext_resource path="res://scripts/game/RallyGame.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://scenes/game/Dice.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scripts/input/PlayerClick.gd" type="Script" id=8]
 [ext_resource path="res://scenes/interface/QuizScreen.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/interface/FinalScreen.tscn" type="PackedScene" id=10]
 
 [node name="RallyGame" type="Spatial"]
 script = ExtResource( 2 )
@@ -25,6 +26,8 @@ visible = false
 [node name="Dice" parent="." instance=ExtResource( 7 )]
 
 [node name="GameHud" parent="." instance=ExtResource( 3 )]
+
+[node name="FinalScreen" parent="." instance=ExtResource( 10 )]
 
 [node name="GameInput" type="Spatial" parent="."]
 script = ExtResource( 1 )
@@ -44,6 +47,7 @@ script = ExtResource( 8 )
 [connection signal="quiz_done" from="QuizMaster/QuizScreen" to="QuizMaster" method="_on_quiz_completed"]
 [connection signal="exit_game" from="GameHud" to="." method="__on_game_stop"]
 [connection signal="next_action" from="GameHud" to="." method="continue_turn"]
+[connection signal="return_to_main" from="FinalScreen" to="." method="__on_game_stop"]
 [connection signal="player_dragged" from="GameInput" to="GameInput/PlayerDrag" method="drag_player"]
 [connection signal="player_dragged" from="GameInput" to="GameInput/PlayerClick" method="on_drag_interrupt"]
 [connection signal="player_dropped" from="GameInput" to="GameInput/PlayerDrag" method="drop_player"]

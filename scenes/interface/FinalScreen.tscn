@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://resources/interface/fonts/Aleo 700.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://resources/interface/themes/BaseTheme.tres" type="Theme" id=2]
+[ext_resource path="res://scripts/interface/FinalScreen.gd" type="Script" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 resource_name = "Aleo Bold 64"
@@ -12,9 +13,11 @@ font_data = ExtResource( 1 )
 resource_name = "EmptySpacer"
 
 [node name="FinalScreen" type="Control"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 2 )
+script = ExtResource( 3 )
 
 [node name="FinalPanel" type="PanelContainer" parent="."]
 anchor_left = 0.5
@@ -50,7 +53,7 @@ margin_top = 101.0
 margin_right = 1024.0
 margin_bottom = 278.0
 text = "Alle Fragen sind beantwortet,
-alle sind da,
+alle haben das Ziel erreicht,
 die Rally ist vorbei.
 
 Ihr seid in der folgenden Reihenfolge im Ziel angekommen;"
@@ -71,8 +74,10 @@ margin_top = 330.0
 margin_right = 1024.0
 margin_bottom = 334.0
 
-[node name="Button" type="Button" parent="FinalPanel/PanelContainer"]
+[node name="ReturnButton" type="Button" parent="FinalPanel/PanelContainer"]
 margin_top = 350.0
 margin_right = 1024.0
 margin_bottom = 423.0
 text = "Zurück zum Hauptmenü"
+
+[connection signal="pressed" from="FinalPanel/PanelContainer/ReturnButton" to="." method="_on_return"]

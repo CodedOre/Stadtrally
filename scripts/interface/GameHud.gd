@@ -127,8 +127,8 @@ func set_winning_player (value : KinematicBody) -> void:
 
 # - Set the winner UI -
 func __set_winner_hud () -> void:
-	winner_panel.visible = __winning_player != null
-	stop_button.visible = __winning_player != null
+	winner_panel.visible = __winning_player != null and __active
+	stop_button.visible = __winning_player != null and __active
 	var winner_name : String = __winning_player.player_name if __winning_player != null else "null"
 	winner_label.text = winner_name + " hat das Spiel gewonnen!"
 
