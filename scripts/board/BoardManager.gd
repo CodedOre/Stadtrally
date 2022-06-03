@@ -119,8 +119,13 @@ func get_valid_moves (position : Spatial, moves : int) -> Array:
 			# Check all neighbors from the old move set
 			for old_pos in old_moves:
 				for new_pos in __move_graph.get_point_connections (old_pos):
+					# Define all ignore criterial
+					var already_known : bool = new_pos in all_known_pos
+					var already_visited : bool = new_pos in __visited_positions
+					var new_pos_body : Spatial = __get_position_for_index (new_pos)
+					var is_start_pos : bool = new_pos_body.is_in_group ("StartPosition")
 					# If not already stored then store them
-					if not new_pos in all_known_pos and not new_pos in __visited_positions:
+					if not (already_known or already_visited or is_start_pos):
 						new_moves.append (new_pos)
 						all_known_pos.append (new_pos)
 			valid_moves.append (new_moves)
