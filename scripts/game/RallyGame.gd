@@ -22,6 +22,10 @@ onready var game_hud : Node = $GameHud
 # - The dice for random numbers -
 onready var dice : Node = $Dice
 
+# - The nodes for the quizzes -
+onready var quiz_master : Node = $QuizMaster
+onready var quiz_screen : Control = $QuizMaster/QuizScreen
+
 
 # -- Signals --
 
@@ -75,6 +79,8 @@ func start_new_game (set_players : Array, board : PackedScene) -> void:
 		__all_players.append (player)
 	# Set all players to the start position
 	board_manager.set_start_positions (__all_players)
+	# Prepare the quiz
+	quiz_master.prepare_quizzes (__all_players)
 	# Set game state variables
 	__current_turn = 1
 	__current_id = 0
@@ -107,13 +113,19 @@ func __on_new_turn () -> void:
 	game_hud.left_moves = __current_moves
 	game_hud.next_status = game_hud.NextStatus.DEACTIVE
 
-# - Run when player has taken some moves -
-func moves_taken (moves : int) -> void:
+# - Run when player has moved -
+func player_moved (moves : int, new_pos : StaticBody) -> void:
 	# Remove the moves from storage and ui
 	__current_moves -= moves
 	game_hud.left_moves = __current_moves
-	# Activate next turn if no moves are left
+	# When no moves are left
 	if __current_moves <= 0:
+		# Start the quiz if the player is on a quiz field
+		if new_pos.is_in_group ("QuizPosition"):
+			quiz_master.start_new_quiz (new_pos)
+			game_hud.active = false
+			quiz_screen.visible = true
+		# Allow to move to the next player/turn
 		if __current_id + 1 >= len (__all_players):
 			game_hud.next_status = game_hud.NextStatus.NEXT_TURN
 		else:
