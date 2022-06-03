@@ -10,7 +10,7 @@ Movement on the board is non-linear, with player being allowed to approach the q
 
 ## About the project
 
-This project was developed in the **Godot Engine**, using the **version 3.4**.
+This project was developed in the **Godot Engine**, using the **version 3.5**.
 
 Unless it is noted otherwise in the file [`Credits.md`](Credits.md), code and assets in this repository were created by Frederick Schenk.
 
