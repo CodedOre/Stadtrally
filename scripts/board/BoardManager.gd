@@ -90,6 +90,11 @@ func generate_move_set () -> void:
 		var pos_two_index : int = __get_index_for_position (position_two)
 		# Create the connection in the graph
 		__move_graph.connect_points (pos_one_index, pos_two_index)
+	# Determine dead-ends (as they reset the visited position array)
+	for point in __move_graph.get_points ():
+		if len (__move_graph.get_point_connections (point)) == 1:
+			var position : Spatial = __get_position_for_index (point)
+			position.dead_end = true
 
 # - Get the start position for the players -
 func set_start_positions (all_players : Array) -> void:
@@ -149,6 +154,9 @@ func move_to_position (player : KinematicBody, position : Spatial, movement_mode
 	__player_positions [player] = position
 	# Set the transform
 	__set_player_transforms (movement_mode)
+	# Resets the visited positions if it's a dead end
+	if position.dead_end:
+		__visited_positions = []
 
 # - Set players transforms on the position -
 func __set_player_transforms (movement_mode : int = MovementMode.NONE) -> void:
