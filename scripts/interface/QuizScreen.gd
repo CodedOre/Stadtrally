@@ -5,6 +5,15 @@
 
 extends Control
 
+# -- Constants --
+
+# - The Stylebox-Override for the selected answer -
+const RIGHT_ANSWER_STYLE : StyleBox = preload ("res://resources/interface/styles/Quiz/RightField.tres")
+const WRONG_ANSWER_STYLE : StyleBox = preload ("res://resources/interface/styles/Quiz/WrongField.tres")
+const RIGHT_SELECTED_ANSWER_STYLE : StyleBox = preload ("res://resources/interface/styles/Quiz/RightSelectedField.tres")
+const WRONG_SELECTED_ANSWER_STYLE : StyleBox = preload ("res://resources/interface/styles/Quiz/WrongSelectedField.tres")
+
+
 # -- Nodes --
 
 # - The main container -
@@ -73,6 +82,23 @@ func start_new_quiz (quiz : RallyQuiz, question : QuizQuestion) -> void:
 func _check_answer (index : int) -> void:
 	# Get if the answer is correct
 	_chose_correctly = index == _correct_index
+	# Modify the answer fields
+	for i in range (len (_answer_fields)):
+		var field : Button = _answer_fields [i]
+		# Disabled them from re-enter
+		field.disabled = true
+		# Change colors according to if they're right, wrong and selected
+		field.add_color_override ("font_color_disabled", Color ("f2f8ff"))
+		if i == _correct_index:
+			if i == index:
+				field.add_stylebox_override ("disabled", RIGHT_SELECTED_ANSWER_STYLE)
+			else:
+				field.add_stylebox_override ("disabled", RIGHT_ANSWER_STYLE)
+		else:
+			if i == index:
+				field.add_stylebox_override ("disabled", WRONG_SELECTED_ANSWER_STYLE)
+			else:
+				field.add_stylebox_override ("disabled", WRONG_ANSWER_STYLE)
 	# Set the result on the label
 	if _chose_correctly:
 		result_label.text = "Richtig!"
