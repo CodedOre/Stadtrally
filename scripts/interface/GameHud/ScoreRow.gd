@@ -20,9 +20,9 @@ var player : KinematicBody
 # -- Functions --
 
 # - Sets the player for this row -
-func set_player (p_player : KinematicBody, index : int) -> void:
+func set_player (p_player : KinematicBody) -> void:
 	player = p_player
-	$ScoreContainer/PlayerLabel.text = "Spieler " + str (index + 1)
+	$ScoreContainer/PlayerLabel.text = player.player_name
 
 # - Add a new ScorePoint -
 func add_score_point (index : int) -> void:

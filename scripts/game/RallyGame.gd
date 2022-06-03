@@ -101,7 +101,7 @@ func __on_new_turn () -> void:
 	# Notify other nodes about the player
 	emit_signal ("new_current_player", __current_player, __current_moves)
 	# Update the information hud
-	game_hud.current_player = __current_id + 1
+	game_hud.current_player = __current_player
 	game_hud.left_moves = __current_moves
 	game_hud.next_status = game_hud.NextStatus.DEACTIVE
 

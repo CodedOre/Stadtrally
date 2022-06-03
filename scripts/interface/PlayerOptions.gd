@@ -37,6 +37,9 @@ export (DisplayMode) var display_mode = DisplayMode.HIDDEN setget set_display_mo
 # - The color chosen for the player -
 var chosen_color : int = 0 setget set_chosen_color, get_chosen_color
 
+# - The name the player is identified with -
+var player_name : String = "" setget set_player_name, get_player_name
+
 # - The index for the player on this field
 var player_index : int = 0 setget set_player_index, get_player_index
 
@@ -52,6 +55,9 @@ signal color_chosen (index, color)
 
 
 # -- Variables --
+
+# - A custom name if there is one -
+var _chosen_name : String = ""
 
 # - The color chosen for the player -
 var _chosen_color : int
@@ -78,7 +84,7 @@ func _ready () -> void:
 # - Set a new color after menu entry -
 func set_new_color (value : int) -> void:
 	set_chosen_color (value)
-	emit_signal("color_chosen", _player_index, _chosen_color)
+	emit_signal("color_chosen", player_index, _chosen_color)
 
 # - Gets the chosen color -
 func get_chosen_color () -> int:
@@ -116,20 +122,35 @@ func set_display_mode (value : int) -> void:
 	$AddButton.visible = _display_mode == DisplayMode.ADD
 	$PlayerDisplay.visible = _display_mode == DisplayMode.OPTIONS
 
-# - Get the display mode -
+# - Gets the player index -
 func get_player_index () -> int:
 	return _player_index
 
-# - Set the display mode -
+# - Sets the player index -
 func set_player_index (value : int) -> void:
 	_player_index = value
-	$PlayerDisplay/ActionPanel/ActionsContainer/PlayerLabel.text = "Spieler " + str (_player_index + 1)
+	if _chosen_name == "":
+		$PlayerDisplay/ActionPanel/ActionsContainer/PlayerName.text = "Spieler " + str (_player_index + 1)
+
+# - Get the text set for the player name -
+func get_player_name () -> String:
+	return $PlayerDisplay/ActionPanel/ActionsContainer/PlayerName.text
+
+# - Sets a new player name -
+func set_player_name (value : String = "") -> void:
+	_chosen_name = value
+	# If no value is given, use a "Player X" title
+	if _chosen_name == "":
+		$PlayerDisplay/ActionPanel/ActionsContainer/PlayerName.text = "Spieler " + str (player_index)
+	else:
+		$PlayerDisplay/ActionPanel/ActionsContainer/PlayerName.text = _chosen_name
 
 # - Get the options set for a player -
 func get_player_options () -> Dictionary:
 	var player : KinematicBody = $PlayerDisplay/PlayerContainer/PlayerViewport/Player
 	return {
-		"color": player.color
+		"color": player.color,
+		"name": get_player_name ()
 	}
 
 # - Activated when the AddButton is pressed -

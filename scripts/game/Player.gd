@@ -45,6 +45,9 @@ export (PlayerColors) var color setget set_color, get_color
 
 # -- Variables --
 
+# - A name for the player -
+var player_name : String = ""
+
 # - Stores the player color -
 var _color : int
 
