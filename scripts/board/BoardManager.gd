@@ -90,6 +90,11 @@ func generate_move_set () -> void:
 		var pos_two_index : int = __get_index_for_position (position_two)
 		# Create the connection in the graph
 		__move_graph.connect_points (pos_one_index, pos_two_index)
+	# Determine dead-ends (as they reset the visited position array)
+	for point in __move_graph.get_points ():
+		if len (__move_graph.get_point_connections (point)) == 1:
+			var position : Spatial = __get_position_for_index (point)
+			position.dead_end = true
 
 # - Get the start position for the players -
 func set_start_positions (all_players : Array) -> void:
@@ -217,8 +222,12 @@ func check_player_move (target : Spatial, for_click : bool = false) -> void:
 	emit_signal ("player_moved", moves_taken, target)
 	# Exclude taken positions for other turns
 	if __left_moves > 0:
-		var visited_index : PoolIntArray = __move_graph.get_id_path (start_index, target_index)
-		__visited_positions.append_array (visited_index)
+		# Resets the visited positions if it's a dead end
+		if target.dead_end:
+			__visited_positions = []
+		else:
+			var visited_index : PoolIntArray = __move_graph.get_id_path (start_index, target_index)
+			__visited_positions.append_array (visited_index)
 
 # - Display's position hints to the user -
 func position_hints_requested (player : KinematicBody) -> void:

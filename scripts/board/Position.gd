@@ -35,6 +35,9 @@ export (Array, PoolVector3Array) var player_positions
 
 # -- Variables --
 
+# - If players could revert their direction on this position -
+var dead_end : bool = false
+
 # - Stores the currently active status -
 var __current_feedback : int = FeedbackStatus.NONE
 
