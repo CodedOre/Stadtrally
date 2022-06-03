@@ -39,7 +39,7 @@ func _ready () -> void:
 	_random.randomize ()
 
 # - Prepares on a new game -
-func prepare_quizzes (all_players : Array) -> void:
+func prepare_quizzes () -> void:
 	# Iterate through each QuizPosition
 	for position in get_tree ().get_nodes_in_group ("QuizPosition"):
 		var stored_values : Dictionary = {}

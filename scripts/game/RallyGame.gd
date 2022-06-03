@@ -72,7 +72,7 @@ func start_new_game (set_players : Array, board : PackedScene) -> void:
 	# Create the ScoreRows on the GameHud
 	game_hud.create_score_rows (__all_players)
 	# Prepare the quiz
-	quiz_master.prepare_quizzes (__all_players)
+	quiz_master.prepare_quizzes ()
 	# Set game state variables
 	__current_turn = 1
 	__current_id = 0
