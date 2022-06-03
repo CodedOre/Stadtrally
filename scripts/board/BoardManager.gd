@@ -119,8 +119,18 @@ func get_valid_moves (position : Spatial, moves : int) -> Array:
 			# Check all neighbors from the old move set
 			for old_pos in old_moves:
 				for new_pos in __move_graph.get_point_connections (old_pos):
+					# Define all ignore criterial
+					var already_known : bool = new_pos in all_known_pos
+					var already_visited : bool = new_pos in __visited_positions
+					var new_pos_body : Spatial = __get_position_for_index (new_pos)
+					var is_start_pos : bool = new_pos_body.is_in_group ("StartPosition")
+					# Player can only move onto finish if he has all points and he can spends all moves towards the finish
+					var is_finish_pos : bool = new_pos_body.is_in_group ("FinishPosition")
+					var player_finished : bool = __current_player.finished_the_game
+					var reached_with_all_moves : bool = i == moves
+					var finish_not_reachable : bool = is_finish_pos and not (player_finished and reached_with_all_moves)
 					# If not already stored then store them
-					if not new_pos in all_known_pos and not new_pos in __visited_positions:
+					if not (already_known or already_visited or is_start_pos or finish_not_reachable):
 						new_moves.append (new_pos)
 						all_known_pos.append (new_pos)
 			valid_moves.append (new_moves)
