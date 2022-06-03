@@ -96,6 +96,9 @@ func continue_turn () -> void:
 func __on_new_turn () -> void:
 	# Set the currently active player
 	__current_player = __all_players [__current_id]
+	# Skip if player is finished
+	if __current_player.has_finished:
+		continue_turn ()
 	# Get the moves for the player
 	__current_moves = dice.roll_dice ()
 	# Notify other nodes about the player
@@ -117,6 +120,9 @@ func player_moved (moves : int, new_pos : StaticBody) -> void:
 			quiz_master.start_new_quiz (new_pos)
 			game_hud.active = false
 			quiz_screen.visible = true
+		# Note the player is finished when it's the FinishPosition
+		if new_pos.is_in_group ("FinishPosition"):
+			__current_player.has_finished = true
 		# Allow to move to the next player/turn
 		if __current_id + 1 >= len (__all_players):
 			game_hud.next_status = game_hud.NextStatus.NEXT_TURN
