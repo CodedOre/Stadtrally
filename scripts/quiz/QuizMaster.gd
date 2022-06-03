@@ -43,7 +43,7 @@ func prepare_quizzes (all_players : Array) -> void:
 		# Store that no player has gotten a point (yet)
 		var player_points : Dictionary = {}
 		for player in all_players:
-			stored_values ["player"] = false
+			player_points ["player"] = false
 		# Store the new values in the storage
 		stored_values ["player_points"] = player_points
 		_quiz_storage [position] = stored_values
@@ -79,3 +79,7 @@ func _get_random_question (quiz : RallyQuiz, used_questions : Array) -> QuizQues
 			question_index = -1
 	# Return the question with the random index
 	return all_questions [question_index]
+
+# - Run when the quiz was done -
+func _on_quiz_completed (correct : bool) -> void:
+	pass

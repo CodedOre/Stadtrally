@@ -1,7 +1,7 @@
 # Copyright 2022, Frederick Schenk
 
-# --- %CLASS% Script ---
-#
+# --- GameHud Script ---
+# Displays information about the game to the player.
 
 extends Node
 

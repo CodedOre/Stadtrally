@@ -23,6 +23,12 @@ onready var context_label : Label = $QuizContainer/QuizPanel/PanelContainer/Cont
 onready var continue_button : Button = $ContinueButton
 
 
+# -- Signals --
+
+# - Notices the quiz is done -
+signal quiz_done (correct)
+
+
 # -- Variables --
 
 # - The answer fields generated -
@@ -30,6 +36,9 @@ var _answer_fields : Array = []
 
 # - The index for the right answer -
 var _correct_index : int = -1
+
+# - If the player chose correctly -
+var _chose_correctly : bool = false
 
 
 # -- Functions --
@@ -66,9 +75,9 @@ func start_new_quiz (quiz : RallyQuiz, question : QuizQuestion) -> void:
 # - Checks if the given answer was correct -
 func _check_answer (index : int) -> void:
 	# Get if the answer is correct
-	var correct : bool = index == _correct_index
+	_chose_correctly = index == _correct_index
 	# Set the result on the label
-	if correct:
+	if _chose_correctly:
 		result_label.text = "Richtig!"
 		result_label.add_color_override ("font_color", Color ("2da52d"))
 	else:
@@ -78,3 +87,7 @@ func _check_answer (index : int) -> void:
 	context_label.percent_visible = 1
 	# Allow to continue
 	continue_button.visible = true
+
+# - Return to the game -
+func _on_continue () -> void:
+	emit_signal ("quiz_done", _chose_correctly)
