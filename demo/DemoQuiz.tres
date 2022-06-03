@@ -19,7 +19,7 @@ text = "Ist diese Frage die zweite im Array für dieses Quiz?
 Auf der anderen Seite:
 Kannst du das eigentlich wissen?"
 answers = [ "Definitiv nicht die zweite...", "Es ist die Zweite.", "Sag du es mir..." ]
-correct_answer = 0
+correct_answer = 1
 context = ""
 
 [sub_resource type="Resource" id=6]
@@ -28,7 +28,7 @@ text = "Ich hätte da noch eine Frage:
 
 Ist das hier ein Computerspiel?"
 answers = [ "Ja, ist es!", "Nur technisch gesehen...", "Was ist ein Computerspiel?" ]
-correct_answer = 2
+correct_answer = 1
 context = "Technisch gesehen mag das ein Computerspiel sein, praktisch gesehen ist es eher ein Prototyp für das was ein Computerspiel sein könnte.
 
 Und nun weiter!"
