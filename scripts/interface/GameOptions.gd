@@ -123,6 +123,7 @@ func _on_start_pressed () -> void:
 			var player : KinematicBody = PLAYER_SCENE.instance ()
 			var set_options : Dictionary = option.get_player_options ()
 			player.set_color (set_options ["color"])
+			player.name = set_options ["name"]
 			set_players.append (player)
 	# Signal the new game
 	emit_signal ("start_new_game", set_players, set_board)
