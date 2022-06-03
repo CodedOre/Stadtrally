@@ -51,7 +51,7 @@ export (int) var left_moves setget set_left_moves, get_left_moves
 export (NextStatus) var next_status setget set_next_status, get_next_status
 
 # - The player who won the game -
-var winning_player : KinematicBody = null
+var winning_player : KinematicBody = null setget set_winning_player, get_winning_player
 
 
 # -- Signals --
