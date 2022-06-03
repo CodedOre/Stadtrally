@@ -150,7 +150,7 @@ func get_player_options () -> Dictionary:
 	var player : KinematicBody = $PlayerDisplay/PlayerContainer/PlayerViewport/Player
 	return {
 		"color": player.color,
-		"name": player_name
+		"name": get_player_name ()
 	}
 
 # - Activated when the AddButton is pressed -

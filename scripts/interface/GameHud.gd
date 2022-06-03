@@ -65,7 +65,7 @@ var __active : bool
 
 # - Information about the game -
 var __current_turn : int = 0
-var __current_player : int = 0
+var __current_player : KinematicBody = null
 var __left_moves : int = 0
 
 # - The status for the next button -
@@ -86,10 +86,9 @@ func create_score_rows (all_players : Array) -> void:
 		row.queue_free ()
 	__all_score_rows = []
 	# Add the rows for the players
-	for i in range (len (all_players)):
-		var player : KinematicBody = all_players [i]
+	for player in all_players:
 		var row : Control = SCORE_ROW_SCENE.instance ()
-		row.set_player (player, i)
+		row.set_player (player)
 		status_container.add_child (row)
 		__all_score_rows.append (row)
 
@@ -106,11 +105,11 @@ func set_active (value : bool) -> void:
 	$StatusContainer.visible = __active
 
 # - Get the current turn indicator -
-func get_current_player () -> int:
+func get_current_player () -> KinematicBody:
 	return __current_player
 
 # - Set the current turn indicator -
-func set_current_player (value : int) -> void:
+func set_current_player (value : KinematicBody) -> void:
 	__current_player = value
 	update_status_label ()
 
@@ -126,11 +125,11 @@ func set_left_moves (value : int) -> void:
 # - Sets the content of the status label -
 func update_status_label () -> void:
 	if __left_moves > 1:
-		status_label.text = "Spieler " + str (__current_player) + " hat noch " + str (__left_moves) + " Züge"
+		status_label.text = str (__current_player.player_name) + " hat noch " + str (__left_moves) + " Züge"
 	elif __left_moves == 1:
-		status_label.text = "Spieler " + str (__current_player) + " hat noch einen Zug"
+		status_label.text = str (__current_player.player_name) + " hat noch einen Zug"
 	else:
-		status_label.text = "Spieler " + str (__current_player) + " hat keine Züge mehr!"
+		status_label.text = str (__current_player.player_name) + " hat keine Züge mehr!"
 
 # - Get the NextButton status -
 func get_next_status () -> int:
