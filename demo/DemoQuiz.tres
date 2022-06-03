@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=5 format=2]
+[gd_resource type="Resource" load_steps=6 format=2]
 
 [ext_resource path="res://scripts/quiz/RallyQuiz.gd" type="Script" id=1]
 [ext_resource path="res://scripts/quiz/QuizQuestion.gd" type="Script" id=2]
@@ -19,11 +19,22 @@ text = "Ist diese Frage die zweite im Array für dieses Quiz?
 Auf der anderen Seite:
 Kannst du das eigentlich wissen?"
 answers = [ "Definitiv nicht die zweite...", "Es ist die Zweite.", "Sag du es mir..." ]
-correct_answer = 0
+correct_answer = 1
 context = ""
+
+[sub_resource type="Resource" id=6]
+script = ExtResource( 2 )
+text = "Ich hätte da noch eine Frage:
+
+Ist das hier ein Computerspiel?"
+answers = [ "Ja, ist es!", "Nur technisch gesehen...", "Was ist ein Computerspiel?" ]
+correct_answer = 1
+context = "Technisch gesehen mag das ein Computerspiel sein, praktisch gesehen ist es eher ein Prototyp für das was ein Computerspiel sein könnte.
+
+Und nun weiter!"
 
 [resource]
 script = ExtResource( 1 )
 index = 0
 topic = "Test-Quiz"
-questions = [ SubResource( 4 ), SubResource( 5 ) ]
+questions = [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ]

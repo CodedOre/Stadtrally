@@ -85,15 +85,16 @@ func _get_random_question (quiz : RallyQuiz, used_questions : Array) -> QuizQues
 	var all_questions : Array = quiz.questions
 	if len (all_questions) == len (used_questions):
 		# Reset the used questions
-		used_questions = []
+		used_questions.clear ()
 	# Get a random index for the questions
 	var question_index : int = -1
 	while question_index < 0:
-		question_index = _random.randi_range (0, len (used_questions) - 1)
+		question_index = _random.randi_range (0, len (all_questions) - 1)
 		# Rerun the number when this index is already listed as used
 		if used_questions.has (question_index):
 			question_index = -1
 	# Return the question with the random index
+	used_questions.append (question_index)
 	return all_questions [question_index]
 
 # - Run when the quiz was done -
@@ -106,7 +107,7 @@ func _on_quiz_completed (correct : bool) -> void:
 			# Set if the player has gotten this point
 			score_point.point_given = correct
 	# Updates if the player has all points
-	_current_player.finished_the_game = has_all_points (_current_player)
+	_current_player.got_all_points = has_all_points (_current_player)
 	# Signals RallyGame that we're done
 	emit_signal ("quiz_completed")
 
