@@ -84,7 +84,7 @@ func _ready () -> void:
 # - Set a new color after menu entry -
 func set_new_color (value : int) -> void:
 	set_chosen_color (value)
-	emit_signal("color_chosen", player_index, _chosen_color)
+	emit_signal("color_chosen", get_player_index (), _chosen_color)
 
 # - Gets the chosen color -
 func get_chosen_color () -> int:
