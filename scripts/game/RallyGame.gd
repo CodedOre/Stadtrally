@@ -18,6 +18,7 @@ onready var board_manager : Node = $BoardManager
 
 # - The HUD showing informations -
 onready var game_hud : Node = $GameHud
+onready var final_screen : Control = $FinalScreen
 
 # - The dice for random numbers -
 onready var dice : Node = $Dice
@@ -40,6 +41,7 @@ signal new_current_player (player, moves)
 
 # - The players that are playing the game -
 var __all_players : Array = []
+var __finish_order : Array = []
 
 # - The current game board -
 var __game_board : Node = null
@@ -96,6 +98,9 @@ func continue_turn () -> void:
 func __on_new_turn () -> void:
 	# Set the currently active player
 	__current_player = __all_players [__current_id]
+	# Skip if player is finished
+	if __current_player.has_finished:
+		continue_turn ()
 	# Get the moves for the player
 	__current_moves = dice.roll_dice ()
 	# Notify other nodes about the player
@@ -117,11 +122,27 @@ func player_moved (moves : int, new_pos : StaticBody) -> void:
 			quiz_master.start_new_quiz (new_pos)
 			game_hud.active = false
 			quiz_screen.visible = true
+		# Note the player is finished when it's the FinishPosition
+		if new_pos.is_in_group ("FinishPosition"):
+			__player_in_finish (__current_player)
 		# Allow to move to the next player/turn
 		if __current_id + 1 >= len (__all_players):
 			game_hud.next_status = game_hud.NextStatus.NEXT_TURN
 		else:
 			game_hud.next_status = game_hud.NextStatus.NEXT_PLAYER
+
+# - Actions when a player reached the finish -
+func __player_in_finish (player : KinematicBody) -> void:
+	# Note the player in the order he arrived
+	player.has_finished = true
+	__finish_order.append (player)
+	# Show the first in the finish in the game hud
+	if len (__finish_order) > 0:
+		game_hud.winning_player = __finish_order [0]
+	# Move to the FinalScreen when all players are in the finish
+	if len (__finish_order) == len (__all_players):
+		game_hud.active = false
+		final_screen.display_winners (__finish_order)
 
 # - Continues the game when the quiz is completed -
 func __on_quiz_completed () -> void:
@@ -144,8 +165,10 @@ func __on_game_stop () -> void:
 		for player in __all_players:
 			player.queue_free ()
 	__all_players = []
+	__finish_order = []
 	__game_board = null
 	# Hide the UI
 	game_hud.active = false
+	game_hud.winning_player = null
 	# Signal the exit
 	emit_signal ("game_stopped")

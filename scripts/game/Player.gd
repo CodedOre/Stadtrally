@@ -52,8 +52,8 @@ var player_name : String = ""
 var _color : int
 
 # - Stores that the player finished the game -
-var got_all_points : bool = false
-var finished_the_game : bool = false
+var has_all_points : bool = false
+var has_finished : bool = false
 
 # - A Tween to animate the movement of the player to a new position -
 var move_tween : Tween

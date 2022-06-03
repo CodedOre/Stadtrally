@@ -107,7 +107,7 @@ func _on_quiz_completed (correct : bool) -> void:
 			# Set if the player has gotten this point
 			score_point.point_given = correct
 	# Updates if the player has all points
-	_current_player.got_all_points = has_all_points (_current_player)
+	_current_player.has_all_points = has_all_points (_current_player)
 	# Signals RallyGame that we're done
 	emit_signal ("quiz_completed")
 

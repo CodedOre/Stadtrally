@@ -126,7 +126,7 @@ func get_valid_moves (position : Spatial, moves : int) -> Array:
 					var is_start_pos : bool = new_pos_body.is_in_group ("StartPosition")
 					# Player can only move onto finish if he has all points and he can spends all moves towards the finish
 					var is_finish_pos : bool = new_pos_body.is_in_group ("FinishPosition")
-					var player_finished : bool = __current_player.got_all_points
+					var player_finished : bool = __current_player.has_all_points
 					var reached_with_all_moves : bool = i == moves
 					var finish_not_reachable : bool = is_finish_pos and not (player_finished and reached_with_all_moves)
 					# If not already stored then store them
