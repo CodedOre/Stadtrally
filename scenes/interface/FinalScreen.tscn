@@ -1,51 +1,51 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://resources/interface/themes/BaseTheme.tres" type="Theme" id=1]
-[ext_resource path="res://resources/interface/fonts/Aleo 700.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://resources/interface/fonts/Aleo 700.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://resources/interface/themes/BaseTheme.tres" type="Theme" id=2]
 
 [sub_resource type="DynamicFont" id=1]
 resource_name = "Aleo Bold 64"
 size = 64
-font_data = ExtResource( 2 )
+font_data = ExtResource( 1 )
 
 [sub_resource type="StyleBoxEmpty" id=2]
 resource_name = "EmptySpacer"
 
-[node name="EndingScreen" type="Control"]
+[node name="FinalScreen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme = ExtResource( 1 )
+theme = ExtResource( 2 )
 
-[node name="EndingPanel" type="PanelContainer" parent="."]
+[node name="FinalPanel" type="PanelContainer" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -547.0
-margin_top = -385.5
+margin_top = -246.5
 margin_right = 547.0
-margin_bottom = 385.5
+margin_bottom = 246.5
 
-[node name="PanelContainer" type="VBoxContainer" parent="EndingPanel"]
+[node name="PanelContainer" type="VBoxContainer" parent="FinalPanel"]
 margin_left = 35.0
 margin_top = 35.0
 margin_right = 1059.0
-margin_bottom = 736.0
+margin_bottom = 458.0
 
-[node name="TitleLabel" type="Label" parent="EndingPanel/PanelContainer"]
+[node name="TitleLabel" type="Label" parent="FinalPanel/PanelContainer"]
 margin_right = 1024.0
 margin_bottom = 65.0
 custom_fonts/font = SubResource( 1 )
 text = "Spiel beendet!"
 align = 1
 
-[node name="TitleSeparator" type="HSeparator" parent="EndingPanel/PanelContainer"]
+[node name="TitleSeparator" type="HSeparator" parent="FinalPanel/PanelContainer"]
 margin_top = 81.0
 margin_right = 1024.0
 margin_bottom = 85.0
 custom_styles/separator = SubResource( 2 )
 
-[node name="DescLabel" type="Label" parent="EndingPanel/PanelContainer"]
+[node name="DescLabel" type="Label" parent="FinalPanel/PanelContainer"]
 margin_top = 101.0
 margin_right = 1024.0
 margin_bottom = 278.0
@@ -56,22 +56,22 @@ die Rally ist vorbei.
 Ihr seid in der folgenden Reihenfolge im Ziel angekommen;"
 align = 1
 
-[node name="PlayerTopSeparator" type="HSeparator" parent="EndingPanel/PanelContainer"]
+[node name="PlayerTopSeparator" type="HSeparator" parent="FinalPanel/PanelContainer"]
 margin_top = 294.0
 margin_right = 1024.0
 margin_bottom = 298.0
 
-[node name="PlayerContainer" type="VBoxContainer" parent="EndingPanel/PanelContainer"]
+[node name="PlayerContainer" type="VBoxContainer" parent="FinalPanel/PanelContainer"]
 margin_top = 314.0
 margin_right = 1024.0
 margin_bottom = 314.0
 
-[node name="PlayerBottomSeparator" type="HSeparator" parent="EndingPanel/PanelContainer"]
+[node name="PlayerBottomSeparator" type="HSeparator" parent="FinalPanel/PanelContainer"]
 margin_top = 330.0
 margin_right = 1024.0
 margin_bottom = 334.0
 
-[node name="Button" type="Button" parent="EndingPanel/PanelContainer"]
+[node name="Button" type="Button" parent="FinalPanel/PanelContainer"]
 margin_top = 350.0
 margin_right = 1024.0
 margin_bottom = 423.0
