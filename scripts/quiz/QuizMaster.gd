@@ -46,12 +46,7 @@ func prepare_quizzes (all_players : Array) -> void:
 		# Store the quiz and the questions already asked
 		stored_values ["quiz"] = position.quiz
 		stored_values ["used_questions"] = []
-		# Store that no player has gotten a point (yet)
-		var player_points : Dictionary = {}
-		for player in all_players:
-			player_points ["player"] = false
 		# Store the new values in the storage
-		stored_values ["player_points"] = player_points
 		_quiz_storage [position] = stored_values
 		# Adds the ScorePoints to the hud
 		for row in get_tree ().get_nodes_in_group ("ScoreRow"):
@@ -69,6 +64,20 @@ func start_new_quiz (position : StaticBody) -> void:
 	var question : QuizQuestion = _get_random_question (quiz, used_questions)
 	# Start the Quiz UI
 	quiz_screen.start_new_quiz (quiz, question)
+
+# - Check if the player is allowed onto the finish -
+func has_all_points (player : KinematicBody) -> bool:
+	# Get the ScoreRow for the player
+	var player_scores : Control = null
+	for row in get_tree ().get_nodes_in_group ("ScoreRow"):
+		if row.player == player:
+			player_scores = row
+			break
+	# Check in the row if all points were given
+	var all_points_given : bool = true
+	for point in player_scores.get_score_points ():
+		all_points_given = all_points_given and point.point_given
+	return all_points_given
 
 # - Get a random question that was not already asked -
 func _get_random_question (quiz : RallyQuiz, used_questions : Array) -> QuizQuestion:
@@ -96,6 +105,8 @@ func _on_quiz_completed (correct : bool) -> void:
 			var score_point : Control = row.get_indexed_point (_current_quiz)
 			# Set if the player has gotten this point
 			score_point.point_given = correct
+	# Updates if the player has all points
+	_current_player.finished_the_game = has_all_points (_current_player)
 	# Signals RallyGame that we're done
 	emit_signal ("quiz_completed")
 
