@@ -48,6 +48,9 @@ export (PlayerColors) var color setget set_color, get_color
 # - Stores the player color -
 var _color : int
 
+# - Stores that the player finished the game -
+var finished_the_game : bool = false
+
 # - A Tween to animate the movement of the player to a new position -
 var move_tween : Tween
 
