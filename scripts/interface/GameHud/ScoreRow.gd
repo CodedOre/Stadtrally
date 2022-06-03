@@ -49,4 +49,4 @@ func get_score_points () -> Array:
 # - Removes all ScorePoints from the row -
 func remove_score_points () -> void:
 	for child in get_score_points ():
-		remove_child (child)
+		child.queue_free ()

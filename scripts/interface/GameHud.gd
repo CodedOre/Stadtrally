@@ -83,8 +83,8 @@ func _ready () -> void:
 func create_score_rows (all_players : Array) -> void:
 	# Clean out old rows first
 	for row in __all_score_rows:
-		remove_child (row)
-		__all_score_rows.erase (row)
+		row.queue_free ()
+	__all_score_rows = []
 	# Add the rows for the players
 	for i in range (len (all_players)):
 		var player : KinematicBody = all_players [i]

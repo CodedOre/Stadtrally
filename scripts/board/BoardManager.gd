@@ -72,6 +72,7 @@ func generate_move_set () -> void:
 	# Create a new move graph
 	__move_graph = AStar.new ()
 	__position_index = {}
+	__player_positions = {}
 	# Add all positions to the graph
 	var pos_index : int = 0
 	for position in get_tree ().get_nodes_in_group ("Position"):

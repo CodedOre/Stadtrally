@@ -59,16 +59,6 @@ var __current_moves : int = -1
 
 # - Begins a new game with a set of players and a board -
 func start_new_game (set_players : Array, board : PackedScene) -> void:
-	# Clean up when old data is present
-	if __game_board != null:
-		remove_child (__game_board)
-		__game_board = null
-	if len (__all_players) != 0:
-		for player in __all_players:
-			remove_child (player)
-			__all_players.erase (player)
-	if __current_player != null:
-		__current_player = null
 	# Initialize the board
 	__game_board = board.instance ()
 	add_child (__game_board)
@@ -148,12 +138,11 @@ func __on_game_stop () -> void:
 	__current_player = null
 	# Clear players and board
 	if __game_board != null:
-		remove_child (__game_board)
+		__game_board.queue_free ()
 		__game_board = null
 	if len (__all_players) != 0:
 		for player in __all_players:
-			remove_child (player)
-			__all_players.erase (player)
+			player.queue_free ()
 	__all_players = []
 	__game_board = null
 	# Hide the UI
