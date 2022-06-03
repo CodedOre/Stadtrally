@@ -21,4 +21,5 @@ func _ready () -> void:
 
 # - Rolls the dice for a number -
 func roll_dice () -> int:
-	return __random.randi_range(1, 6)
+	return 5
+	# return __random.randi_range(1, 6)

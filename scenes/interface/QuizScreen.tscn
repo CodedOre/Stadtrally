@@ -79,3 +79,5 @@ margin_top = -118.0
 margin_right = -26.0
 margin_bottom = -45.0
 text = "Fortfahren"
+
+[connection signal="pressed" from="ContinueButton" to="." method="_on_continue"]

@@ -27,8 +27,8 @@ const MOVEMENT_SPEED : float = 0.75
 
 # -- Signals --
 
-# - How many moves the player has taken -
-signal moves_taken (moves)
+# - Emitted when the player moved to a new position -
+signal player_moved (moves, position)
 
 
 # -- Variables --
@@ -203,7 +203,7 @@ func check_player_move (target : Spatial, for_click : bool = false) -> void:
 	var valid_movement_mode : int = MovementMode.MOVEMENT if for_click else MovementMode.ALIGNMENT
 	move_to_position (__current_player, target, valid_movement_mode)
 	__left_moves -= moves_taken
-	emit_signal ("moves_taken", moves_taken)
+	emit_signal ("player_moved", moves_taken, target)
 	# Exclude taken positions for other turns
 	if __left_moves > 0:
 		var visited_index : PoolIntArray = __move_graph.get_id_path (start_index, target_index)

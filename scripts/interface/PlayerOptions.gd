@@ -72,6 +72,7 @@ var _display_mode : int
 func _ready () -> void:
 	# Connect the menu action for the color menu
 	var color_popup : PopupMenu = $PlayerDisplay/ActionPanel/ActionsContainer/ColorButton.get_popup ()
+	# warning-ignore:return_value_discarded
 	color_popup.connect ("id_pressed", self, "set_new_color")
 
 # - Set a new color after menu entry -
