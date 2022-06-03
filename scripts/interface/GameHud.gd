@@ -32,6 +32,11 @@ onready var status_label : Label = $StatusContainer/StatusPanel/StatusLabel
 # - The next button -
 onready var next_button : Button = $NextButton
 
+# - Controls related to the game ending -
+onready var winner_panel : PanelContainer = $StatusContainer/WinnerPanel
+onready var winner_label : Label = $StatusContainer/WinnerPanel/WinnerLabel
+onready var stop_button : Button = $StopButton
+
 
 # -- Properties --
 
@@ -44,6 +49,9 @@ export (int) var left_moves setget set_left_moves, get_left_moves
 
 # - The status for the next button -
 export (NextStatus) var next_status setget set_next_status, get_next_status
+
+# - The player who won the game -
+var winning_player : KinematicBody = null
 
 
 # -- Signals --
@@ -59,6 +67,9 @@ signal next_action ()
 
 # - All ScoreRows in the container -
 var __all_score_rows : Array = []
+
+# - The player who won the game -
+var __winning_player : KinematicBody
 
 # - If the UI should be shown -
 var __active : bool
@@ -103,6 +114,23 @@ func set_active (value : bool) -> void:
 	$NextButton.visible = __active
 	$PauseButton.visible = __active
 	$StatusContainer.visible = __active
+	__set_winner_hud ()
+
+# - Gets the winning player -
+func get_winning_player () -> KinematicBody:
+	return __winning_player
+
+# - Sets the winning player and the UI -
+func set_winning_player (value : KinematicBody) -> void:
+	__winning_player = value
+	__set_winner_hud ()
+
+# - Set the winner UI -
+func __set_winner_hud () -> void:
+	winner_panel.visible = __winning_player != null
+	stop_button.visible = __winning_player != null
+	var winner_name : String = __winning_player.player_name if __winning_player != null else "null"
+	winner_label.text = winner_name + " hat das Spiel gewonnen!"
 
 # - Get the current turn indicator -
 func get_current_player () -> KinematicBody:

@@ -31,6 +31,20 @@ margin_right = -20.0
 margin_bottom = 551.0
 theme = ExtResource( 1 )
 
+[node name="WinnerPanel" type="PanelContainer" parent="StatusContainer"]
+visible = false
+margin_right = 640.0
+margin_bottom = 63.0
+custom_styles/panel = ExtResource( 3 )
+
+[node name="WinnerLabel" type="Label" parent="StatusContainer/WinnerPanel"]
+margin_left = 15.0
+margin_top = 15.0
+margin_right = 625.0
+margin_bottom = 48.0
+text = "Spieler X hat gewonnen!"
+align = 1
+
 [node name="StatusPanel" type="PanelContainer" parent="StatusContainer"]
 margin_right = 640.0
 margin_bottom = 63.0
@@ -55,6 +69,19 @@ margin_right = 138.0
 margin_bottom = -20.0
 theme = ExtResource( 1 )
 text = "Nächster Spieler"
+
+[node name="StopButton" type="Button" parent="."]
+visible = false
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -296.0
+margin_top = -93.0
+margin_right = -20.0
+margin_bottom = -20.0
+theme = ExtResource( 1 )
+text = "Spiel beenden"
 
 [node name="PauseBackdrop" type="ColorRect" parent="."]
 visible = false
@@ -110,6 +137,7 @@ text = "Spiel abbrechen"
 
 [connection signal="pressed" from="PauseButton" to="." method="_on_pause"]
 [connection signal="pressed" from="NextButton" to="." method="_on_next_action"]
+[connection signal="pressed" from="StopButton" to="." method="_on_game_exit"]
 [connection signal="popup_hide" from="PausePopup" to="." method="_on_popup_closing"]
 [connection signal="pressed" from="PausePopup/PopupContainer/BackButton" to="." method="_on_pause_closing"]
 [connection signal="pressed" from="PausePopup/PopupContainer/ExitButton" to="." method="_on_game_exit"]
