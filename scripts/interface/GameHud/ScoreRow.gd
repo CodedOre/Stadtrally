@@ -30,12 +30,20 @@ func add_score_point (index : int) -> void:
 	point.point_index = index
 	$ScoreContainer.add_child (point)
 
+# - Get the ScorePoint for a certain index -
+func get_indexed_point (index : int) -> Control:
+	for point in get_score_points ():
+		if point.point_index == index:
+			return point
+	push_error ("Attempted to reach ScorePoint for non-matching index")
+	return null
+
 # - Get all score points in this row -
 func get_score_points () -> Array:
 	var output : Array = []
 	for child in $ScoreContainer.get_children ():
 		if child.is_in_group ("ScorePoint"):
-			output.append (output)
+			output.append (child)
 	return output
 
 # - Removes all ScorePoints from the row -

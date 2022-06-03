@@ -133,6 +133,12 @@ func player_moved (moves : int, new_pos : StaticBody) -> void:
 		else:
 			game_hud.next_status = game_hud.NextStatus.NEXT_PLAYER
 
+# - Continues the game when the quiz is completed -
+func __on_quiz_completed () -> void:
+	# Just change the visible UI
+	quiz_screen.visible = false
+	game_hud.active = true
+
 # - Stops the game -
 func __on_game_stop () -> void:
 	# Clear game variables
