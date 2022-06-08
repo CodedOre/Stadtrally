@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scripts/input/GameInput.gd" type="Script" id=1]
 [ext_resource path="res://scripts/game/RallyGame.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://scripts/input/PlayerClick.gd" type="Script" id=8]
 [ext_resource path="res://scenes/interface/QuizScreen.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/interface/FinalScreen.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/game/GameCamera.tscn" type="PackedScene" id=11]
 
 [node name="RallyGame" type="Spatial"]
 script = ExtResource( 2 )
@@ -28,6 +29,8 @@ visible = false
 [node name="GameHud" parent="." instance=ExtResource( 3 )]
 
 [node name="FinalScreen" parent="." instance=ExtResource( 10 )]
+
+[node name="GameCamera" parent="." instance=ExtResource( 11 )]
 
 [node name="GameInput" type="Spatial" parent="."]
 script = ExtResource( 1 )
@@ -54,6 +57,8 @@ script = ExtResource( 8 )
 [connection signal="player_moved" from="GameInput" to="GameInput/PlayerDrag" method="move_player"]
 [connection signal="player_selected" from="GameInput" to="GameInput/PlayerClick" method="on_selected_player"]
 [connection signal="position_selected" from="GameInput" to="GameInput/PlayerClick" method="on_selected_position"]
+[connection signal="turn_camera" from="GameInput" to="GameCamera" method="turn_camera"]
+[connection signal="zoom_camera" from="GameInput" to="GameCamera" method="zoom_camera"]
 [connection signal="clear_position_hints" from="GameInput/PlayerDrag" to="BoardManager" method="position_hints_cleared"]
 [connection signal="player_dragged_to" from="GameInput/PlayerDrag" to="BoardManager" method="check_player_move"]
 [connection signal="request_position_hints" from="GameInput/PlayerDrag" to="BoardManager" method="position_hints_requested"]
