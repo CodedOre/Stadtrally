@@ -8,5 +8,7 @@ script = ExtResource( 1 )
 [node name="OuterGimbal" type="Spatial" parent="."]
 
 [node name="InnerGimbal" type="Spatial" parent="OuterGimbal"]
+transform = Transform( 1, 0, 0, 0, 0.819152, 0.573577, 0, -0.573577, 0.819152, 0, 0, 0 )
 
 [node name="Camera" type="Camera" parent="OuterGimbal/InnerGimbal"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20 )
