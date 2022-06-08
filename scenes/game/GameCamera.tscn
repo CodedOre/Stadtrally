@@ -3,7 +3,7 @@
 [ext_resource path="res://scripts/game/GameCamera.gd" type="Script" id=1]
 
 [sub_resource type="Curve" id=1]
-_data = [ Vector2( 0, 1 ), 0.0, -1.0, 0, 1, Vector2( 1, 0 ), -1.0, 0.0, 1, 0 ]
+_data = [ Vector2( 0, 1 ), 0.0, -2.93208, 0, 1, Vector2( 0.238739, 0.3 ), 0.0, -0.0145193, 0, 1, Vector2( 0.864865, 0.290909 ), -0.0145193, -0.155245, 1, 0, Vector2( 1, 0 ), -2.15273, 0.0, 1, 0 ]
 
 [node name="GameCamera" type="Spatial"]
 script = ExtResource( 1 )
