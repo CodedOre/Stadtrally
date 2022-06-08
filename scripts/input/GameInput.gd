@@ -11,7 +11,8 @@ extends Spatial
 enum InputMode {
 	NONE,
 	MOUSE_LEFT_CLICK,
-	MOUSE_LEFT_DRAG
+	MOUSE_LEFT_DRAG,
+	MOUSE_RIGHT_DRAG
 }
 
 
@@ -31,6 +32,9 @@ signal player_selected (player)
 signal player_dragged (player)
 signal player_moved (position)
 signal player_dropped (position)
+
+# - Signals Camera input actions -
+signal turn_camera (turn_vector)
 
 
 # -- Variables --
@@ -59,6 +63,14 @@ func _unhandled_input (event: InputEvent) -> void:
 					# Finalize click input
 					__input_mode = InputMode.NONE
 					__on_mouse_left_click (event)
+		# Right click (turn camera)
+		if event.button_index == BUTTON_RIGHT:
+			if event.pressed:
+				# Note camera turn
+				__input_mode = InputMode.MOUSE_RIGHT_DRAG
+			else:
+				# Drop camera turn
+				__input_mode = InputMode.NONE
 	# Handle mouse motion events
 	if event is InputEventMouseMotion:
 		# If motion when mouse button just clicked
@@ -69,6 +81,11 @@ func _unhandled_input (event: InputEvent) -> void:
 		# If motion when dragging player
 		if __input_mode == InputMode.MOUSE_LEFT_DRAG:
 			__on_mouse_left_moving (event)
+		# If motion when turnin player
+		if __input_mode == InputMode.MOUSE_RIGHT_DRAG:
+			# Get the amount the mouse turned and hand it to the camera
+			var turn_vector : Vector2 = event.relative
+			emit_signal ("turn_camera", turn_vector)
 
 # - Run when a left mouse button click was detected -
 func __on_mouse_left_click (event : InputEvent) -> void:
