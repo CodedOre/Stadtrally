@@ -58,6 +58,7 @@ script = ExtResource( 8 )
 [connection signal="player_selected" from="GameInput" to="GameInput/PlayerClick" method="on_selected_player"]
 [connection signal="position_selected" from="GameInput" to="GameInput/PlayerClick" method="on_selected_position"]
 [connection signal="turn_camera" from="GameInput" to="GameCamera" method="turn_camera"]
+[connection signal="zoom_camera" from="GameInput" to="GameCamera" method="zoom_camera"]
 [connection signal="clear_position_hints" from="GameInput/PlayerDrag" to="BoardManager" method="position_hints_cleared"]
 [connection signal="player_dragged_to" from="GameInput/PlayerDrag" to="BoardManager" method="check_player_move"]
 [connection signal="request_position_hints" from="GameInput/PlayerDrag" to="BoardManager" method="position_hints_requested"]

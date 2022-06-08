@@ -35,6 +35,7 @@ signal player_dropped (position)
 
 # - Signals Camera input actions -
 signal turn_camera (turn_angle)
+signal zoom_camera (direction)
 
 
 # -- Variables --
@@ -71,6 +72,12 @@ func _unhandled_input (event: InputEvent) -> void:
 			else:
 				# Drop camera turn
 				__input_mode = InputMode.NONE
+		# Mouse wheel (zoom in and out)
+		# Is directly passed on to the camera
+		if event.button_index == BUTTON_WHEEL_UP:
+			emit_signal ("zoom_camera", -1.0)
+		if event.button_index == BUTTON_WHEEL_DOWN:
+			emit_signal ("zoom_camera", 1.0)
 	# Handle mouse motion events
 	if event is InputEventMouseMotion:
 		# If motion when mouse button just clicked

@@ -27,3 +27,7 @@ func turn_camera (turn_angle : float) -> void:
 	var horizontal_move : float = turn_angle * CAMERA_MOVE_SPEED
 	# Move each gimbal part into one direction
 	outer_gimbal.rotate_object_local (Vector3.UP, horizontal_move)
+
+# - Zooms the camera in or out -
+func zoom_camera (direction : float) -> void:
+	camera_node.translate (Vector3 (0.0, 0.0, direction))
