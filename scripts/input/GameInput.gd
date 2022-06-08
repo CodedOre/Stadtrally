@@ -72,8 +72,12 @@ func _unhandled_input (event: InputEvent) -> void:
 			else:
 				# Drop camera turn
 				__input_mode = InputMode.NONE
-		# Mouse wheel (zoom in and out)
-		# Is directly passed on to the camera
+		# Horizontal scrool (turns the camera)
+		if event.button_index == BUTTON_WHEEL_LEFT:
+			emit_signal ("turn_camera", -1.0)
+		if event.button_index == BUTTON_WHEEL_RIGHT:
+			emit_signal ("turn_camera", 1.0)
+		# Vertical scroll (zoom in and out)
 		if event.button_index == BUTTON_WHEEL_UP:
 			emit_signal ("zoom_camera", -1.0)
 		if event.button_index == BUTTON_WHEEL_DOWN:
