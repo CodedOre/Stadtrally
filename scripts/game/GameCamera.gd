@@ -36,6 +36,9 @@ onready var camera_node : Camera = $OuterGimbal/InnerGimbal/Camera
 # - The curve determening the angle on a certain zoom -
 export (Curve) var zoom_curve : Curve
 
+# - The limits for the camera movement -
+export (Vector2) var move_bounds : Vector2
+
 
 # -- Functions --
 
@@ -52,8 +55,13 @@ func _process (_delta: float) -> void:
 		movement_vector += Vector2 (-CAMERA_MOVE_SPEED, 0.0)
 	if Input.is_action_pressed ("camera_move_right"):
 		movement_vector += Vector2 (CAMERA_MOVE_SPEED, 0.0)
+	# Get the basis of the outer gimbal (as this defines where is forward)
+	var gimbal_basis = outer_gimbal.global_transform.basis
+	# Apply the movement vectors to the normalized basis
+	var x_movement : Vector3 = gimbal_basis.x.normalized () * movement_vector.x
+	var y_movement : Vector3 = gimbal_basis.z.normalized () * movement_vector.y
 	# Move the camera
-	translate (Vector3 (movement_vector.x, 0.0, movement_vector.y))
+	translate (x_movement + y_movement)
 	# Keep the camera inside the set bounds
 	transform.origin.x = clamp (transform.origin.x, -1.0 * move_bounds.x, move_bounds.x)
 	transform.origin.z = clamp (transform.origin.z, -1.0 * move_bounds.y, move_bounds.y)
