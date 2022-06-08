@@ -34,7 +34,7 @@ signal player_moved (position)
 signal player_dropped (position)
 
 # - Signals Camera input actions -
-signal turn_camera (turn_vector)
+signal turn_camera (turn_angle)
 
 
 # -- Variables --
@@ -85,7 +85,7 @@ func _unhandled_input (event: InputEvent) -> void:
 		if __input_mode == InputMode.MOUSE_RIGHT_DRAG:
 			# Get the amount the mouse turned and hand it to the camera
 			var turn_vector : Vector2 = event.relative
-			emit_signal ("turn_camera", turn_vector)
+			emit_signal ("turn_camera", turn_vector.x)
 
 # - Run when a left mouse button click was detected -
 func __on_mouse_left_click (event : InputEvent) -> void:
