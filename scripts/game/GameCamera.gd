@@ -54,6 +54,9 @@ func _process (_delta: float) -> void:
 		movement_vector += Vector2 (CAMERA_MOVE_SPEED, 0.0)
 	# Move the camera
 	translate (Vector3 (movement_vector.x, 0.0, movement_vector.y))
+	# Keep the camera inside the set bounds
+	transform.origin.x = clamp (transform.origin.x, -1.0 * move_bounds.x, move_bounds.x)
+	transform.origin.z = clamp (transform.origin.z, -1.0 * move_bounds.y, move_bounds.y)
 
 # - Turns the camera according to the retrieved input -
 func turn_camera (turn_angle : float) -> void:
