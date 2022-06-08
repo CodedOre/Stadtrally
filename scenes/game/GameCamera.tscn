@@ -1,14 +1,20 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scripts/game/GameCamera.gd" type="Script" id=1]
 
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0, 1 ), 0.0, -1.0, 0, 1, Vector2( 1, 0 ), -1.0, 0.0, 1, 0 ]
+
 [node name="GameCamera" type="Spatial"]
 script = ExtResource( 1 )
+zoom_curve = SubResource( 1 )
 
 [node name="OuterGimbal" type="Spatial" parent="."]
 
 [node name="InnerGimbal" type="Spatial" parent="OuterGimbal"]
-transform = Transform( 1, 0, 0, 0, 0.819152, 0.573577, 0, -0.573577, 0.819152, 0, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 0.422618, 0.906308, 0, -0.906308, 0.422618, 0, 0, 0 )
 
 [node name="Camera" type="Camera" parent="OuterGimbal/InnerGimbal"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 35 )
+fov = 75.0
+far = 350.0

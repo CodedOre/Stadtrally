@@ -8,6 +8,16 @@ extends Spatial
 
 # -- Constants --
 
+# - Limits how far you can zoom -
+const MIN_CAMERA_ZOOM : float = 15.0
+const MAX_CAMERA_ZOOM : float = 75.0
+const CAMERA_ZOOM_RANGE : float = MAX_CAMERA_ZOOM - MIN_CAMERA_ZOOM
+
+# - Min/Max for the vertical rotations determined by the zoom curve -
+const MIN_VERTICAL_ROTATION : float = deg2rad (-90.0)
+const MAX_VERTICAL_ROTATION : float = deg2rad (-15.0)
+const VERTICAL_ROTATION_RANGE : float = MAX_VERTICAL_ROTATION - MIN_VERTICAL_ROTATION
+
 # - Limits how fast the camera moves -
 const CAMERA_MOVE_SPEED : float = 0.65
 const CAMERA_TURN_SPEED : float = 0.02
@@ -19,6 +29,12 @@ const CAMERA_TURN_SPEED : float = 0.02
 onready var outer_gimbal : Spatial = $OuterGimbal
 onready var inner_gimbal : Spatial = $OuterGimbal/InnerGimbal
 onready var camera_node : Camera = $OuterGimbal/InnerGimbal/Camera
+
+
+# -- Properties --
+
+# - The curve determening the angle on a certain zoom -
+export (Curve) var zoom_curve : Curve
 
 
 # -- Functions --
@@ -48,4 +64,17 @@ func turn_camera (turn_angle : float) -> void:
 
 # - Zooms the camera in or out -
 func zoom_camera (direction : float) -> void:
-	camera_node.translate (Vector3 (0.0, 0.0, direction))
+	# Clamp the zoom with the existing transform
+	var camera_pos : Vector3 = camera_node.transform.origin
+	var zoomed_pos : float = clamp (camera_pos.z + direction, MIN_CAMERA_ZOOM, MAX_CAMERA_ZOOM)
+	var zoom_move : float = zoomed_pos - camera_pos.z
+	# Move the camera node using the zoom
+	camera_node.translate (Vector3 (0.0, 0.0, zoom_move))
+	# Get the relative amount of our zoom in relation to min/max
+	var zoom_range : float = zoomed_pos - MIN_CAMERA_ZOOM
+	var zoom_amount : float = zoom_range / CAMERA_ZOOM_RANGE
+	# Get the equivalent relative rotation from the curve
+	var curve_rotation : float = zoom_curve.interpolate (zoom_amount)
+	# Convert the relative rotation to a transform and apply it to the inner gimbal
+	var vertical_rotation : float = (curve_rotation * VERTICAL_ROTATION_RANGE) + MIN_VERTICAL_ROTATION
+	inner_gimbal.rotation.x = vertical_rotation
