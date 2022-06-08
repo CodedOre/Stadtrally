@@ -44,8 +44,16 @@ export (Vector2) var move_bounds : Vector2
 
 # - Runs at every frame -
 func _process (_delta: float) -> void:
-	# Create movement vector
+	# Create movement vector and turning angle
 	var movement_vector : Vector2 = Vector2 (0.0, 0.0)
+	var turn_angle : float = 0.0
+	# Get keyboard input for turning
+	if Input.is_action_pressed ("camera_turn_left"):
+		turn_angle -= 1.0
+	if Input.is_action_pressed ("camera_turn_right"):
+		turn_angle += 1.0
+	# Apply the keyboard rotation
+	turn_camera (turn_angle)
 	# Retrieve input for movement
 	if Input.is_action_pressed ("camera_move_up"):
 		movement_vector += Vector2 (0.0, -CAMERA_MOVE_SPEED)
