@@ -29,10 +29,6 @@ material/0 = SubResource( 3 )
 [node name="BoardCollision" type="CollisionShape" parent="ExampleBoard"]
 shape = SubResource( 2 )
 
-[node name="ExampleCamera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.422618, 0.906308, 0, -0.906308, 0.422618, 0, 30, 20 )
-current = true
-
 [node name="ExampleLight" type="DirectionalLight" parent="."]
 transform = Transform( 0.707107, -0.415627, 0.572061, 0, 0.809017, 0.587785, -0.707107, -0.415627, 0.572061, 0, 0, 0 )
 
