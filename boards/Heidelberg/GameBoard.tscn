@@ -21,6 +21,67 @@ skeleton = NodePath("../..")
 [node name="BoardCollision" type="CollisionShape" parent="Board"]
 shape = SubResource( 1 )
 
+[node name="Row1" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.4, 0, 0 )
+
+[node name="Position1" parent="Row1" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 32 )
+
+[node name="Position2" parent="Row1" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 22.4 )
+
+[node name="Position3" parent="Row1" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.6 )
+
+[node name="Position4" parent="Row1" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.2 )
+
+[node name="Connection1" parent="Row1" instance=ExtResource( 5 )]
+position_1 = NodePath("../Position1")
+position_2 = NodePath("../Position2")
+
+[node name="Connection2" parent="Row1" instance=ExtResource( 5 )]
+position_1 = NodePath("../Position2")
+position_2 = NodePath("../Position3")
+
+[node name="Connection3" parent="Row1" instance=ExtResource( 5 )]
+position_1 = NodePath("../Position3")
+position_2 = NodePath("../Position4")
+
+[node name="Row2" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 0 )
+
+[node name="Position1" parent="Row2" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 22.4 )
+
+[node name="Position2" parent="Row2" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16 )
+
+[node name="Position3" parent="Row2" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.6 )
+
+[node name="Position4" parent="Row2" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.2 )
+
+[node name="Position5" parent="Row2" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.2 )
+
+[node name="Connection1" parent="Row2" instance=ExtResource( 5 )]
+position_1 = NodePath("../Position1")
+position_2 = NodePath("../Position2")
+
+[node name="Connection2" parent="Row2" instance=ExtResource( 5 )]
+position_1 = NodePath("../Position2")
+position_2 = NodePath("../Position3")
+
+[node name="Connection3" parent="Row2" instance=ExtResource( 5 )]
+position_1 = NodePath("../Position3")
+position_2 = NodePath("../Position4")
+
+[node name="Connection4" parent="Row2" instance=ExtResource( 5 )]
+position_1 = NodePath("../Position4")
+position_2 = NodePath("../Position5")
+
 [node name="Row3" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.6, 0, 0 )
 
