@@ -11,7 +11,7 @@ extents = Vector3( 40, 0.25, 60 )
 
 [node name="GameBoard" type="Spatial"]
 
-[node name="Board" type="Spatial" parent="."]
+[node name="Board" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0 )
 
 [node name="BoardMesh" type="MeshInstance" parent="Board"]
