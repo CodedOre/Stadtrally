@@ -1,10 +1,18 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://boards/Heidelberg/assets/BoardMesh.tres" type="CubeMesh" id=1]
 [ext_resource path="res://scenes/board/Position.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/board/TargetPosition.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/board/QuizPosition.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/board/Connection.tscn" type="PackedScene" id=5]
+[ext_resource path="res://boards/Heidelberg/quiz/3 - Alte Brücke.tres" type="Resource" id=6]
+[ext_resource path="res://boards/Heidelberg/quiz/8 - Universität.tres" type="Resource" id=7]
+[ext_resource path="res://boards/Heidelberg/quiz/6 - Molkenkur.tres" type="Resource" id=8]
+[ext_resource path="res://boards/Heidelberg/quiz/2 - Heilligenberg.tres" type="Resource" id=9]
+[ext_resource path="res://boards/Heidelberg/quiz/7 - Altstadt.tres" type="Resource" id=10]
+[ext_resource path="res://boards/Heidelberg/quiz/1 - Neckarwiese.tres" type="Resource" id=11]
+[ext_resource path="res://boards/Heidelberg/quiz/4 - Heilliggeistkirche.tres" type="Resource" id=12]
+[ext_resource path="res://boards/Heidelberg/quiz/5 - Schloss.tres" type="Resource" id=13]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 37.5, 0.25, 62.5 )
@@ -26,6 +34,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28.8, 0, 0 )
 
 [node name="Position1" parent="Row1" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 32 )
+quiz = ExtResource( 9 )
 
 [node name="Position2" parent="Row1" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 22.4 )
@@ -93,6 +102,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 41.6 )
 
 [node name="Position3" parent="Row3" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 32 )
+quiz = ExtResource( 11 )
 
 [node name="Position4" parent="Row3" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 22.4 )
@@ -208,6 +218,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -22.4 )
 
 [node name="Position11" parent="Row5" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -32 )
+quiz = ExtResource( 6 )
 
 [node name="Position12" parent="Row5" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -41.6 )
@@ -273,12 +284,14 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16 )
 
 [node name="Position2" parent="Row6" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.4 )
+quiz = ExtResource( 10 )
 
 [node name="Position3" parent="Row6" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.2 )
 
 [node name="Position4" parent="Row6" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.8 )
+quiz = ExtResource( 12 )
 
 [node name="Position5" parent="Row6" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -22.4 )
@@ -317,6 +330,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 35.2 )
 
 [node name="Position3" parent="Row7" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 25.6 )
+quiz = ExtResource( 7 )
 
 [node name="Position4" parent="Row7" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16 )
@@ -335,6 +349,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -35.2 )
 
 [node name="Position9" parent="Row7" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -44.8 )
+quiz = ExtResource( 13 )
 
 [node name="Connection1" parent="Row7" instance=ExtResource( 5 )]
 position_1 = NodePath("../Position1")
@@ -448,6 +463,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -41.6 )
 
 [node name="Position9" parent="Row10" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -51.2 )
+quiz = ExtResource( 8 )
 
 [node name="Connection1" parent="Row10" instance=ExtResource( 5 )]
 position_1 = NodePath("../Position1")
