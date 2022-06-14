@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://scripts/quiz/QuizQuestion.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+text = "Default question, until the real questions are implemented."
+answers = [ "Answer 1", "Answer 2", "Answer 3" ]
+correct_answer = 1
+context = "Until we see the real questions!"

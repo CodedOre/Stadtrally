@@ -1,0 +1,5 @@
+[gd_resource type="CubeMesh" format=2]
+
+[resource]
+resource_name = "BoardMesh"
+size = Vector3( 75, 0.5, 125 )

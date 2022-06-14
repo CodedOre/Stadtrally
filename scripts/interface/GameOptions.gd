@@ -8,7 +8,7 @@ extends Control
 # -- Constants --
 
 # - The scene for the default board (as we don't allow to switch them) -
-const DEFAULT_BOARD : PackedScene = preload ("res://demo/DemoBoard.tscn")
+const DEFAULT_BOARD : PackedScene = preload ("res://boards/Heidelberg/GameBoard.tscn")
 
 # - The scene for players (used to create new ones -
 const PLAYER_SCENE : PackedScene = preload ("res://scenes/game/Player.tscn")

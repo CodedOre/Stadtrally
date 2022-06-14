@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://scripts/quiz/RallyQuiz.gd" type="Script" id=1]
+[ext_resource path="res://demo/default_question.tres" type="Resource" id=2]
+
+[resource]
+script = ExtResource( 1 )
+index = 5
+topic = "Schloss"
+questions = [ ExtResource( 2 ) ]
