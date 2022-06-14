@@ -28,7 +28,8 @@ func set_player (p_player : KinematicBody) -> void:
 func add_score_point (index : int) -> void:
 	var point : Control = POINT_SCENE.instance ()
 	point.point_index = index
-	$ScoreContainer.add_child (point)
+	$ScoreContainer/PointsContainer.add_child (point)
+	sort_score_points ()
 
 # - Get the ScorePoint for a certain index -
 func get_indexed_point (index : int) -> Control:
@@ -41,7 +42,7 @@ func get_indexed_point (index : int) -> Control:
 # - Get all score points in this row -
 func get_score_points () -> Array:
 	var output : Array = []
-	for child in $ScoreContainer.get_children ():
+	for child in $ScoreContainer/PointsContainer.get_children ():
 		if child.is_in_group ("ScorePoint"):
 			output.append (child)
 	return output
@@ -50,3 +51,8 @@ func get_score_points () -> Array:
 func remove_score_points () -> void:
 	for child in get_score_points ():
 		child.queue_free ()
+
+# - Sorts score points according to their index -
+func sort_score_points () -> void:
+	for child in get_score_points ():
+		$ScoreContainer/PointsContainer.move_child (child, child.point_index)
