@@ -264,3 +264,71 @@ position_2 = NodePath("../Position12")
 [node name="Connection12" parent="Row5" instance=ExtResource( 5 )]
 position_1 = NodePath("../Position12")
 position_2 = NodePath("../Position13")
+
+[node name="Row6" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.6, 0, 0 )
+
+[node name="Position1" parent="Row6" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16 )
+
+[node name="Position2" parent="Row6" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.4 )
+
+[node name="Position3" parent="Row6" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.2 )
+
+[node name="Position4" parent="Row6" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.8 )
+
+[node name="Position5" parent="Row6" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -22.4 )
+
+[node name="Position6" parent="Row6" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -41.6 )
+
+[node name="Connection1" parent="Row6" instance=ExtResource( 5 )]
+position_1 = NodePath("../Position1")
+position_2 = NodePath("../Position2")
+
+[node name="Connection2" parent="Row6" instance=ExtResource( 5 )]
+position_1 = NodePath("../Position2")
+position_2 = NodePath("../Position3")
+
+[node name="Connection3" parent="Row6" instance=ExtResource( 5 )]
+position_1 = NodePath("../Position3")
+position_2 = NodePath("../Position4")
+
+[node name="Connection4" parent="Row6" instance=ExtResource( 5 )]
+position_1 = NodePath("../Position4")
+position_2 = NodePath("../Position5")
+
+[node name="Connection5" parent="Row6" instance=ExtResource( 5 )]
+position_1 = NodePath("../Position5")
+position_2 = NodePath("../Position6")
+
+[node name="Row 7" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 0 )
+
+[node name="Position1" parent="Row 7" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 41.2 )
+
+[node name="Position2" parent="Row 7" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 35.2 )
+
+[node name="Position3" parent="Row 7" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 25.6 )
+
+[node name="Position4" parent="Row 7" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16 )
+
+[node name="Connection1" parent="Row 7" instance=ExtResource( 5 )]
+position_1 = NodePath("../Position1")
+position_2 = NodePath("../Position2")
+
+[node name="Connection2" parent="Row 7" instance=ExtResource( 5 )]
+position_1 = NodePath("../Position2")
+position_2 = NodePath("../Position3")
+
+[node name="Connection3" parent="Row 7" instance=ExtResource( 5 )]
+position_1 = NodePath("../Position3")
+position_2 = NodePath("../Position4")
