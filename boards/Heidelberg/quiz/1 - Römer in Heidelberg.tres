@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=7 format=2]
+[gd_resource type="Resource" load_steps=10 format=2]
 
 [ext_resource path="res://scripts/quiz/RallyQuiz.gd" type="Script" id=1]
 [ext_resource path="res://scripts/quiz/QuizQuestion.gd" type="Script" id=2]
@@ -35,9 +35,34 @@ answers = [ "... Töpferei.", "... Holzbearbeitung.", "... Bildung." ]
 correct_answer = 0
 context = "Dank des reichen Tonvorkommens im heutigen Ziegelhausen, Holz aus dem nahen Odenwald und der guten Verkehrslage enstand in Heidelberg ein starkes Töpfereigewerbe, wovon 60 nachgewiesene Töpferöfen zeugen."
 
+[sub_resource type="Resource" id=5]
+script = ExtResource( 2 )
+text = "Die im Kastell stationierten Truppen wurden 135 Richtung Limes verlegt.
+Heidelberg florierte auch danach noch dank..."
+answers = [ "... der Nähe zu den Germanen.", "... einer guten Verkehrslage.", "... als Hauptstadt der Provinz." ]
+correct_answer = 1
+context = "Zwischen 100 und 120 wurde eine neue Militärstraße zwischen Mainz und Augsburg errichtet. Diese Straße querte den Nackar im heutigen Heidelberg."
+
+[sub_resource type="Resource" id=6]
+script = ExtResource( 2 )
+text = "In Heidelberg wurden durch die Römer mehrere Brücken errichtet.
+Ab wann ist gesichert dass eine solche stand?"
+answers = [ "20 - 10 v. Chr.", "80 - 90 n. Chr.", "100 - 110 n. Chr." ]
+correct_answer = 2
+context = "Die erste historisch gesicherte Brücke, eine hölzerne Pfahljochbrücke, stand spätestens 90 n. Chr."
+
+[sub_resource type="Resource" id=7]
+script = ExtResource( 2 )
+text = "Nach einigen hölzernen Brücken wurde im heutigen Heidelberg von den Römern eine Brücke mit Steinpfeilern errichtet.
+Wann wurde diese Brücke errichtet?"
+answers = [ "Zwischen 100 und 120", "Um 200", "Genau 292" ]
+correct_answer = 1
+context = "Diese 260 Meter lange Brücke wurde um 200 herum errichtet.
+Sie bestand aus Steinpfeilern auf denen eine hölzerner Aufbau stand, und beinhaltete eine kleine Kapelle mit einem Neptun-Altar auf dem mittleren Pfeiler. "
+
 [resource]
 resource_name = "Quiz 1 - Römer in Heidelberg"
 script = ExtResource( 1 )
 index = 1
 topic = "Römer in Heidelberg"
-questions = [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ]
+questions = [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ]
