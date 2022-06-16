@@ -53,29 +53,39 @@ func prepare_quizzes () -> void:
 			row.add_score_point (position.quiz.index)
 
 # - Runs the quiz for a position -
-func start_new_quiz (position : StaticBody) -> void:
+func start_new_quiz (player : KinematicBody, position : StaticBody) -> void:
 	# Get the associated storage for the position
 	var values : Dictionary = _quiz_storage [position]
 	# Get the quiz
 	var quiz : RallyQuiz = values ["quiz"]
 	var used_questions : Array = values ["used_questions"]
 	_current_quiz = quiz.index
+	# Check if the player still has to do the quiz
+	for point in get_player_scores (player):
+		if point.point_index == _current_quiz and point.point_given:
+			emit_signal ("quiz_completed")
+			return
 	# Get a random question
 	var question : QuizQuestion = _get_random_question (quiz, used_questions)
 	# Start the Quiz UI
 	quiz_screen.start_new_quiz (quiz, question)
 
-# - Check if the player is allowed onto the finish -
-func has_all_points (player : KinematicBody) -> bool:
+# - Get the scores for a player -
+func get_player_scores (player : KinematicBody) -> Array:
 	# Get the ScoreRow for the player
 	var player_scores : Control = null
 	for row in get_tree ().get_nodes_in_group ("ScoreRow"):
 		if row.player == player:
 			player_scores = row
 			break
+	# Return all ScorePoints
+	return player_scores.get_score_points ()
+
+# - Check if the player is allowed onto the finish -
+func has_all_points (player : KinematicBody) -> bool:
 	# Check in the row if all points were given
 	var all_points_given : bool = true
-	for point in player_scores.get_score_points ():
+	for point in get_player_scores (player):
 		all_points_given = all_points_given and point.point_given
 	return all_points_given
 

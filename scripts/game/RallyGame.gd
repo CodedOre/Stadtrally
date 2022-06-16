@@ -119,9 +119,9 @@ func player_moved (moves : int, new_pos : StaticBody) -> void:
 	if __current_moves <= 0:
 		# Start the quiz if the player is on a quiz field
 		if new_pos.is_in_group ("QuizPosition"):
-			quiz_master.start_new_quiz (new_pos)
 			game_hud.active = false
 			quiz_screen.visible = true
+			quiz_master.start_new_quiz (__current_player, new_pos)
 		# Note the player is finished when it's the FinishPosition
 		if new_pos.is_in_group ("FinishPosition"):
 			__player_in_finish (__current_player)
