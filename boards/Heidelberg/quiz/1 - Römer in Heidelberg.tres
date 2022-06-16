@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=5 format=2]
+[gd_resource type="Resource" load_steps=7 format=2]
 
 [ext_resource path="res://scripts/quiz/RallyQuiz.gd" type="Script" id=1]
 [ext_resource path="res://scripts/quiz/QuizQuestion.gd" type="Script" id=2]
@@ -20,8 +20,24 @@ correct_answer = 0
 context = "Die ersten Kastelle in Heidelberg waren aus Holz gebaut.
 Diese wurde später durch ein aus Stein gebautes ersetzt."
 
+[sub_resource type="Resource" id=3]
+script = ExtResource( 2 )
+text = "85 wurde Heidelberg Teil der neuen zivilen Provinz Germania Superior (Obergermanien).
+Wo befand sich die Hauptstadt dieser Provinz?"
+answers = [ "Trier", "Mainz", "Regensburg" ]
+correct_answer = 1
+context = "Mainz, damals Mogontiacum genannt, war die Hauptstadt von Germania Superior, während sich Trier im westlichen Gallia Belgica und Regensburg im östlichen Raetia befand."
+
+[sub_resource type="Resource" id=4]
+script = ExtResource( 2 )
+text = "Die römische Siedlung in Heidelberg florierte um 135 als ein Zentrum für..."
+answers = [ "... Töpferei.", "... Holzbearbeitung.", "... Bildung." ]
+correct_answer = 0
+context = "Dank des reichen Tonvorkommens im heutigen Ziegelhausen, Holz aus dem nahen Odenwald und der guten Verkehrslage enstand in Heidelberg ein starkes Töpfereigewerbe, wovon 60 nachgewiesene Töpferöfen zeugen."
+
 [resource]
+resource_name = "Quiz 1 - Römer in Heidelberg"
 script = ExtResource( 1 )
 index = 1
 topic = "Römer in Heidelberg"
-questions = [ SubResource( 1 ), SubResource( 2 ) ]
+questions = [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ]
