@@ -1,10 +1,80 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" load_steps=11 format=2]
 
 [ext_resource path="res://scripts/quiz/RallyQuiz.gd" type="Script" id=1]
-[ext_resource path="res://demo/default_question.tres" type="Resource" id=2]
+[ext_resource path="res://scripts/quiz/QuizQuestion.gd" type="Script" id=2]
+
+[sub_resource type="Resource" id=1]
+resource_name = "Fahren über die Alte Brücke"
+script = ExtResource( 2 )
+text = "Darf man auf der Alten Brücke mit einem Auto fahren?"
+answers = [ "Als Anlieger der Altstadt", "Werktags von 16 bis 11 Uhr", "Nein, ist vollständig gesperrt" ]
+correct_answer = 1
+context = "Grundsätzlich ist es möglich, zwischen 16 und 11 Uhr an Werkstagen auf der alten  Brücke zu fahren."
+
+[sub_resource type="Resource" id=2]
+resource_name = "Die erste \"Alte Brücke\""
+script = ExtResource( 2 )
+text = "Mehrere Brücken wurden an der Stelle der heutigen Alten Brücke errichtet.
+In welchem Jahr findet sich die erste Erwähnung einer solchen Brücke?"
+answers = [ "125 n. Chr.", "987 n. Chr.", "1284 n. Chr." ]
+correct_answer = 2
+context = "Die erste Erwähnung einer Brücke zum heutigen Heidelberg war im Jahr 1284 und führte direkt zum damaligen Marktplatz."
+
+[sub_resource type="Resource" id=3]
+resource_name = "Die Feinde einer Brücke"
+script = ExtResource( 2 )
+text = "Vor der heutigen Brücke wurden 8 Brücken an der gleichen Stelle errichtet.
+Durch was wurden die meisten dieser Brücken zerstört?"
+answers = [ "Eisgang", "Sprengung", "Brand" ]
+correct_answer = 0
+context = "Bis auf eine Brücke, welche während des Pfälzischen Erbfolgekriegs durch die Franzosen gesprengt wurde, fielen alle vorherigen Brücken dem Eisgang zum Opfer, als im Fluss treibendes Eis diese beschädigten."
+
+[sub_resource type="Resource" id=4]
+resource_name = "Bau der neuen \"Alten Brücke\""
+script = ExtResource( 2 )
+text = "Wann wurde die heutige alte Brücke erbaut?"
+answers = [ "1097", "1788", "1815" ]
+correct_answer = 1
+context = "1788 wurde der Bau vollendet, welcher mit 165.282 Gulden das teuerste Bauwerk nach dem Mannheimer Schloss zu seiner Zeit war."
+
+[sub_resource type="Resource" id=5]
+resource_name = "Baustil der alten Brücke"
+script = ExtResource( 2 )
+text = "Welchen Baustil folgt die heutige alte Brücke?"
+answers = [ "Barock", "Klassik", "Moderne" ]
+correct_answer = 0
+context = "Die eigentliche Brücke wurde im Stile des Barocks errichtet, das bereits stehende Brückentor aus der Spätgotik wurde beim Bau auch barockisiert."
+
+[sub_resource type="Resource" id=6]
+resource_name = "Brückenersatz"
+script = ExtResource( 2 )
+text = "Nachdem die siebte Brücke durch die Franzosen zerstört wurde, behalf man sich fast 20 Jahre lang mit Fähren und..."
+answers = [ "...Dämmen", "...Furten", "...Schwimmbrücken" ]
+correct_answer = 2
+context = "Durch die militärische Nutzung war die Verwendung von Schwimmbrücken weitverbreitet, weswegen diese Lösung nahelegend war um die zerstörte Brücke zu ersetzen."
+
+[sub_resource type="Resource" id=7]
+resource_name = "Die (echte) zweite Brücke"
+script = ExtResource( 2 )
+text = "Im Zuge der Industrialisierung wurde der Bau von weiteren Brücken nötig.
+Welche Brücke folgte der alten Brücke als zweite Neckarüberquerung in Heidelberg?"
+answers = [ "Karl-Theodor-Brücke", "Ernst-Walz-Brücke", "Friedrichsbrücke" ]
+correct_answer = 2
+context = "Die Friedrichsbrücke wurde 1877 am Bismarkplatz erbaut, 1945 neuerbaut und ist heute als Theodor-Heuss-Brücke bekannt. 1928 folgte die Ernst-Walz-Brücke.
+Die Karl-Theodor-Brücke ist der Name der alten Brücke."
+
+[sub_resource type="Resource" id=8]
+resource_name = "Finale Zerstörung"
+script = ExtResource( 2 )
+text = "Auch die heutige alte Brücke wurde mal stark beschädigt.
+Wann war die letzte starke Beschädigung?"
+answers = [ "1758", "1896", "1945" ]
+correct_answer = 2
+context = "Am 29. März 1945 wurden alle Brücken Heidelbergs von der zurückziehenden Wehrmacht gesprengt, bevor die Amerikaner am Tag darauf Heidelberg übernahmen."
 
 [resource]
+resource_name = "Quiz 3 - Alte Brücke"
 script = ExtResource( 1 )
 index = 3
 topic = "Alte Brücke"
-questions = [ ExtResource( 2 ) ]
+questions = [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ]
