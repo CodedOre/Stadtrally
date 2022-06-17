@@ -72,7 +72,7 @@ context = "Um zu verhindern dass Leute in den Ruinen lebten wurde entschlossen d
 resource_name = "Name des Philosophenweges"
 script = ExtResource( 2 )
 text = "Zwischen 1837–41 wurden die Weinbergwege zu dem heute bekannten Philosophenweg ausgebaut.
-Doch woher hat dieser seinen Namen?1837–41"
+Doch woher hat dieser seinen Namen?"
 answers = [ "Von bekannten Philosophen", "Von den Studenten der Universität", "Vom Charakter des Berges" ]
 correct_answer = 1
 context = "In der damaligen Zeit wurde Philosoph und Student noch gleichgesetzt, da jeder Student auch Philosophie studieren musste.
