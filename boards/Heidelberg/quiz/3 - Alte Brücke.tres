@@ -1,10 +1,28 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" load_steps=5 format=2]
 
 [ext_resource path="res://scripts/quiz/RallyQuiz.gd" type="Script" id=1]
-[ext_resource path="res://demo/default_question.tres" type="Resource" id=2]
+[ext_resource path="res://scripts/quiz/QuizQuestion.gd" type="Script" id=2]
+
+[sub_resource type="Resource" id=1]
+resource_name = "Fahren über die Alte Brücke"
+script = ExtResource( 2 )
+text = "Darf man auf der Alten Brücke mit einem Auto fahren?"
+answers = [ "Als Anlieger der Altstadt", "Werktags von 16 bis 11 Uhr", "Nein, ist vollständig gesperrt" ]
+correct_answer = 1
+context = "Grundsätzlich ist es möglich, zwischen 16 und 11 Uhr an Werkstagen auf der alten  Brücke zu fahren."
+
+[sub_resource type="Resource" id=2]
+resource_name = "Die erste \"Alte Brücke\""
+script = ExtResource( 2 )
+text = "Mehrere Brücken wurden an der Stelle der heutigen Alten Brücke errichtet.
+In welchem Jahr findet sich die erste Erwähnung einer solchen Brücke?"
+answers = [ "125 n. Chr.", "987 n. Chr.", "1284 n. Chr." ]
+correct_answer = 2
+context = "Die erste Erwähnung einer Brücke zum heutigen Heidelberg war im Jahr 1284 und führte direkt zum damaligen Marktplatz."
 
 [resource]
+resource_name = "Quiz 3 - Alte Brücke"
 script = ExtResource( 1 )
 index = 3
 topic = "Alte Brücke"
-questions = [ ExtResource( 2 ) ]
+questions = [ SubResource( 1 ), SubResource( 2 ) ]
