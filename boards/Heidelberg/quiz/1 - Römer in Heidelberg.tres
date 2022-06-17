@@ -4,6 +4,7 @@
 [ext_resource path="res://scripts/quiz/QuizQuestion.gd" type="Script" id=2]
 
 [sub_resource type="Resource" id=1]
+resource_name = "Errichtung des ersten Kastells"
 script = ExtResource( 2 )
 text = "Im Jahr 74 n. Chr. erbauten die Römer in Heidelberg das erste Kastell.
 Unter welchem Kaiser geschah dies?"
@@ -12,6 +13,7 @@ correct_answer = 2
 context = "Nachdem Vespasian im Jahre 70 n. Chr. den Batavaraufstand niedergeschlagen hatte, wurde die Außengrenze Richtung Osten verschoben, zu dessen Sicherung unter Anderem das Kastell in Heidelberg errichtet wurde."
 
 [sub_resource type="Resource" id=2]
+resource_name = "Material des ersten Kastells"
 script = ExtResource( 2 )
 text = "Ein erstes Kastell wurde in Heidelberg im Jahre 74 erbaut.
 Welches Baumaterial wurde verwendet?"
@@ -21,6 +23,7 @@ context = "Die ersten Kastelle in Heidelberg waren aus Holz gebaut.
 Diese wurde später durch ein aus Stein gebautes ersetzt."
 
 [sub_resource type="Resource" id=3]
+resource_name = "Römische Provinz von Heidelberg"
 script = ExtResource( 2 )
 text = "85 wurde Heidelberg Teil der neuen zivilen Provinz Germania Superior (Obergermanien).
 Wo befand sich die Hauptstadt dieser Provinz?"
@@ -29,6 +32,7 @@ correct_answer = 1
 context = "Mainz, damals Mogontiacum genannt, war die Hauptstadt von Germania Superior, während sich Trier im westlichen Gallia Belgica und Regensburg im östlichen Raetia befand."
 
 [sub_resource type="Resource" id=4]
+resource_name = "Gewerbe des römischen Heidelbergs"
 script = ExtResource( 2 )
 text = "Die römische Siedlung in Heidelberg florierte um 135 als ein Zentrum für..."
 answers = [ "... Töpferei.", "... Holzbearbeitung.", "... Bildung." ]
@@ -36,6 +40,7 @@ correct_answer = 0
 context = "Dank des reichen Tonvorkommens im heutigen Ziegelhausen, Holz aus dem nahen Odenwald und der guten Verkehrslage enstand in Heidelberg ein starkes Töpfereigewerbe, wovon 60 nachgewiesene Töpferöfen zeugen."
 
 [sub_resource type="Resource" id=5]
+resource_name = "Heidelberg nach Militärstandort"
 script = ExtResource( 2 )
 text = "Die im Kastell stationierten Truppen wurden 135 Richtung Limes verlegt.
 Heidelberg florierte auch danach noch dank..."
@@ -44,6 +49,7 @@ correct_answer = 1
 context = "Zwischen 100 und 120 wurde eine neue Militärstraße zwischen Mainz und Augsburg errichtet. Diese Straße querte den Nackar im heutigen Heidelberg."
 
 [sub_resource type="Resource" id=6]
+resource_name = "Erste römische Brücke"
 script = ExtResource( 2 )
 text = "In Heidelberg wurden durch die Römer mehrere Brücken errichtet.
 Ab wann ist gesichert dass eine solche stand?"
@@ -52,6 +58,7 @@ correct_answer = 1
 context = "Die erste historisch gesicherte Brücke, eine hölzerne Pfahljochbrücke, stand spätestens 90 n. Chr."
 
 [sub_resource type="Resource" id=7]
+resource_name = "Errichtung Steinpfeilerbrücke"
 script = ExtResource( 2 )
 text = "Nach einigen hölzernen Brücken wurde im heutigen Heidelberg von den Römern eine Brücke mit Steinpfeilern errichtet.
 Wann wurde diese Brücke errichtet?"
@@ -61,6 +68,7 @@ context = "Diese 260 Meter lange Brücke wurde um 200 herum errichtet.
 Sie bestand aus Steinpfeilern auf denen eine hölzerner Aufbau stand, und beinhaltete eine kleine Kapelle mit einem Neptun-Altar auf dem mittleren Pfeiler. "
 
 [sub_resource type="Resource" id=8]
+resource_name = "Ende der Siedlung"
 script = ExtResource( 2 )
 text = "Das schlussendliche Schicksal des römischen Heidelbergs war auch durch die Überfälle der Alemannen seit dem 3. Jahrhundert beinflusst.
 Die Siedlung wurde am Ende..."
