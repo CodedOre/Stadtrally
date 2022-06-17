@@ -1,10 +1,86 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" load_steps=11 format=2]
 
 [ext_resource path="res://scripts/quiz/RallyQuiz.gd" type="Script" id=1]
-[ext_resource path="res://demo/default_question.tres" type="Resource" id=2]
+[ext_resource path="res://scripts/quiz/QuizQuestion.gd" type="Script" id=2]
+
+[sub_resource type="Resource" id=1]
+resource_name = "Erste Besiedelung des Heilligenbergs"
+script = ExtResource( 2 )
+text = "Auf dem Heilligenberg befanden sich mehrere Siedlungen.
+Aus welchen Jahren datieren die Funde der erstmaligen Besiedelung?"
+answers = [ "5500–5100 v. Chr.", "3200 v. Chr.", "1200 v. Chr." ]
+correct_answer = 0
+context = "Bei diesen ersten Funden handelt es sich um Steinkeile und Gefäßscherben."
+
+[sub_resource type="Resource" id=2]
+resource_name = "Kelten auf dem Heilligenberg"
+script = ExtResource( 2 )
+text = "Eine spätere Siedlung, erbaut zwischen 1000 - 500 v. Chr., stellte bis zur Ankunft der Römer das politische und kulturelle Zentrum der Region dar.
+Wer erbaute diese Siedlung?"
+answers = [ "Die Gallier", "Die Germanen", "Die Kelten" ]
+correct_answer = 2
+context = "Reste der damals erbauten doppelten Ringwallanlage lassen sich heute noch sehen."
+
+[sub_resource type="Resource" id=3]
+resource_name = "Antike Bauten auf dem Heilligenberg"
+script = ExtResource( 2 )
+text = "Welche der folgenden Bauten existiert tatsächlich auf dem Heilligenberg?"
+answers = [ "Ein griechischer Tempel", "Ein Amphittheater", "Ein römisches Kastell" ]
+correct_answer = 1
+context = "Tatsächlich befindet sich eine an Amphittheater orientierte Freilichtbühne auf dem Heilligenberg, die Thingstätte.
+Diese ist allerdings ein modernes Bauwerk, ursprünglich zu Propagandazwecken in der NS-Zeit erbaut."
+
+[sub_resource type="Resource" id=4]
+resource_name = "Gründung des Michaelskloster"
+script = ExtResource( 2 )
+text = "Eines der Kloster, die auf dem Heilligenberg errichtet wurden, ist das Michaelskloster.
+Wann wurde er erbaut?"
+answers = [ "600", "1023", "1234" ]
+correct_answer = 1
+context = "Die Erbauung des heute erhaltenen Kloster kann für 1023 nachgewiesen werden.
+Eine frühere Kirche kann im 9. Jahrhundert nachgewiesen werden, welche auch Teile des schon stehenden Tempels aus römischer Zeit verwendete."
+
+[sub_resource type="Resource" id=5]
+resource_name = "Aufgabe des Michaelskloster"
+script = ExtResource( 2 )
+text = "1537 wird das Michalskloster als Ruine beschrieben, es war daher zu dem Zeitpunkt nicht mehr verwendet worden.
+Was war der wahrscheinliche Grund dafür?"
+answers = [ "Ein Blitzschlag", "Der Einsturz eines Turms", "Die Reformation" ]
+correct_answer = 1
+context = "Für 1503 wird der Einsturz des Glockenturms des Klosters bezeugt, bei dem drei Personen zu Tode kamen.
+Die Aufgabe des Kloster kurz danach scheint eine Folge davon zu sein."
+
+[sub_resource type="Resource" id=6]
+resource_name = "Bau des Heilligenturms"
+script = ExtResource( 2 )
+text = "Neben dem Michaelskloster befindet sich auf dem Helligenberg auch das Stephanskloster.
+Bei diesem Kloster befindet sich der Helligenbergturm. Wann wurde dieser erbaut?"
+answers = [ "1094 mit dem Kloster", "im 16. Jahrhundert", "im 18. Jahrhundert" ]
+correct_answer = 2
+context = "Der Turm wurde 1885 erbaut. Aus Baumaterial wurden Steine aus dem verfallenen Stephanskloster verwendet."
+
+[sub_resource type="Resource" id=7]
+resource_name = "Ende der Kloster"
+script = ExtResource( 2 )
+text = "1589 wurde im Rahmen der Reformation die Kloster auf dem Heilligenberg eingezogen und der Universität übertragen.
+Wie verwendetete sie die beiden Kloster?"
+answers = [ "Als Fakultät für Theologie", "Nicht, als Ruine stehengelassen", "Als öffentlicher Steinbruch" ]
+correct_answer = 2
+context = "Um zu verhindern dass Leute in den Ruinen lebten wurde entschlossen die Kloster als Steinbruch freizugeben, aus denen die Bürger sich Steine holen konnten."
+
+[sub_resource type="Resource" id=8]
+resource_name = "Name des Philosophenweges"
+script = ExtResource( 2 )
+text = "Zwischen 1837–41 wurden die Weinbergwege zu dem heute bekannten Philosophenweg ausgebaut.
+Doch woher hat dieser seinen Namen?"
+answers = [ "Von bekannten Philosophen", "Von den Studenten der Universität", "Vom Charakter des Berges" ]
+correct_answer = 1
+context = "In der damaligen Zeit wurde Philosoph und Student noch gleichgesetzt, da jeder Student auch Philosophie studieren musste.
+Da die Studenten diesen Weg für Spaziergänge verwendeten wurde er wohl nach ihnen benannt."
 
 [resource]
+resource_name = "Quiz 2 - Helligenberg"
 script = ExtResource( 1 )
 index = 2
 topic = "Heilligenberg"
-questions = [ ExtResource( 2 ) ]
+questions = [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ]
