@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=5 format=2]
+[gd_resource type="Resource" load_steps=8 format=2]
 
 [ext_resource path="res://scripts/quiz/RallyQuiz.gd" type="Script" id=1]
 [ext_resource path="res://scripts/quiz/QuizQuestion.gd" type="Script" id=2]
@@ -20,9 +20,34 @@ answers = [ "125 n. Chr.", "987 n. Chr.", "1284 n. Chr." ]
 correct_answer = 2
 context = "Die erste Erwähnung einer Brücke zum heutigen Heidelberg war im Jahr 1284 und führte direkt zum damaligen Marktplatz."
 
+[sub_resource type="Resource" id=3]
+resource_name = "Die Feinde einer Brücke"
+script = ExtResource( 2 )
+text = "Vor der heutigen Brücke wurden 8 Brücken an der gleichen Stelle errichtet.
+Durch was wurden die meisten dieser Brücken zerstört?"
+answers = [ "Eisgang", "Sprengung", "Brand" ]
+correct_answer = 0
+context = "Bis auf eine Brücke, welche während des Pfälzischen Erbfolgekriegs durch die Franzosen gesprengt wurde, fielen alle vorherigen Brücken dem Eisgang zum Opfer, als im Fluss treibendes Eis diese beschädigten."
+
+[sub_resource type="Resource" id=4]
+resource_name = "Bau der neuen \"Alten Brücke\""
+script = ExtResource( 2 )
+text = "Wann wurde die heutige alte Brücke erbaut?"
+answers = [ "1097", "1788", "1815" ]
+correct_answer = 1
+context = "1788 wurde der Bau vollendet, welcher mit 165.282 Gulden das teuerste Bauwerk nach dem Mannheimer Schloss zu seiner Zeit war."
+
+[sub_resource type="Resource" id=5]
+resource_name = "Baustil der alten Brücke"
+script = ExtResource( 2 )
+text = "Welchen Baustil folgt die heutige alte Brücke?"
+answers = [ "Barock", "Klassik", "Moderne" ]
+correct_answer = 0
+context = "Die eigentliche Brücke wurde im Stile des Barocks errichtet, das bereits stehende Brückentor aus der Spätgotik wurde beim Bau auch barockisiert."
+
 [resource]
 resource_name = "Quiz 3 - Alte Brücke"
 script = ExtResource( 1 )
 index = 3
 topic = "Alte Brücke"
-questions = [ SubResource( 1 ), SubResource( 2 ) ]
+questions = [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ]
