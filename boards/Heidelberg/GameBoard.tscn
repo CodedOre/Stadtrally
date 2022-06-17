@@ -8,7 +8,7 @@
 [ext_resource path="res://boards/Heidelberg/quiz/3 - Alte Brücke.tres" type="Resource" id=6]
 [ext_resource path="res://boards/Heidelberg/quiz/8 - Universität.tres" type="Resource" id=7]
 [ext_resource path="res://boards/Heidelberg/quiz/6 - Molkenkur.tres" type="Resource" id=8]
-[ext_resource path="res://boards/Heidelberg/quiz/2 - Heilligenberg.tres" type="Resource" id=9]
+[ext_resource path="res://boards/Heidelberg/quiz/2 - Heiligenberg.tres" type="Resource" id=9]
 [ext_resource path="res://boards/Heidelberg/quiz/7 - Altstadt.tres" type="Resource" id=10]
 [ext_resource path="res://boards/Heidelberg/quiz/1 - Römer in Heidelberg.tres" type="Resource" id=11]
 [ext_resource path="res://boards/Heidelberg/quiz/4 - Heilliggeistkirche.tres" type="Resource" id=12]

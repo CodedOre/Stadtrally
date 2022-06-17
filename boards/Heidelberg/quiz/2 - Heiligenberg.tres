@@ -4,7 +4,7 @@
 [ext_resource path="res://scripts/quiz/QuizQuestion.gd" type="Script" id=2]
 
 [sub_resource type="Resource" id=1]
-resource_name = "Erste Besiedelung des Heilligenbergs"
+resource_name = "Erste Besiedelung des Heiligenbergs"
 script = ExtResource( 2 )
 text = "Auf dem Heiligenberg befanden sich mehrere Siedlungen.
 Archäologische Funde zeugen von der erstmaligen Besiedlung. Aus welcher Zeit stammen diese?"
@@ -13,7 +13,7 @@ correct_answer = 0
 context = "Bei diesen ersten Funden handelt es sich um Steinkeile und Gefäßscherben."
 
 [sub_resource type="Resource" id=2]
-resource_name = "Kelten auf dem Heilligenberg"
+resource_name = "Kelten auf dem Heiligenberg"
 script = ExtResource( 2 )
 text = "Eine Siedlung auf dem Heiligenberg, erbaut zwischen 1000 - 500 v. Chr., stellte bis zur Ankunft der Römer das politische und kulturelle Zentrum der Region dar.
 Wer erbaute diese Siedlung?"
@@ -22,7 +22,7 @@ correct_answer = 2
 context = "Reste der damals erbauten doppelten Ringwallanlage lassen sich heute noch besichtigen.."
 
 [sub_resource type="Resource" id=3]
-resource_name = "Antike Bauten auf dem Heilligenberg"
+resource_name = "Antike Bauten auf dem Heiligenberg"
 script = ExtResource( 2 )
 text = "Welche der folgenden Bauten existiert tatsächlich auf dem Heilligenberg?"
 answers = [ "Ein griechischer Tempel", "Ein Amphitheater", "Ein römisches Kastell" ]
@@ -51,7 +51,7 @@ context = "Für 1503 wird der Einsturz des Glockenturms des Klosters bezeugt, be
 Die Aufgabe des Kloster kurz danach scheint eine Folge davon zu sein."
 
 [sub_resource type="Resource" id=6]
-resource_name = "Bau des Heilligenturms"
+resource_name = "Bau des Heiligenturms"
 script = ExtResource( 2 )
 text = "Neben dem Michaelskloster befindet sich auf dem Heiligenberg auch das Stephanskloster.
 Bei diesem Kloster befindet sich der Helligenbergturm. Wann wurde dieser erbaut?"
@@ -82,5 +82,5 @@ Da die Studenten diesen Weg für Spaziergänge verwendeten, wurde er wohl nach i
 resource_name = "Quiz 2 - Helligenberg"
 script = ExtResource( 1 )
 index = 2
-topic = "Heilligenberg"
+topic = "Heiligenberg"
 questions = [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ]
