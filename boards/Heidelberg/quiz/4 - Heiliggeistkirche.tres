@@ -52,6 +52,7 @@ correct_answer = 1
 context = "Um die kirchliche Unordnung und Uneinigkeiten zu beenden, berief Kurfürst Friedrich III. 1560/1561 mehrere Professoren nach Heidelberg, um eine genaue und einheitliche Lehrgrundlage für Kirche und Schule und eine überarbeitete Kirchenordnung zu erstellen.  Im März 1563 erschien die Erstausgabe des Katechismus mit 128 Fragen und Antworten."
 
 [sub_resource type="Resource" id=7]
+resource_name = "Bibliotheca Palatina"
 script = ExtResource( 2 )
 text = "Auf den Emporen der Heiliggeistkirche befand sich von Beginn an bis zu den ersten Jahren des Dreißigjährigen Krieges eine besondere Sammlung. Welche?"
 answers = [ "Mehrere heilige Reliquien", "Die private Schmetterlingssammlung des Kurfürsten", "Die \"Bibliotheca Palatina\"" ]
@@ -59,6 +60,7 @@ correct_answer = 2
 context = "Die weltberühmte Stiftsbibliothek wurde 1622 während des Kriegs geraubt und dem Papst geschenkt. Von den rund 5000 Büchern und 3524 Handschriften gelangten 1816 nur 885 zurück und befinden sich heute in der Universitätsbibliothek Heidelberg. Der Rest wird auch heute noch im Vatikan aufbewahrt."
 
 [sub_resource type="Resource" id=8]
+resource_name = "Aussichtsplattform"
 script = ExtResource( 2 )
 text = "Wofür wurde die auf 83 m Turmhöhe liegende Aussichtsplattform im 17. Jahrhundert verwendet?"
 answers = [ "Turmbläser", "Glockenläuter", "Touristen" ]
