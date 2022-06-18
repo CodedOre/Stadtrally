@@ -7,7 +7,7 @@
 resource_name = "Die zwei Burgen Heidelbergs"
 script = ExtResource( 2 )
 text = "Im Jahre 1303 wird in einer Urkunde Heidelberg beschrieben.
-Dabei ist die Rede von..."
+Darin ist auch die Rede von..."
 answers = [ "... einer Burg.", "... einem Schloss.", "... zwei Burgen." ]
 correct_answer = 2
 context = "Die Urkunde aus 1303 beschreibt zwei Burgen:
@@ -19,7 +19,7 @@ script = ExtResource( 2 )
 text = "Wann wird erstmals in Heidelberg eine Burg erwähnt?"
 answers = [ "805", "1182", "1303" ]
 correct_answer = 1
-context = "Im Jahre 1182 findet sich die erste Erwähnung der Burg Heidelberg, als Konrad der Staufer, Halbbruder von Kaiser Friedrich I. Barbarossa seinen Hof auf besagte Burg verlegte."
+context = "Im Jahre 1182 findet sich die erste Erwähnung der Burg Heidelberg, als Konrad der Staufer, Halbbruder von Kaiser Friedrich Barbarossa, seinen Hof auf besagte Burg verlegte."
 
 [sub_resource type="Resource" id=3]
 resource_name = "Hirsche im Schloss"
@@ -27,23 +27,22 @@ script = ExtResource( 2 )
 text = "Befanden sich einst Hirsche im Schloss Heidelberg?"
 answers = [ "Nein, das wäre unmöglich", "Ja, im Burggraben", "Ja, im Schlossgarten" ]
 correct_answer = 1
-context = "Der breite Burggraben, auch Hirschgraben genannt, hielt früher auch Hirsche für Schaujagden der Fürsten."
+context = "Im breiten Burggraben, auch Hirschgraben genannt, wurden früher auch Hirsche für Schaujagden der Fürsten gehalten."
 
 [sub_resource type="Resource" id=4]
 resource_name = "Fledermäuse im Schloss"
 script = ExtResource( 2 )
 text = "Bis 2016 wurde im Stückgarten des Schlossen ein Weihnachtsmarkt abgehalten.
-Aus welchem Grund wurden dies eingestellt?"
-answers = [ "Fledermäusen", "Fehlende Besucherzahlen", "Glättegefahr" ]
+Aus welchem Grund wurde dies eingestellt?"
+answers = [ "Fledermäuse", "Fehlende Besucherzahlen", "Glättegefahr" ]
 correct_answer = 0
-context = "Das Schloss ist das größte Winterquartier für Fledermäuse in Nordbaden.
-Wegen der quartierenden Zwergfledermäuse und Großen Mausohren wurde der Weihnachtsmarkt in die Altstadt verlegt."
+context = "Das Schloss ist das größte Winterquartier für Fledermäuse in Nordbaden. Wegen der quartierenden Zwergfledermäuse und Großen Mausohren wurde dieser Teil des Weihnachtsmarkts auch in die Altstadt verlegt."
 
 [sub_resource type="Resource" id=5]
 resource_name = " Charles de Graimberg"
 script = ExtResource( 2 )
 text = "Der Kupferstecher Charles de Graimberg lebte im 19. Jahrhundert im Vorbau des Gläsernen Saalbaues.
-Warum lebte er dort?"
+Warum lebte er freiwillig in einem weitgehend zerfallenen Schloss?"
 answers = [ "Als selbsternannter Kurfürst", "Um den Abriss zu verhindern", "Da er keine Miete zahlen musste" ]
 correct_answer = 1
 context = "Die badische Regierung hatte das Schloss als Steinbruch deklariert. Charles de Graimberg, der die Ruine erhalten wollte, lebte im Schloss um die Bürger am Abbau von Steinen zu hindern.
