@@ -53,17 +53,17 @@ context = "Um die kirchliche Unordnung und Uneinigkeiten zu beenden, berief Kurf
 
 [sub_resource type="Resource" id=7]
 script = ExtResource( 2 )
-text = ""
-answers = [  ]
-correct_answer = 0
-context = ""
+text = "Auf den Emporen der Heiliggeistkirche befand sich von Beginn an bis zu den ersten Jahren des Dreißigjährigen Krieges eine besondere Sammlung. Welche?"
+answers = [ "Mehrere heilige Reliquien", "Die private Schmetterlingssammlung des Kurfürsten", "Die \"Bibliotheca Palatina\"" ]
+correct_answer = 2
+context = "Die weltberühmte Stiftsbibliothek wurde 1622 während des Kriegs geraubt und dem Papst geschenkt. Von den rund 5000 Büchern und 3524 Handschriften gelangten 1816 nur 885 zurück und befinden sich heute in der Universitätsbibliothek Heidelberg. Der Rest wird auch heute noch im Vatikan aufbewahrt."
 
 [sub_resource type="Resource" id=8]
 script = ExtResource( 2 )
-text = ""
-answers = [  ]
+text = "Wofür wurde die auf 83 m Turmhöhe liegende Aussichtsplattform im 17. Jahrhundert verwendet?"
+answers = [ "Turmbläser", "Glockenläuter", "Touristen" ]
 correct_answer = 0
-context = ""
+context = "Seit dem 17. Jahrhundert existierte auf dem Turm der Heiliggeistkirche ein Turmbläserdienst, der als Brandwache fungierte. Im Jahr 1798 wurden die Turmbläser durch Nachtwächter ersetzt. Die auf 38 m Turmhöhe liegende Aussichtsplattform ist zu den Besichtigungszeiten zugänglich und bietet einen sehr guten Blick über die Heidelberger Altstadt."
 
 [resource]
 resource_name = "Quiz 4 - Heiliggeistkirche"
