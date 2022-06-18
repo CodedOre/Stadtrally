@@ -1,10 +1,29 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" load_steps=5 format=2]
 
 [ext_resource path="res://scripts/quiz/RallyQuiz.gd" type="Script" id=1]
-[ext_resource path="res://demo/default_question.tres" type="Resource" id=2]
+[ext_resource path="res://scripts/quiz/QuizQuestion.gd" type="Script" id=2]
+
+[sub_resource type="Resource" id=1]
+resource_name = "Die zwei Burgen Heidelbergs"
+script = ExtResource( 2 )
+text = "Im Jahre 1303 wird in einer Urkunde Heidelberg beschrieben.
+Dabei ist die Rede von..."
+answers = [ "... einer Burg.", "... einem Schloss.", "... zwei Burgen." ]
+correct_answer = 2
+context = "Die Urkunde aus 1303 beschreibt zwei Burgen:
+Die \"Untere Burg\" auf dem Jettenbühl, wo das heutige Schloss ist, sowie die \"Obere Burg\" auf dem kleinen Gaisberg bei der heutigen Molkenkur."
+
+[sub_resource type="Resource" id=2]
+resource_name = "Erste Burgerwähnung"
+script = ExtResource( 2 )
+text = "Wann wird erstmals in Heidelberg eine Burg erwähnt?"
+answers = [ "805", "1182", "1303" ]
+correct_answer = 1
+context = "Im Jahre 1182 findet sich die erste Erwähnung der Burg Heidelberg, als Konrad der Staufer, Halbbruder von Kaiser Friedrich I. Barbarossa seinen Hof auf besagte Burg verlegte."
 
 [resource]
+resource_name = "Quiz 5 - Schloss"
 script = ExtResource( 1 )
 index = 5
 topic = "Schloss"
-questions = [ ExtResource( 2 ) ]
+questions = [ SubResource( 1 ), SubResource( 2 ) ]
