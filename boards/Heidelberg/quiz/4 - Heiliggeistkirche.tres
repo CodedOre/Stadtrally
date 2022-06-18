@@ -9,7 +9,7 @@ script = ExtResource( 2 )
 text = "Welche Kirche ist die älteste in der Heidelberger Altstadt?"
 answers = [ "Die Heiliggeistkirche", "Die Peterskirche", "Die Frauenkirche" ]
 correct_answer = 1
-context = "Die Peterskirche. Sie wurde bereits im 12. Jh. gebaut. (Erste urkundliche Erwähnung im Jahre 1196). Die Heiliggeistkirche wurde erst zw. 1398 und 1515 errichtet. Die Frauenkirche steht in Dresden."
+context = "Die Peterskirche wurde bereits im 12. Jh. gebaut, und erstmals 1196 erwähnt. Die Heiliggeistkirche wurde erst zwischen 1398 und 1515 errichtet."
 
 [sub_resource type="Resource" id=2]
 resource_name = "Errichtung der Heiliggeistkirche"
@@ -23,7 +23,7 @@ context = "1239. Hierbei handelte es sich um eine spätromanische Basilika mit g
 resource_name = "Baustoff der Heiliggeistkirche"
 script = ExtResource( 2 )
 text = "Aus welchem Baumaterial wurde die Heiliggeistkirche gebaut?"
-answers = [ "Neckartäer Sandstein", "Roter Mainsandstein", "Cottaer Elbsandstein" ]
+answers = [ "Neckartäler Sandstein", "Roter Mainsandstein", "Cottaer Elbsandstein" ]
 correct_answer = 0
 context = "Aus Neckartäler Sandstein. Dieser rötliche Stein stammt aus Steinbrüchen in der Gegend und wurde auch im Schloss und der Alten Brücke verbaut. Die beiden anderen Arten findet man in weiter entfernten Gebieten."
 
@@ -41,12 +41,12 @@ script = ExtResource( 2 )
 text = "Zu welcher Konfession gehörte die Heiliggeistkirche in der Zeit von 1706 bis 1936?"
 answers = [ "Zu den Katholiken", "Zu den Protestanten", "Zu beiden" ]
 correct_answer = 2
-context = "Zu beiden. Während dieser 230 Jahre war die Kirche tatsächlich durch eine Trennmauer in zwei Teile geteilt. Das Langhaus war protestantisch, der Chor katholisch. Seit 1936 gehört die gesamte Kirche der protestantischen Landeskirche."
+context = "Während dieser 230 Jahre war die Kirche tatsächlich durch eine Trennmauer in zwei Teile geteilt. Das Langhaus war protestantisch, der Chor katholisch. Seit 1936 gehört die gesamte Kirche der protestantischen Landeskirche."
 
 [sub_resource type="Resource" id=6]
 resource_name = "Heidelberger Katechismus"
 script = ExtResource( 2 )
-text = "Der \"Heidelberger Katechismus\" ist das am weitesten verbreitete Glaubens-Handbuch der reformierten Kirche. Wer gab Auftrag, diesen zu schreiben?"
+text = "Der \"Heidelberger Katechismus\" ist das am weitesten verbreitete Glaubens- Handbuch der reformierten Kirche. Wer gab Auftrag, diesen zu schreiben?"
 answers = [ "Professor Martin Luther", "Kurfürst Friedrich III.", "Kaiser Maximillian II" ]
 correct_answer = 1
 context = "Um die kirchliche Unordnung und Uneinigkeiten zu beenden, berief Kurfürst Friedrich III. 1560/1561 mehrere Professoren nach Heidelberg, um eine genaue und einheitliche Lehrgrundlage für Kirche und Schule und eine überarbeitete Kirchenordnung zu erstellen.  Im März 1563 erschien die Erstausgabe des Katechismus mit 128 Fragen und Antworten."
@@ -65,7 +65,7 @@ script = ExtResource( 2 )
 text = "Wofür wurde die auf 83 m Turmhöhe liegende Aussichtsplattform im 17. Jahrhundert verwendet?"
 answers = [ "Turmbläser", "Glockenläuter", "Touristen" ]
 correct_answer = 0
-context = "Seit dem 17. Jahrhundert existierte auf dem Turm der Heiliggeistkirche ein Turmbläserdienst, der als Brandwache fungierte. Im Jahr 1798 wurden die Turmbläser durch Nachtwächter ersetzt. Die auf 38 m Turmhöhe liegende Aussichtsplattform ist zu den Besichtigungszeiten zugänglich und bietet einen sehr guten Blick über die Heidelberger Altstadt."
+context = "Seit dem 17. Jahrhundert existierte auf dem Turm der Heiliggeistkirche ein Turmbläserdienst, der als Brandwache fungierte. Im Jahr 1798 wurden die Turmbläser durch Nachtwächter ersetzt."
 
 [resource]
 resource_name = "Quiz 4 - Heiliggeistkirche"
