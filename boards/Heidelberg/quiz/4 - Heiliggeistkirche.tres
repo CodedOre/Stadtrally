@@ -6,10 +6,10 @@
 [sub_resource type="Resource" id=1]
 resource_name = "Erste Kirche in Heidelberg"
 script = ExtResource( 2 )
-text = ""
-answers = [  ]
-correct_answer = 0
-context = ""
+text = "Welche Kirche ist die älteste in der Heidelberger Altstadt?"
+answers = [ "Die Heiliggeistkirche", "Die Peterskirche", "Die Frauenkirche" ]
+correct_answer = 1
+context = "Die Peterskirche. Sie wurde bereits im 12. Jh. gebaut. (Erste urkundliche Erwähnung im Jahre 1196). Die Heiliggeistkirche wurde erst zw. 1398 und 1515 errichtet. Die Frauenkirche steht in Dresden."
 
 [sub_resource type="Resource" id=2]
 resource_name = "Errichtung der Heiliggeistkirche"
@@ -38,10 +38,10 @@ context = ""
 [sub_resource type="Resource" id=5]
 resource_name = "Getrennte Heiliggeistkirche"
 script = ExtResource( 2 )
-text = ""
-answers = [  ]
-correct_answer = 0
-context = ""
+text = "Zu welcher Konfession gehörte die Heiliggeistkirche in der Zeit von 1706 bis 1936?"
+answers = [ "Zu den Katholiken", "Zu den Protestanten", "Zu beiden" ]
+correct_answer = 2
+context = "Zu beiden. Während dieser 230 Jahre war die Kirche tatsächlich durch eine Trennmauer in zwei Teile geteilt. Das Langhaus war protestantisch, der Chor katholisch. Seit 1936 gehört die gesamte Kirche der protestantischen Landeskirche."
 
 [sub_resource type="Resource" id=6]
 resource_name = "Heidelberger Katechismus"
@@ -66,6 +66,7 @@ correct_answer = 0
 context = ""
 
 [resource]
+resource_name = "Quiz 4 - Heiliggeistkirche"
 script = ExtResource( 1 )
 index = 4
 topic = "Heiliggeistkirche"
