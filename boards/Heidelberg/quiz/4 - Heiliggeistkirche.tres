@@ -1,0 +1,73 @@
+[gd_resource type="Resource" load_steps=11 format=2]
+
+[ext_resource path="res://scripts/quiz/RallyQuiz.gd" type="Script" id=1]
+[ext_resource path="res://scripts/quiz/QuizQuestion.gd" type="Script" id=2]
+
+[sub_resource type="Resource" id=1]
+resource_name = "Erste Kirche in Heidelberg"
+script = ExtResource( 2 )
+text = "Welche Kirche ist die älteste in der Heidelberger Altstadt?"
+answers = [ "Die Heiliggeistkirche", "Die Peterskirche", "Die Frauenkirche" ]
+correct_answer = 1
+context = "Die Peterskirche. Sie wurde bereits im 12. Jh. gebaut. (Erste urkundliche Erwähnung im Jahre 1196). Die Heiliggeistkirche wurde erst zw. 1398 und 1515 errichtet. Die Frauenkirche steht in Dresden."
+
+[sub_resource type="Resource" id=2]
+resource_name = "Errichtung der Heiliggeistkirche"
+script = ExtResource( 2 )
+text = "Wann wurde eine \"Heiliggeistkirche\" erstmals urkundlich erwähnt?"
+answers = [ "256", "1239", "1454" ]
+correct_answer = 1
+context = "1239. Hierbei handelte es sich um eine spätromanische Basilika mit gleichem Namen. Erst 1398 begannen unter Kurfürst Ruprecht III. die Bauarbeiten für die gotische Hallenkirche, wie wir sie heute kennen. "
+
+[sub_resource type="Resource" id=3]
+resource_name = "Baustoff der Heiliggeistkirche"
+script = ExtResource( 2 )
+text = "Aus welchem Baumaterial wurde die Heiliggeistkirche gebaut?"
+answers = [ "Neckartäer Sandstein", "Roter Mainsandstein", "Cottaer Elbsandstein" ]
+correct_answer = 0
+context = "Aus Neckartäler Sandstein. Dieser rötliche Stein stammt aus Steinbrüchen in der Gegend und wurde auch im Schloss und der Alten Brücke verbaut. Die beiden anderen Arten findet man in weiter entfernten Gebieten."
+
+[sub_resource type="Resource" id=4]
+resource_name = "Orgeln der Heiliggeistkirche"
+script = ExtResource( 2 )
+text = "Wie viele Orgeln wurden in der Heiliggeistkirche seit ihrer Errichtung eingesetzt?"
+answers = [ "nur 1", "genau 7", "mindestens 13" ]
+correct_answer = 2
+context = "Mindestens 13. Die Instrumente standen aufgrund der wechselhaften Geschichte der Kirche an verschiedenen Stellen: auf der Südempore, der Westempore, im Chorraum und in der einstigen Trennmauer zwischen Kirchenschiff und Altarraum. Die letztgenannte Orgel war von beiden Seiten bespielbar. "
+
+[sub_resource type="Resource" id=5]
+resource_name = "Getrennte Heiliggeistkirche"
+script = ExtResource( 2 )
+text = "Zu welcher Konfession gehörte die Heiliggeistkirche in der Zeit von 1706 bis 1936?"
+answers = [ "Zu den Katholiken", "Zu den Protestanten", "Zu beiden" ]
+correct_answer = 2
+context = "Zu beiden. Während dieser 230 Jahre war die Kirche tatsächlich durch eine Trennmauer in zwei Teile geteilt. Das Langhaus war protestantisch, der Chor katholisch. Seit 1936 gehört die gesamte Kirche der protestantischen Landeskirche."
+
+[sub_resource type="Resource" id=6]
+resource_name = "Heidelberger Katechismus"
+script = ExtResource( 2 )
+text = "Der \"Heidelberger Katechismus\" ist das am weitesten verbreitete Glaubens-Handbuch der reformierten Kirche. Wer gab Auftrag, diesen zu schreiben?"
+answers = [ "Professor Martin Luther", "Kurfürst Friedrich III.", "Kaiser Maximillian II" ]
+correct_answer = 1
+context = "Um die kirchliche Unordnung und Uneinigkeiten zu beenden, berief Kurfürst Friedrich III. 1560/1561 mehrere Professoren nach Heidelberg, um eine genaue und einheitliche Lehrgrundlage für Kirche und Schule und eine überarbeitete Kirchenordnung zu erstellen.  Im März 1563 erschien die Erstausgabe des Katechismus mit 128 Fragen und Antworten."
+
+[sub_resource type="Resource" id=7]
+script = ExtResource( 2 )
+text = "Auf den Emporen der Heiliggeistkirche befand sich von Beginn an bis zu den ersten Jahren des Dreißigjährigen Krieges eine besondere Sammlung. Welche?"
+answers = [ "Mehrere heilige Reliquien", "Die private Schmetterlingssammlung des Kurfürsten", "Die \"Bibliotheca Palatina\"" ]
+correct_answer = 2
+context = "Die weltberühmte Stiftsbibliothek wurde 1622 während des Kriegs geraubt und dem Papst geschenkt. Von den rund 5000 Büchern und 3524 Handschriften gelangten 1816 nur 885 zurück und befinden sich heute in der Universitätsbibliothek Heidelberg. Der Rest wird auch heute noch im Vatikan aufbewahrt."
+
+[sub_resource type="Resource" id=8]
+script = ExtResource( 2 )
+text = "Wofür wurde die auf 83 m Turmhöhe liegende Aussichtsplattform im 17. Jahrhundert verwendet?"
+answers = [ "Turmbläser", "Glockenläuter", "Touristen" ]
+correct_answer = 0
+context = "Seit dem 17. Jahrhundert existierte auf dem Turm der Heiliggeistkirche ein Turmbläserdienst, der als Brandwache fungierte. Im Jahr 1798 wurden die Turmbläser durch Nachtwächter ersetzt. Die auf 38 m Turmhöhe liegende Aussichtsplattform ist zu den Besichtigungszeiten zugänglich und bietet einen sehr guten Blick über die Heidelberger Altstadt."
+
+[resource]
+resource_name = "Quiz 4 - Heiliggeistkirche"
+script = ExtResource( 1 )
+index = 4
+topic = "Heiliggeistkirche"
+questions = [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ]
