@@ -14,26 +14,26 @@ context = "Die Peterskirche. Sie wurde bereits im 12. Jh. gebaut. (Erste urkundl
 [sub_resource type="Resource" id=2]
 resource_name = "Errichtung der Heiliggeistkirche"
 script = ExtResource( 2 )
-text = ""
-answers = [  ]
-correct_answer = 0
-context = ""
+text = "Wann wurde eine \"Heiliggeistkirche\" erstmals urkundlich erwähnt?"
+answers = [ "256", "1239", "1454" ]
+correct_answer = 1
+context = "1239. Hierbei handelte es sich um eine spätromanische Basilika mit gleichem Namen. Erst 1398 begannen unter Kurfürst Ruprecht III. die Bauarbeiten für die gotische Hallenkirche, wie wir sie heute kennen. "
 
 [sub_resource type="Resource" id=3]
 resource_name = "Baustoff der Heiliggeistkirche"
 script = ExtResource( 2 )
-text = ""
-answers = [  ]
+text = "Aus welchem Baumaterial wurde die Heiliggeistkirche gebaut?"
+answers = [ "Neckartäer Sandstein", "Roter Mainsandstein", "Cottaer Elbsandstein" ]
 correct_answer = 0
-context = ""
+context = "Aus Neckartäler Sandstein. Dieser rötliche Stein stammt aus Steinbrüchen in der Gegend und wurde auch im Schloss und der Alten Brücke verbaut. Die beiden anderen Arten findet man in weiter entfernten Gebieten."
 
 [sub_resource type="Resource" id=4]
 resource_name = "Orgeln der Heiliggeistkirche"
 script = ExtResource( 2 )
-text = ""
-answers = [  ]
-correct_answer = 0
-context = ""
+text = "Wie viele Orgeln wurden in der Heiliggeistkirche seit ihrer Errichtung eingesetzt?"
+answers = [ "nur 1", "genau 7", "mindestens 13" ]
+correct_answer = 2
+context = "Mindestens 13. Die Instrumente standen aufgrund der wechselhaften Geschichte der Kirche an verschiedenen Stellen: auf der Südempore, der Westempore, im Chorraum und in der einstigen Trennmauer zwischen Kirchenschiff und Altarraum. Die letztgenannte Orgel war von beiden Seiten bespielbar. "
 
 [sub_resource type="Resource" id=5]
 resource_name = "Getrennte Heiliggeistkirche"
@@ -46,10 +46,10 @@ context = "Zu beiden. Während dieser 230 Jahre war die Kirche tatsächlich durc
 [sub_resource type="Resource" id=6]
 resource_name = "Heidelberger Katechismus"
 script = ExtResource( 2 )
-text = ""
-answers = [  ]
-correct_answer = 0
-context = ""
+text = "Der \"Heidelberger Katechismus\" ist das am weitesten verbreitete Glaubens-Handbuch der reformierten Kirche. Wer gab Auftrag, diesen zu schreiben?"
+answers = [ "Professor Martin Luther", "Kurfürst Friedrich III.", "Kaiser Maximillian II" ]
+correct_answer = 1
+context = "Um die kirchliche Unordnung und Uneinigkeiten zu beenden, berief Kurfürst Friedrich III. 1560/1561 mehrere Professoren nach Heidelberg, um eine genaue und einheitliche Lehrgrundlage für Kirche und Schule und eine überarbeitete Kirchenordnung zu erstellen.  Im März 1563 erschien die Erstausgabe des Katechismus mit 128 Fragen und Antworten."
 
 [sub_resource type="Resource" id=7]
 script = ExtResource( 2 )
