@@ -20,12 +20,12 @@ Welches Baumaterial wurde verwendet?"
 answers = [ "Holz", "Sandstein", "Beton" ]
 correct_answer = 0
 context = "Die ersten Kastelle in Heidelberg waren aus Holz gebaut.
-Diese wurde später durch ein aus Stein gebautes ersetzt."
+Diese wurden später durch ein Kastell aus Stein ersetzt."
 
 [sub_resource type="Resource" id=3]
 resource_name = "Römische Provinz von Heidelberg"
 script = ExtResource( 2 )
-text = "85 wurde Heidelberg Teil der neuen zivilen Provinz Germania Superior (Obergermanien).
+text = "Im Jahre 85 wurde Heidelberg Teil der neuen zivilen Provinz Germania Superior (Obergermanien).
 Wo befand sich die Hauptstadt dieser Provinz?"
 answers = [ "Trier", "Mainz", "Regensburg" ]
 correct_answer = 1
@@ -37,7 +37,7 @@ script = ExtResource( 2 )
 text = "Die römische Siedlung in Heidelberg florierte um 135 als ein Zentrum für..."
 answers = [ "... Töpferei.", "... Holzbearbeitung.", "... Bildung." ]
 correct_answer = 0
-context = "Dank des reichen Tonvorkommens im heutigen Ziegelhausen, Holz aus dem nahen Odenwald und der guten Verkehrslage enstand in Heidelberg ein starkes Töpfereigewerbe, wovon 60 nachgewiesene Töpferöfen zeugen."
+context = "Dank des reichen Tonvorkommens im heutigen Ziegelhausen, Holz aus dem nahen Odenwald und der guten Verkehrslage entstand in Heidelberg ein starkes Töpfereigewerbe, wovon 60 nachgewiesene Töpferöfen zeugen."
 
 [sub_resource type="Resource" id=5]
 resource_name = "Heidelberg nach Militärstandort"
@@ -46,26 +46,26 @@ text = "Die im Kastell stationierten Truppen wurden 135 Richtung Limes verlegt.
 Heidelberg florierte auch danach noch dank..."
 answers = [ "... der Nähe zu den Germanen.", "... einer guten Verkehrslage.", "... als Hauptstadt der Provinz." ]
 correct_answer = 1
-context = "Zwischen 100 und 120 wurde eine neue Militärstraße zwischen Mainz und Augsburg errichtet. Diese Straße querte den Nackar im heutigen Heidelberg."
+context = "Zwischen 100 und 120 wurde eine neue Militärstraße zwischen Mainz und Augsburg errichtet. Diese Straße querte den Neckar im heutigen Heidelberg."
 
 [sub_resource type="Resource" id=6]
 resource_name = "Erste römische Brücke"
 script = ExtResource( 2 )
 text = "In Heidelberg wurden durch die Römer mehrere Brücken errichtet.
-Ab wann ist gesichert dass eine solche stand?"
+In welchem Zeitraum ist belegt dass die erste stand?"
 answers = [ "20 - 10 v. Chr.", "80 - 90 n. Chr.", "100 - 110 n. Chr." ]
 correct_answer = 1
-context = "Die erste historisch gesicherte Brücke, eine hölzerne Pfahljochbrücke, stand spätestens 90 n. Chr."
+context = "Die erste historisch nachweisbare Brücke, eine hölzerne Pfahljochbrücke, stand spätestens 90 n. Chr."
 
 [sub_resource type="Resource" id=7]
 resource_name = "Errichtung Steinpfeilerbrücke"
 script = ExtResource( 2 )
-text = "Nach einigen hölzernen Brücken wurde im heutigen Heidelberg von den Römern eine Brücke mit Steinpfeilern errichtet.
+text = "Nach einigen hölzernen Brücken wurde in Heidelberg von den Römern eine Brücke mit Steinpfeilern errichtet.
 Wann wurde diese Brücke errichtet?"
 answers = [ "Zwischen 100 und 120", "Um 200", "Genau 292" ]
 correct_answer = 1
 context = "Diese 260 Meter lange Brücke wurde um 200 herum errichtet.
-Sie bestand aus Steinpfeilern auf denen eine hölzerner Aufbau stand, und beinhaltete eine kleine Kapelle mit einem Neptun-Altar auf dem mittleren Pfeiler. "
+Sie bestand aus Steinpfeilern, auf denen ein hölzerner Aufbau stand, und beinhaltete eine kleine Kapelle mit einem Neptun-Altar auf dem mittleren Pfeiler. "
 
 [sub_resource type="Resource" id=8]
 resource_name = "Ende der Siedlung"

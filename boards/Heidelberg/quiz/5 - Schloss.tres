@@ -1,10 +1,66 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" load_steps=9 format=2]
 
 [ext_resource path="res://scripts/quiz/RallyQuiz.gd" type="Script" id=1]
-[ext_resource path="res://demo/default_question.tres" type="Resource" id=2]
+[ext_resource path="res://scripts/quiz/QuizQuestion.gd" type="Script" id=2]
+
+[sub_resource type="Resource" id=1]
+resource_name = "Die zwei Burgen Heidelbergs"
+script = ExtResource( 2 )
+text = "Im Jahre 1303 wird in einer Urkunde Heidelberg beschrieben.
+Darin ist auch die Rede von..."
+answers = [ "... einer Burg.", "... einem Schloss.", "... zwei Burgen." ]
+correct_answer = 2
+context = "Die Urkunde aus 1303 beschreibt zwei Burgen:
+Die \"Untere Burg\" auf dem Jettenbühl, wo das heutige Schloss ist, sowie die \"Obere Burg\" auf dem kleinen Gaisberg bei der heutigen Molkenkur."
+
+[sub_resource type="Resource" id=2]
+resource_name = "Erste Burgerwähnung"
+script = ExtResource( 2 )
+text = "Wann wird erstmals in Heidelberg eine Burg erwähnt?"
+answers = [ "805", "1182", "1303" ]
+correct_answer = 1
+context = "Im Jahre 1182 findet sich die erste Erwähnung der Burg Heidelberg, als Konrad der Staufer, Halbbruder von Kaiser Friedrich Barbarossa, seinen Hof auf besagte Burg verlegte."
+
+[sub_resource type="Resource" id=3]
+resource_name = "Hirsche im Schloss"
+script = ExtResource( 2 )
+text = "Befanden sich einst Hirsche im Schloss Heidelberg?"
+answers = [ "Nein, das wäre unmöglich", "Ja, im Burggraben", "Ja, im Schlossgarten" ]
+correct_answer = 1
+context = "Im breiten Burggraben, auch Hirschgraben genannt, wurden früher auch Hirsche für Schaujagden der Fürsten gehalten."
+
+[sub_resource type="Resource" id=4]
+resource_name = "Fledermäuse im Schloss"
+script = ExtResource( 2 )
+text = "Bis 2016 wurde im Stückgarten des Schlossen ein Weihnachtsmarkt abgehalten.
+Aus welchem Grund wurde dies eingestellt?"
+answers = [ "Fledermäuse", "Fehlende Besucherzahlen", "Glättegefahr" ]
+correct_answer = 0
+context = "Das Schloss ist das größte Winterquartier für Fledermäuse in Nordbaden. Wegen der quartierenden Zwergfledermäuse und Großen Mausohren wurde dieser Teil des Weihnachtsmarkts auch in die Altstadt verlegt."
+
+[sub_resource type="Resource" id=5]
+resource_name = " Charles de Graimberg"
+script = ExtResource( 2 )
+text = "Der Kupferstecher Charles de Graimberg lebte im 19. Jahrhundert im Vorbau des Gläsernen Saalbaues.
+Warum lebte er freiwillig in einem weitgehend zerfallenen Schloss?"
+answers = [ "Als selbsternannter Kurfürst", "Um den Abriss zu verhindern", "Da er keine Miete zahlen musste" ]
+correct_answer = 1
+context = "Die badische Regierung hatte das Schloss als Steinbruch deklariert. Charles de Graimberg, der die Ruine erhalten wollte, lebte im Schloss um die Bürger am Abbau von Steinen zu hindern.
+Seine Bemühungen zur Erhaltung und Dokumentation stellten die Grundlage zur Denkmalpflege des Schlosses dar."
+
+[sub_resource type="Resource" id=6]
+resource_name = "Sprengung des Schlosses"
+script = ExtResource( 2 )
+text = "1693 wurden die Mauern und Türme des Heidelberger Schloss gesprengt, womit das Schloss zur Ruine wurde.
+Wer führte diese Sprengung durch?"
+answers = [ "Die Preußen", "Die Österreicher", "Die Franzosen" ]
+correct_answer = 2
+context = "Heidelbergs Zerstörung geschah während des Pfälzischen Erbfolgekriegs durch die Franzosen, welche den Nachfolger der pfälzischen Kurfürsten in Frage stellten und einer französischen Herzogin zusprachen.
+Nach dieser Sprengung verblieb das Schloss als Ruine."
 
 [resource]
+resource_name = "Quiz 5 - Schloss"
 script = ExtResource( 1 )
 index = 5
 topic = "Schloss"
-questions = [ ExtResource( 2 ) ]
+questions = [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ]
