@@ -1,10 +1,75 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" load_steps=11 format=2]
 
 [ext_resource path="res://scripts/quiz/RallyQuiz.gd" type="Script" id=1]
-[ext_resource path="res://demo/default_question.tres" type="Resource" id=2]
+[ext_resource path="res://scripts/quiz/QuizQuestion.gd" type="Script" id=2]
+
+[sub_resource type="Resource" id=1]
+resource_name = "Fußgängerzone"
+script = ExtResource( 2 )
+text = "Wann wurde die Hauptstraße in Heidelberg zur Fußgängerzone erklärt?"
+answers = [ "1796", "1976", "1997" ]
+correct_answer = 1
+context = " In den 1970er Jahren begann eine umfangreiche (und höchst umstrittene) Altstadtsanierung. Zahlreiche historische Gebäude wurden abgerissen; andere wurden saniert. Straßenbahn und Autos wurden 1976 aus der Hauptstraße verbannt, die damit zu einer der längsten Fußgängerzonen Europas wurde. "
+
+[sub_resource type="Resource" id=2]
+resource_name = "Pfälzischer Erbfolgekrieg"
+script = ExtResource( 2 )
+text = "Heidelberg wurde zweimal innerhalb von fünf Jahren fast völlig zerstört. In welchem Krieg geschah dies?"
+answers = [ "Im Dreißigjährigen Krieg (1618–1648)", "Im Pfälzischen Erbfolgekrieg (1688–1697)", "Im Zweiten Weltkrieg (1939–1945)" ]
+correct_answer = 1
+context = "Heidelberg wurde zweimal, 1688 und 1693 von französischen Truppen eingenommen und komplett verwüstet. Nur wenige Gebäude wie die Kirchen, das Zeughaus oder das Haus zum Ritter überstanden die Zerstörung. "
+
+[sub_resource type="Resource" id=3]
+resource_name = "Charme der Altstadt"
+script = ExtResource( 2 )
+text = "Die Altstadt Heidelbergs ist weltberühmt für ihren besonderen Charme. Welche drei Aspekte spielen hier so harmonisch zusammen?"
+answers = [ "Stadt, Berge, Fluss", "Häuser, Kirchen, Wasserschloss", "Brücke, Straßen, Touristen" ]
+correct_answer = 0
+context = "Die Altstadt ist das Herz und die historische Mitte Heidelbergs. Sie ist für ihren einzigartigen Dreiklang aus Stadt, Bergen und Fluss weltberühmt. "
+
+[sub_resource type="Resource" id=4]
+resource_name = "Ersterwähnung Heidelbergs"
+script = ExtResource( 2 )
+text = "Wann wurde Heidelberg erstmals urkundlich erwähnt?"
+answers = [ "im 8. Jahrhundert", "1196", "1284" ]
+correct_answer = 1
+context = "Die Ersterwähnung Heidelbergs findet sich in einer Urkunde des Klosters Schönau aus dem Jahr 1196."
+
+[sub_resource type="Resource" id=5]
+resource_name = "Bau des Rathaus"
+script = ExtResource( 2 )
+text = "Das Rathaus steht in der Altstadt am Marktplatz. Wann wurde es erbaut?"
+answers = [ "1262 – 1264", "1701 – 1703", "1946 – 1948" ]
+correct_answer = 0
+context = "Nachdem das ursprüngliche Rathaus während des Pfälzischen Erbfolgekrieges im Jahr 1689 zerstört wurde, wurde an gleicher Stelle in den Jahren 1701 bis 1703 ein neues Gebäude im Stil des Barock errichtet. "
+
+[sub_resource type="Resource" id=6]
+resource_name = "Haus zum Ritter"
+script = ExtResource( 2 )
+text = "Das Haus zum Ritter fällt als Renaissance-Bau inmitten der vorwiegend barocken Altstadt auf. Was ist das besondere an diesem Haus?"
+answers = [ "Überstand als einziges Bürgerhaus den großen Stadtbrand", "Gilt als ältestes Hotel Deutschlands", "Wurde als Renaissance-Projekt erst 1805–1808 erbaut" ]
+correct_answer = 0
+context = "Es  wurde 1592 vom Tuchhändler Charles Belier erbaut, der wegen seines protestantischen Glaubens in die Kurpfalz geflohen war. Es ist das einzige Bürgerhaus, das den großen Stadtbrand von 1693 während des Pfälzischen Erbfolgekrieges überstanden hat, weil es als einziges aus Stein gebaut war. "
+
+[sub_resource type="Resource" id=7]
+resource_name = "Uniplatz"
+script = ExtResource( 2 )
+text = "Der Universitätsplatz liegt winkelförmig bei der Alten Universität. Was befand sich ursprünglich dort?"
+answers = [ "Der erste Bahnhof", "Die große Markthalle", "Ein Augustinerkloster" ]
+correct_answer = 2
+context = "Das Augustinerkloster, in dem Martin Luther 1518 bei der Heidelberger Disputation auftrat. Nach seiner Zerstörung im Pfälzischen Erbfolgekrieg wurde es nicht wieder aufgebaut, stattdessen entstand dort der Paradeplatz, der heute Universitätsplatz heißt."
+
+[sub_resource type="Resource" id=8]
+resource_name = "Karlstor"
+script = ExtResource( 2 )
+text = "Das Karlstor markiert das östliche Ende der Heidelberger Altstadt. Wem zu Ehren wurde es errichtet?"
+answers = [ "Karl Marx", "Kaiser Karl V.", "Kurfürst Karl Theodor" ]
+correct_answer = 2
+context = "Das Karlstor wurde von 1775 bis 1781 zu Ehren des Kurfürsten Karl Theodor, der als großzügiger Förderer von Wissenschaft und Kunst galt, auf Kosten der Gemeinde Heidelberg errichtet."
 
 [resource]
+resource_name = "Quiz 7 - Altstadt"
 script = ExtResource( 1 )
 index = 7
 topic = "Altstadt"
-questions = [ ExtResource( 2 ) ]
+questions = [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ]
