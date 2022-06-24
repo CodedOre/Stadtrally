@@ -1,10 +1,68 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" load_steps=11 format=2]
 
 [ext_resource path="res://scripts/quiz/RallyQuiz.gd" type="Script" id=1]
-[ext_resource path="res://demo/default_question.tres" type="Resource" id=2]
+[ext_resource path="res://scripts/quiz/QuizQuestion.gd" type="Script" id=2]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 2 )
+text = "Woher kommt der Name Molkenkur?"
+answers = [ "von „Molke-Fasten“", "von „Mutter-Kind-Kur“", "von „Molkerei“" ]
+correct_answer = 0
+context = "Die Bezeichnung Molkenkur geht auf das so genannte Molke-Fasten zurück, einer damals in Mode gekommenen Heil-Methode, bei der die Anwender hauptsächlich Molke und andere Flüssigkeiten zu sich nahmen.
+"
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 2 )
+text = "Was wurde am 25. April 1537 durch  Blitzschlag und Explosion von Pulvervorräten zerstört?"
+answers = [ "Die Molkenkur-Anstalt", "Das erste Bergbahn-Gebäude", "Die Obere Burg" ]
+correct_answer = 2
+context = "In einer Urkunde des Jahres 1303 werden zum ersten Mal zwei Burgen aufgeführt: die obere Burg, wo sich jetzt die Molkenkur befindet und die untere Burg, besser bekannt als das Heidelberger Schloss. "
+
+[sub_resource type="Resource" id=3]
+script = ExtResource( 2 )
+text = "Um mit der Bergbahn von der Altstadt bis auf den Gipfel des Berges zu gelangen muss man an der \"Molkenkur\"-Station umsteigen. Wie heißen beide Streckenabschnitte?"
+answers = [ "Untere Sektion und Obere Sektion", "Alte Bergbahn und Erweiterung", "Molkenkurbahn und Königstuhlbahn" ]
+correct_answer = 2
+context = "Die „Molkenkurbahn“ führt vom Kornmarkt am Rand der Altstadt vorbei am Heidelberger Schloss zur Molkenkur. Dort steigt man um in die „Königstuhlbahn“ zum Königstuhl."
+
+[sub_resource type="Resource" id=4]
+script = ExtResource( 2 )
+text = "Erste Planungen für eine Bergbahn begannen bereits 1873. Welche Schwierigkeiten verzögerten den Baubeginn?"
+answers = [ "Geldmittel und Geländekäufe", "Zustimmung des Kurfürsten", "Proteste der Umweltaktivisten" ]
+correct_answer = 0
+context = "Wegen fehlender Geldmittel oder nicht zustande gekommener Geländekäufe."
+
+[sub_resource type="Resource" id=5]
+script = ExtResource( 2 )
+text = "Welche Art Bergbahn ist die Heidelberger Bergbahn? Sie ist eine Kombination aus ..."
+answers = [ "zwei Standseilbahnen", "zwei Zahnradbahnen", "zwei Luftseilbahnen" ]
+correct_answer = 0
+context = "Obwohl frühe Planungen eine Zahnradbahn vorsahen, entschied man sich schließlich für eine Standseilbahn. Diese sind kostengünstiger zu erstellen als Zahnradbahnen und benötigen weniger Energie."
+
+[sub_resource type="Resource" id=6]
+script = ExtResource( 2 )
+text = "Die untere Bergbahn-Strecke wurde zwischen 1888 und 1889 gebaut. Wann erfolgte dann der Bau des oberen Abschnitts?"
+answers = [ "1889 – 1901 ", "1905 – 1907 ", "1951 – 1953 " ]
+correct_answer = 0
+context = "1905 begannen die Bauarbeiten für die obere Sektion der Bergbahn. Eröffnung war am 1. Juni 1907 eröffnet. Die originalen Wagen sind bis heute erhalten und nach einer grundlegenden Sanierung wieder im Einsatz. "
+
+[sub_resource type="Resource" id=7]
+script = ExtResource( 2 )
+text = "Die knapp 500 m bewältigt die untere Bergbahn in 5 Minuten bei einer Fahrgeschwindigkeit von fünf Metern in der Sekunde. Die obere Bergbahn fährt ihre knapp 1000 m nur zwei Meter pro Sekunde schnell. Wie lang ist die Fahrzeit?"
+answers = [ "9 Minuten", "13 Minuten", "22 Minuten" ]
+correct_answer = 0
+context = " Der Höhenunterschied Kornmarkt–Molkenkur beträgt 173 Meter, die Streckenlänge 454,6 Meter und die reine Fahrzeit fünf Minuten mit einer Fahrgeschwindigkeit von fünf Metern in der Sekunde. Auf der Strecke Molkenkur–Königstuhl beträgt der Höhenunterschied 260,5 Meter, die Streckenlänge 974,5 Meter und die Fahrzeit neun Minuten bei einer Fahrgeschwindigkeit von zwei Metern in der Sekunde. "
+
+[sub_resource type="Resource" id=8]
+script = ExtResource( 2 )
+text = "Wo liegt Heidelberg?"
+answers = [ "Am Rand des Odenwalds", "Im nördlichen Schwarzwald", "In der Mitte des Pfälzer Waldes" ]
+correct_answer = 0
+context = "Heidelberg ist eingefasst von den bewaldeten Hängen des Heiligenbergs und des Königstuhls und liegt am Austritt des Neckars aus dem Odenwald in die Rheinebene. "
 
 [resource]
+resource_name = "Quiz 6 - Molkenkur"
 script = ExtResource( 1 )
 index = 6
 topic = "Molkenkur"
-questions = [ ExtResource( 2 ) ]
+questions = [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ]

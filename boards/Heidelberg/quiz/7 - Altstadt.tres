@@ -57,7 +57,7 @@ script = ExtResource( 2 )
 text = "Der Universitätsplatz liegt winkelförmig bei der Alten Universität. Was befand sich ursprünglich dort?"
 answers = [ "Der erste Bahnhof", "Die große Markthalle", "Ein Augustinerkloster" ]
 correct_answer = 2
-context = "Das Augustinerkloster, in dem Martin Luther 1518 bei der Heidelberger Disputation auftrat. Nach seiner Zerstörung im Pfälzischen Erbfolgekrieg wurde es nicht wieder aufgebaut, stattdessen entstand dort der Paradeplatz, der heute Universitätsplatz heißt."
+context = "In diesem Augustinerkloster trat Martin Luther 1518 bei der Heidelberger Disputation auf. Nach seiner Zerstörung im Pfälzischen Erbfolgekrieg wurde es nicht wieder aufgebaut, stattdessen entstand dort der Paradeplatz, der heute Universitätsplatz heißt."
 
 [sub_resource type="Resource" id=8]
 resource_name = "Karlstor"
