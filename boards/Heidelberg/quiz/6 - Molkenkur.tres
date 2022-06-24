@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=11 format=2]
+[gd_resource type="Resource" load_steps=10 format=2]
 
 [ext_resource path="res://scripts/quiz/RallyQuiz.gd" type="Script" id=1]
 [ext_resource path="res://scripts/quiz/QuizQuestion.gd" type="Script" id=2]
@@ -43,15 +43,8 @@ context = "Obwohl frühe Planungen eine Zahnradbahn vorsahen, entschied man sich
 script = ExtResource( 2 )
 text = "Die untere Bergbahn-Strecke wurde zwischen 1888 und 1889 gebaut. Wann erfolgte dann der Bau des oberen Abschnitts?"
 answers = [ "1889 – 1901 ", "1905 – 1907 ", "1951 – 1953 " ]
-correct_answer = 0
+correct_answer = 1
 context = "1905 begannen die Bauarbeiten für die obere Sektion der Bergbahn. Eröffnung war am 1. Juni 1907 eröffnet. Die originalen Wagen sind bis heute erhalten und nach einer grundlegenden Sanierung wieder im Einsatz. "
-
-[sub_resource type="Resource" id=7]
-script = ExtResource( 2 )
-text = "Die knapp 500 m bewältigt die untere Bergbahn in 5 Minuten bei einer Fahrgeschwindigkeit von fünf Metern in der Sekunde. Die obere Bergbahn fährt ihre knapp 1000 m nur zwei Meter pro Sekunde schnell. Wie lang ist die Fahrzeit?"
-answers = [ "9 Minuten", "13 Minuten", "22 Minuten" ]
-correct_answer = 0
-context = " Der Höhenunterschied Kornmarkt–Molkenkur beträgt 173 Meter, die Streckenlänge 454,6 Meter und die reine Fahrzeit fünf Minuten mit einer Fahrgeschwindigkeit von fünf Metern in der Sekunde. Auf der Strecke Molkenkur–Königstuhl beträgt der Höhenunterschied 260,5 Meter, die Streckenlänge 974,5 Meter und die Fahrzeit neun Minuten bei einer Fahrgeschwindigkeit von zwei Metern in der Sekunde. "
 
 [sub_resource type="Resource" id=8]
 script = ExtResource( 2 )
@@ -65,4 +58,4 @@ resource_name = "Quiz 6 - Molkenkur"
 script = ExtResource( 1 )
 index = 6
 topic = "Molkenkur"
-questions = [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ]
+questions = [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 8 ) ]

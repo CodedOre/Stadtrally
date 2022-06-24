@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=11 format=2]
+[gd_resource type="Resource" load_steps=9 format=2]
 
 [ext_resource path="res://scripts/quiz/RallyQuiz.gd" type="Script" id=1]
 [ext_resource path="res://scripts/quiz/QuizQuestion.gd" type="Script" id=2]
@@ -19,14 +19,6 @@ answers = [ "Im Dreißigjährigen Krieg (1618–1648)", "Im Pfälzischen Erbfolg
 correct_answer = 1
 context = "Heidelberg wurde zweimal, 1688 und 1693 von französischen Truppen eingenommen und komplett verwüstet. Nur wenige Gebäude wie die Kirchen, das Zeughaus oder das Haus zum Ritter überstanden die Zerstörung. "
 
-[sub_resource type="Resource" id=3]
-resource_name = "Charme der Altstadt"
-script = ExtResource( 2 )
-text = "Die Altstadt Heidelbergs ist weltberühmt für ihren besonderen Charme. Welche drei Aspekte spielen hier so harmonisch zusammen?"
-answers = [ "Stadt, Berge, Fluss", "Häuser, Kirchen, Wasserschloss", "Brücke, Straßen, Touristen" ]
-correct_answer = 0
-context = "Die Altstadt ist das Herz und die historische Mitte Heidelbergs. Sie ist für ihren einzigartigen Dreiklang aus Stadt, Bergen und Fluss weltberühmt. "
-
 [sub_resource type="Resource" id=4]
 resource_name = "Ersterwähnung Heidelbergs"
 script = ExtResource( 2 )
@@ -38,9 +30,9 @@ context = "Die Ersterwähnung Heidelbergs findet sich in einer Urkunde des Klost
 [sub_resource type="Resource" id=5]
 resource_name = "Bau des Rathaus"
 script = ExtResource( 2 )
-text = "Das Rathaus steht in der Altstadt am Marktplatz. Wann wurde es erbaut?"
+text = "Das heutige Rathaus steht in der Altstadt am Marktplatz. Wann wurde es erbaut?"
 answers = [ "1262 – 1264", "1701 – 1703", "1946 – 1948" ]
-correct_answer = 0
+correct_answer = 1
 context = "Nachdem das ursprüngliche Rathaus während des Pfälzischen Erbfolgekrieges im Jahr 1689 zerstört wurde, wurde an gleicher Stelle in den Jahren 1701 bis 1703 ein neues Gebäude im Stil des Barock errichtet. "
 
 [sub_resource type="Resource" id=6]
@@ -50,14 +42,6 @@ text = "Das Haus zum Ritter fällt als Renaissance-Bau inmitten der vorwiegend b
 answers = [ "Überstand als einziges Bürgerhaus den großen Stadtbrand", "Gilt als ältestes Hotel Deutschlands", "Wurde als Renaissance-Projekt erst 1805–1808 erbaut" ]
 correct_answer = 0
 context = "Es  wurde 1592 vom Tuchhändler Charles Belier erbaut, der wegen seines protestantischen Glaubens in die Kurpfalz geflohen war. Es ist das einzige Bürgerhaus, das den großen Stadtbrand von 1693 während des Pfälzischen Erbfolgekrieges überstanden hat, weil es als einziges aus Stein gebaut war. "
-
-[sub_resource type="Resource" id=7]
-resource_name = "Uniplatz"
-script = ExtResource( 2 )
-text = "Der Universitätsplatz liegt winkelförmig bei der Alten Universität. Was befand sich ursprünglich dort?"
-answers = [ "Der erste Bahnhof", "Die große Markthalle", "Ein Augustinerkloster" ]
-correct_answer = 2
-context = "In diesem Augustinerkloster trat Martin Luther 1518 bei der Heidelberger Disputation auf. Nach seiner Zerstörung im Pfälzischen Erbfolgekrieg wurde es nicht wieder aufgebaut, stattdessen entstand dort der Paradeplatz, der heute Universitätsplatz heißt."
 
 [sub_resource type="Resource" id=8]
 resource_name = "Karlstor"
@@ -72,4 +56,4 @@ resource_name = "Quiz 7 - Altstadt"
 script = ExtResource( 1 )
 index = 7
 topic = "Altstadt"
-questions = [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ]
+questions = [ SubResource( 1 ), SubResource( 2 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 8 ) ]

@@ -5,9 +5,9 @@
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 2 )
-text = "Der Universitätsplatz liegt winkelförmig bei der Alten Universität. Was befand sich ursprünglich dort?"
+text = "Der Universitätsplatz liegt neben der Alten Universität. Was befand sich ursprünglich dort?"
 answers = [ "Der erste Bahnhof", "Die große Markthalle", "Ein Augustinerkloster" ]
-correct_answer = 0
+correct_answer = 2
 context = "In diesem Augustinerkloster trat Martin Luther 1518 bei der Heidelberger Disputation auf. Nach seiner Zerstörung im Pfälzischen Erbfolgekrieg wurde es nicht wieder aufgebaut, stattdessen entstand dort der Paradeplatz, der heute Universitätsplatz heißt."
 
 [sub_resource type="Resource" id=2]
@@ -19,9 +19,9 @@ context = "1930/31 wurde das Hauptgebäude und der Westflügel erbaut und im Jah
 
 [sub_resource type="Resource" id=3]
 script = ExtResource( 2 )
-text = "Ein ehemaliger Student startete eine Spendenaktion, um die in Heidelberg dringend benötigten Hörsaalkapazitäten zu schaffen. Wieviel Geld brachte das ein?"
+text = "Ein ehemaliger Student startete 1928 eine Spendenaktion, um die in Heidelberg dringend benötigten Hörsaalkapazitäten zu schaffen. Wieviel Geld brachte das ein?"
 answers = [ "nur etwa fünfzigtausend Reichsmark", "mehr als eine halben Million Dollar", "erstaunliche 1, 2 Millionen Reichsmark" ]
-correct_answer = 0
+correct_answer = 1
 context = "Übrigens: Initiator für den Bau der Neuen Universität war der Amerikaner Jacob Gould Schurman, ehemaliger Student der Universität Heidelberg und späterer Botschafter der Vereinigten Staaten von Nordamerika in Berlin. "
 
 [sub_resource type="Resource" id=4]
@@ -35,14 +35,14 @@ context = "Benannt wurde das Gebäude – Domus Wilhelmiana – nach seinem Stif
 script = ExtResource( 2 )
 text = "Wann wurde die Alte Universität gebaut?"
 answers = [ "von 1712 bis 1715", "von 1712 bis 1725", "von 1712 bis 1735" ]
-correct_answer = 0
+correct_answer = 2
 context = "Die Alte Universität wurde in 23-jähriger Bauzeit von 1712 bis 1735 nach den Bauplänen des Barock-Architekten Johann Adam Breunig errichtet. "
 
 [sub_resource type="Resource" id=6]
 script = ExtResource( 2 )
 text = "Der Studentenkarzer war ein \"Gefängnis\" speziell für Studenten. Wie lang konnte man da eingesperrt sein?"
 answers = [ "gewöhnlich nur eine Nacht", "1 bis 2 Tage", "3 Tagen bis zu 4 Wochen" ]
-correct_answer = 0
+correct_answer = 2
 context = "Bis 1914 diente der Studentenkarzer als Arrestzelle für Studenten, die wegen kleinerer Vergehen, wie Ruhestörung oder Prügeleien, aufgefallen sind. In dieser Zeit durften die Studenten natürlich ihre Vorlesungen besuchen. Nach Vorlesungsende ging es dann aber wieder zurück in die „Zelle“."
 
 [sub_resource type="Resource" id=7]
@@ -57,7 +57,7 @@ script = ExtResource( 2 )
 text = "Im Wintersemster 2021/22 sind von 29.187 Studenten 5.194 Ausländische Studenten an der Uni Heidelberg immatrikuliert.
 Wieviele Ausländer studierten 1860 hier?"
 answers = [ "66", "466", "1366" ]
-correct_answer = 0
+correct_answer = 1
 context = "Nach dem Adressbuch der Universität Heidelberg aus dem Jahr 1860 zählte sie in diesem Sommersemester 660 Studenten, davon 466 Ausländer, 194 badische „Inländer“. "
 
 [resource]
